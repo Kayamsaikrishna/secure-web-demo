@@ -1,0 +1,1105 @@
+// Fin-Agentix India - Comprehensive Prisma Schema
+// Supporting all 12 loan sectors with advanced KYC and AI features
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ===== USER MANAGEMENT =====
+model User {
+  id                String           @id @default(cuid())
+  email             String           @unique
+  password          String
+  role              Role             @default(USER)
+  status            UserStatus       @default(ACTIVE)
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  lastLoginAt       DateTime?
+  
+  // Profile Information
+  profile           UserProfile?
+  
+  // KYC and Verification
+  kycData           KYCData?
+  biometricData     BiometricData?
+  identityDocs      IdentityDocument[]
+  
+  // Financial Information
+  financialProfile  FinancialProfile?
+  bankAccounts      BankAccount[]
+  creditScore       CreditScore[]
+  
+  // Applications and Transactions
+  loanApplications  LoanApplication[]
+  creditCards       CreditCard[]
+  investments       Investment[]
+  
+  // Activity Tracking
+  loginSessions     LoginSession[]
+  auditLogs         AuditLog[]
+  notifications     Notification[]
+  
+  // Admin Relations
+  adminActions      AdminAction[]    @relation("AdminUser")
+  reviewedBy        AdminAction[]    @relation("ReviewedBy")
+}
+
+model UserProfile {
+  id                String    @id @default(cuid())
+  userId            String    @unique
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Personal Information
+  firstName         String
+  lastName          String
+  middleName        String?
+  fullName          String
+  gender            Gender
+  dateOfBirth       DateTime
+  maritalStatus     MaritalStatus
+  nationality       String    @default("Indian")
+  
+  // Contact Information
+  primaryPhone      String
+  secondaryPhone    String?
+  whatsappNumber    String?
+  alternateEmail    String?
+  
+  // Address Information
+  currentAddress    Address?  @relation("CurrentAddress")
+  permanentAddress  Address?  @relation("PermanentAddress")
+  
+  // Family Information
+  fatherName        String
+  motherName        String
+  spouseName        String?
+  dependents        Int       @default(0)
+  
+  // Education and Employment
+  education         Education[]
+  employment        Employment?
+  
+  // Language Preferences
+  preferredLanguage String    @default("English")
+  communicationMode String    @default("Email")
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+// ===== ADDRESS MANAGEMENT =====
+model Address {
+  id            String      @id @default(cuid())
+  type          AddressType
+  line1         String
+  line2         String?
+  landmark      String?
+  city          String
+  state         String
+  pincode       String
+  country       String      @default("India")
+  verified      Boolean     @default(false)
+  gpsLat        Float?
+  gpsLng        Float?
+  
+  // Relations
+  currentUser   UserProfile? @relation("CurrentAddress", fields: [currentUserId], references: [id])
+  currentUserId String?     @unique
+  permanentUser UserProfile? @relation("PermanentAddress", fields: [permanentUserId], references: [id]) 
+  permanentUserId String?   @unique
+  
+  organization  Organization? @relation(fields: [organizationId], references: [id])
+  organizationId String?
+  
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+// ===== KYC AND VERIFICATION =====
+model KYCData {
+  id                String        @id @default(cuid())
+  userId            String        @unique
+  user              User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Government IDs
+  aadhaarNumber     String?
+  aadhaarVerified   Boolean       @default(false)
+  panNumber         String?
+  panVerified       Boolean       @default(false)
+  passportNumber    String?
+  voterIdNumber     String?
+  drivingLicense    String?
+  
+  // Verification Status
+  kycStatus         KYCStatus     @default(PENDING)
+  kycLevel          KYCLevel      @default(BASIC)
+  overallScore      Int           @default(0)
+  riskScore         Int           @default(50)
+  
+  // Verification Details
+  aadhaarEkycRef    String?
+  aadhaarEkycDate   DateTime?
+  panVerificationRef String?
+  panVerificationDate DateTime?
+  
+  // Compliance
+  fatcaStatus       String?
+  pepStatus         Boolean       @default(false)
+  sanctionCheck     Boolean       @default(false)
+  
+  // Timeline
+  initiatedAt       DateTime      @default(now())
+  completedAt       DateTime?
+  expiryDate        DateTime?
+  
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
+
+model BiometricData {
+  id                String    @id @default(cuid())
+  userId            String    @unique
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Biometric Information
+  livePhotoUrl      String?
+  voiceSampleUrl    String?
+  videoKycUrl       String?
+  
+  // Verification Results
+  faceMatchScore    Float?
+  livenessScore     Float?
+  voicePrintId      String?
+  
+  // Video KYC Details
+  videoKycAgent     String?
+  videoKycDuration  Int?
+  videoKycStatus    String?
+  
+  // Device Information
+  deviceFingerprint String?
+  ipAddress         String?
+  location          String?
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model IdentityDocument {
+  id                String        @id @default(cuid())
+  userId            String
+  user              User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Document Details
+  type              DocumentType
+  category          DocumentCategory
+  documentNumber    String?
+  issueDate         DateTime?
+  expiryDate        DateTime?
+  issuingAuthority  String?
+  
+  // File Information
+  frontImageUrl     String?
+  backImageUrl      String?
+  pdfUrl            String?
+  fileSize          Int?
+  
+  // Verification Status
+  verified          Boolean       @default(false)
+  verificationScore Float?
+  verificationDate  DateTime?
+  verifiedBy        String?
+  
+  // AI Analysis
+  ocrData           String?       // JSON
+  fraudScore        Float?
+  qualityScore      Float?
+  
+  // Relations
+  loanApplication   LoanApplication? @relation(fields: [loanApplicationId], references: [id])
+  loanApplicationId String?
+  
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
+
+// ===== EDUCATION AND EMPLOYMENT =====
+model Education {
+  id                String      @id @default(cuid())
+  profileId         String
+  profile           UserProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  
+  level             String      // "10th", "12th", "Graduate", "Post-Graduate"
+  degree            String?
+  specialization    String?
+  institution       String
+  university        String?
+  passingYear       Int
+  percentage        Float?
+  cgpa              Float?
+  verified          Boolean     @default(false)
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+}
+
+model Employment {
+  id                String      @id @default(cuid())
+  profileId         String      @unique
+  profile           UserProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  
+  // Employment Details
+  type              EmploymentType
+  status            String      // "Active", "Inactive", "Retired"
+  designation       String?
+  department        String?
+  employeeId        String?
+  
+  // Company Information
+  companyName       String?
+  companyType       String?
+  industry          String?
+  workLocation      String?
+  
+  // Timeline
+  joiningDate       DateTime?
+  relievingDate     DateTime?
+  totalExperience   Int?        // In months
+  
+  // Income Information
+  monthlyIncome     Float?
+  annualIncome      Float?
+  incomeMode        String?     // "Salary", "Cash", "Bank Transfer"
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+}
+
+// ===== FINANCIAL PROFILE =====
+model FinancialProfile {
+  id                String    @id @default(cuid())
+  userId            String    @unique
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Income Information
+  monthlyIncome     Float
+  annualIncome      Float
+  incomeStability   String    // "Stable", "Variable", "Irregular"
+  incomeProofType   String    // "Salary Slip", "ITR", "Bank Statement"
+  
+  // Financial Health
+  totalAssets       Float?    @default(0)
+  totalLiabilities  Float?    @default(0)
+  netWorth          Float?    @default(0)
+  liquidAssets      Float?    @default(0)
+  
+  // Debt Information
+  totalEmi          Float?    @default(0)
+  debtToIncomeRatio Float?    @default(0)
+  
+  // Investment Profile
+  riskAppetite      String?   // "Conservative", "Moderate", "Aggressive"
+  investmentValue   Float?    @default(0)
+  
+  // Banking Relationship
+  primaryBankYears  Int?      @default(0)
+  averageBalance    Float?    @default(0)
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model BankAccount {
+  id                String    @id @default(cuid())
+  userId            String
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Account Details
+  accountNumber     String
+  ifscCode          String
+  bankName          String
+  branchName        String
+  accountType       BankAccountType
+  
+  // Account Status
+  isPrimary         Boolean   @default(false)
+  isActive          Boolean   @default(true)
+  verified          Boolean   @default(false)
+  
+  // Financial Data
+  currentBalance    Float?    @default(0)
+  averageBalance    Float?    @default(0)
+  relationshipYears Int?      @default(0)
+  
+  // Transaction Pattern
+  monthlyCredits    Float?    @default(0)
+  monthlyDebits     Float?    @default(0)
+  salaryAccount     Boolean   @default(false)
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model CreditScore {
+  id                String    @id @default(cuid())
+  userId            String
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Credit Bureau Data
+  bureau            String    // "CIBIL", "Experian", "Equifax", "HighMark"
+  score             Int
+  grade             String?   // "Excellent", "Good", "Fair", "Poor"
+  
+  // Report Details
+  reportDate        DateTime
+  reportNumber      String?
+  factors           String?   // JSON array of factors
+  
+  // History
+  previousScore     Int?
+  scoreChange       Int?      @default(0)
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+// ===== LOAN MANAGEMENT =====
+model LoanApplication {
+  id                String             @id @default(cuid())
+  applicationNumber String             @unique
+  userId            String
+  user              User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Basic Information
+  loanSector        LoanSector
+  loanType          String
+  amount            Float
+  tenure            Int               // In months
+  purpose           String?
+  
+  // Status and Timeline
+  status            LoanStatus        @default(DRAFT)
+  substatus         String?
+  priority          Priority          @default(NORMAL)
+  
+  // Processing Information
+  initiatedAt       DateTime          @default(now())
+  submittedAt       DateTime?
+  approvedAt        DateTime?
+  disbursedAt       DateTime?
+  
+  // Financial Details
+  requestedAmount   Float
+  approvedAmount    Float?
+  interestRate      Float?
+  processingFee     Float?
+  
+  // Risk Assessment
+  riskScore         Int?
+  creditScore       Int?
+  aiDecision        String?           // "Approve", "Reject", "Manual Review"
+  confidenceLevel   Float?
+  
+  // Product Information
+  product           LoanProduct?      @relation(fields: [productId], references: [id])
+  productId         String?
+  
+  // Processing Details
+  assignedTo        String?           // Loan officer
+  branchCode        String?
+  channel           String?           // "Web", "Mobile", "Branch"
+  
+  // Relations
+  documents         IdentityDocument[]
+  verifications     Verification[]
+  approvals         Approval[]
+  disbursement      Disbursement?
+  emi               EMI[]
+  
+  // Notes and Comments
+  applicantNotes    String?
+  internalNotes     String?
+  rejectionReason   String?
+  
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
+model LoanProduct {
+  id                String    @id @default(cuid())
+  
+  // Product Information
+  name              String
+  code              String    @unique
+  sector            LoanSector
+  category          String?
+  description       String?
+  
+  // Financial Parameters
+  minAmount         Float
+  maxAmount         Float
+  minTenure         Int       // In months
+  maxTenure         Int       // In months
+  baseInterestRate  Float
+  processingFeeRate Float?
+  
+  // Eligibility Criteria
+  minAge            Int       @default(18)
+  maxAge            Int       @default(65)
+  minIncome         Float?
+  minCreditScore    Int?
+  eligibilityCriteria String? // JSON
+  
+  // Features
+  features          String?   // JSON array
+  benefits          String?   // JSON array
+  requiredDocuments String?   // JSON array
+  
+  // Status
+  active            Boolean   @default(true)
+  priority          Int       @default(0)
+  
+  // Relations
+  applications      LoanApplication[]
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+// ===== LOAN PROCESSING =====
+model Verification {
+  id                String          @id @default(cuid())
+  applicationId     String
+  application       LoanApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  
+  type              VerificationType
+  status            VerificationStatus @default(PENDING)
+  method            String?         // "API", "Manual", "Document"
+  
+  // Verification Details
+  verifiedBy        String?
+  verificationDate  DateTime?
+  expiryDate        DateTime?
+  
+  // Results
+  result            String?         // "Pass", "Fail", "Partial"
+  score             Float?
+  details           String?         // JSON
+  
+  // External References
+  referenceNumber   String?
+  apiResponse       String?         // JSON
+  
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+model Approval {
+  id                String          @id @default(cuid())
+  applicationId     String
+  application       LoanApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  
+  // Approval Details
+  level             Int             // 1, 2, 3... (approval hierarchy)
+  approverRole      String
+  approverId        String
+  approverName      String
+  
+  // Decision
+  decision          ApprovalDecision
+  approvedAmount    Float?
+  approvedTenure    Int?
+  approvedRate      Float?
+  
+  // Details
+  comments          String?
+  conditions        String?         // JSON array
+  
+  approvedAt        DateTime        @default(now())
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+model Disbursement {
+  id                String          @id @default(cuid())
+  applicationId     String          @unique
+  application       LoanApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  
+  // Disbursement Details
+  amount            Float
+  method            DisbursementMethod
+  bankAccountId     String?
+  upiId             String?
+  
+  // Processing
+  requestedAt       DateTime        @default(now())
+  processedAt       DateTime?
+  completedAt       DateTime?
+  
+  // Transaction Details
+  transactionId     String?
+  referenceNumber   String?
+  status            DisbursementStatus @default(PENDING)
+  
+  // Verification
+  verifiedBy        String?
+  verificationDate  DateTime?
+  
+  failureReason     String?
+  
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+model EMI {
+  id                String          @id @default(cuid())
+  applicationId     String
+  application       LoanApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  
+  // EMI Details
+  emiNumber         Int
+  amount            Float
+  principalAmount   Float
+  interestAmount    Float
+  
+  // Schedule
+  dueDate           DateTime
+  paidDate          DateTime?
+  
+  // Status
+  status            EMIStatus       @default(PENDING)
+  paymentMethod     String?
+  transactionId     String?
+  
+  // Late Payment
+  daysPastDue       Int             @default(0)
+  lateFee           Float?          @default(0)
+  
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+// ===== CREDIT CARDS =====
+model CreditCard {
+  id                String          @id @default(cuid())
+  userId            String
+  user              User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Card Details
+  cardNumber        String          @unique
+  cardType          String          // "Platinum", "Gold", "Classic"
+  issuerBank        String
+  
+  // Limits and Usage
+  creditLimit       Float
+  availableLimit    Float
+  utilizedAmount    Float           @default(0)
+  
+  // Status
+  status            String          @default("Active")
+  issuedDate        DateTime
+  expiryDate        DateTime
+  
+  // Payment Information
+  lastPaymentDate   DateTime?
+  lastPaymentAmount Float?          @default(0)
+  minimumDue        Float?          @default(0)
+  
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+// ===== INVESTMENTS =====
+model Investment {
+  id                String    @id @default(cuid())
+  userId            String
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Investment Details
+  type              String    // "Mutual Fund", "Stock", "FD", "PPF", "NSC"
+  productName       String
+  investmentAmount  Float
+  currentValue      Float?
+  
+  // Timeline
+  investmentDate    DateTime
+  maturityDate      DateTime?
+  
+  // Returns
+  expectedReturn    Float?
+  actualReturn      Float?
+  
+  // Status
+  status            String    @default("Active")
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+// ===== ORGANIZATION MANAGEMENT =====
+model Organization {
+  id                String           @id @default(cuid())
+  
+  // Basic Information
+  legalName         String
+  tradeName         String?
+  entityType        EntityType
+  incorporationDate DateTime?
+  
+  // Registration Details
+  cinNumber         String?          @unique
+  gstNumber         String?          @unique
+  panNumber         String?          @unique
+  tanNumber         String?
+  
+  // Business Information
+  businessType      String?
+  industry          String?
+  description       String?
+  
+  // Capital Information
+  authorizedCapital Float?
+  paidUpCapital     Float?
+  netWorth          Float?
+  
+  // Address
+  addresses         Address[]
+  
+  // Licenses and Compliance
+  licenses          License[]
+  financialData     OrganizationFinancial[]
+  
+  // Partnership Status
+  partnershipStatus PartnershipStatus @default(PENDING)
+  onboardingDate    DateTime?
+  
+  // Key Personnel
+  personnel         Personnel[]
+  
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+model License {
+  id                String       @id @default(cuid())
+  organizationId    String
+  organization      Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  
+  // License Details
+  type              String       // "RBI", "SEBI", "IRDAI", "State Money Lender"
+  licenseNumber     String
+  issuingAuthority  String
+  
+  // Timeline
+  issueDate         DateTime
+  expiryDate        DateTime?
+  
+  // Status
+  status            String       @default("Active")
+  verified          Boolean      @default(false)
+  
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+}
+
+model Personnel {
+  id                String       @id @default(cuid())
+  organizationId    String
+  organization      Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  
+  // Personal Information
+  fullName          String
+  designation       String
+  dinNumber         String?      // Director Identification Number
+  panNumber         String?
+  
+  // Role Information
+  role              String       // "Director", "CEO", "CFO", "Authorized Signatory"
+  responsibilities  String?
+  
+  // Authorization
+  signatureSpecimen String?
+  authorizationLevel String?
+  
+  // Timeline
+  appointmentDate   DateTime
+  relievingDate     DateTime?
+  
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+}
+
+model OrganizationFinancial {
+  id                String       @id @default(cuid())
+  organizationId    String
+  organization      Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  
+  // Financial Year
+  financialYear     String       // "2023-24"
+  
+  // Financial Metrics
+  revenue           Float
+  netProfit         Float
+  totalAssets       Float
+  totalLiabilities  Float
+  netWorth          Float
+  
+  // Audit Information
+  auditorName       String?
+  auditDate         DateTime?
+  auditOpinion      String?
+  
+  // Credit Rating
+  creditRating      String?
+  ratingAgency      String?
+  ratingDate        DateTime?
+  
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+}
+
+// ===== SYSTEM MANAGEMENT =====
+model LoginSession {
+  id                String    @id @default(cuid())
+  userId            String
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Session Details
+  sessionToken      String    @unique
+  ipAddress         String?
+  userAgent         String?
+  location          String?
+  
+  // Timeline
+  loginAt           DateTime  @default(now())
+  logoutAt          DateTime?
+  expiresAt         DateTime
+  
+  // Security
+  mfaVerified       Boolean   @default(false)
+  riskScore         Int?      @default(0)
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model AuditLog {
+  id                String    @id @default(cuid())
+  userId            String?
+  user              User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  // Action Details
+  action            String    // "LOGIN", "LOAN_APPLICATION", "KYC_UPDATE"
+  entity            String?   // "User", "LoanApplication", "Document"
+  entityId          String?
+  
+  // Details
+  description       String?
+  oldValues         String?   // JSON
+  newValues         String?   // JSON
+  
+  // Context
+  ipAddress         String?
+  userAgent         String?
+  sessionId         String?
+  
+  timestamp         DateTime  @default(now())
+}
+
+model Notification {
+  id                String           @id @default(cuid())
+  userId            String
+  user              User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Notification Details
+  type              NotificationType
+  title             String
+  message           String
+  priority          Priority         @default(NORMAL)
+  
+  // Status
+  read              Boolean          @default(false)
+  readAt            DateTime?
+  
+  // Action
+  actionUrl         String?
+  actionLabel       String?
+  
+  // Delivery
+  channels          String?          // JSON array: ["email", "sms", "push"]
+  deliveredAt       DateTime?
+  
+  expiresAt         DateTime?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+model AdminAction {
+  id                String    @id @default(cuid())
+  adminId           String
+  admin             User      @relation("AdminUser", fields: [adminId], references: [id], onDelete: Cascade)
+  
+  // Target Information
+  targetType        String    // "User", "LoanApplication", "Organization"
+  targetId          String
+  targetUser        User?     @relation("ReviewedBy", fields: [targetUserId], references: [id], onDelete: SetNull)
+  targetUserId      String?
+  
+  // Action Details
+  actionType        String    // "APPROVE", "REJECT", "REVIEW", "UPDATE"
+  description       String?
+  reason            String?
+  
+  // Additional Data
+  previousData      String?   // JSON
+  newData           String?   // JSON
+  
+  actionDate        DateTime  @default(now())
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+// ===== ENUMS =====
+enum Role {
+  USER
+  ADMIN
+  AGENT
+  MANAGER
+  AUDITOR
+  COMPLIANCE_OFFICER
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  BLOCKED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+  PREFER_NOT_TO_SAY
+}
+
+enum MaritalStatus {
+  SINGLE
+  MARRIED
+  DIVORCED
+  WIDOWED
+  SEPARATED
+}
+
+enum AddressType {
+  CURRENT
+  PERMANENT
+  OFFICE
+  CORRESPONDENCE
+}
+
+enum KYCStatus {
+  PENDING
+  IN_PROGRESS
+  VERIFIED
+  REJECTED
+  EXPIRED
+}
+
+enum KYCLevel {
+  BASIC
+  INTERMEDIATE
+  FULL
+  ENHANCED
+}
+
+enum DocumentType {
+  AADHAAR
+  PAN
+  PASSPORT
+  VOTER_ID
+  DRIVING_LICENSE
+  UTILITY_BILL
+  BANK_STATEMENT
+  SALARY_SLIP
+  FORM_16
+  ITR
+  GST_CERTIFICATE
+  BUSINESS_REGISTRATION
+  PROPERTY_DOCUMENT
+  VEHICLE_RC
+  INSURANCE_POLICY
+  EDUCATIONAL_CERTIFICATE
+  EMPLOYMENT_LETTER
+  RENT_AGREEMENT
+  OTHER
+}
+
+enum DocumentCategory {
+  IDENTITY_PROOF
+  ADDRESS_PROOF
+  INCOME_PROOF
+  BUSINESS_PROOF
+  EDUCATIONAL_PROOF
+  ASSET_PROOF
+  LIABILITY_PROOF
+}
+
+enum EmploymentType {
+  SALARIED
+  SELF_EMPLOYED_PROFESSIONAL
+  SELF_EMPLOYED_BUSINESS
+  UNEMPLOYED
+  STUDENT
+  RETIRED
+  HOMEMAKER
+  FREELANCER
+}
+
+enum BankAccountType {
+  SAVINGS
+  CURRENT
+  SALARY
+  OVERDRAFT
+  FIXED_DEPOSIT
+  RECURRING_DEPOSIT
+}
+
+enum LoanSector {
+  PERSONAL_LOAN
+  HOME_LOAN
+  VEHICLE_LOAN
+  BUSINESS_LOAN
+  GOLD_LOAN
+  EDUCATION_LOAN
+  AGRICULTURE_LOAN
+  MICROFINANCE
+  CREDIT_CARD
+  TWO_WHEELER_LOAN
+  HEALTHCARE_LOAN
+  DIGITAL_LOAN
+}
+
+enum LoanStatus {
+  DRAFT
+  SUBMITTED
+  DOCUMENT_VERIFICATION
+  UNDER_REVIEW
+  TECHNICAL_REVIEW
+  CREDIT_ASSESSMENT
+  MANUAL_REVIEW
+  APPROVED
+  REJECTED
+  DISBURSED
+  ACTIVE
+  CLOSED
+  CANCELLED
+  ON_HOLD
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+  CRITICAL
+}
+
+enum VerificationType {
+  AADHAAR_EKYC
+  PAN_VERIFICATION
+  BANK_ACCOUNT_VERIFICATION
+  INCOME_VERIFICATION
+  EMPLOYMENT_VERIFICATION
+  ADDRESS_VERIFICATION
+  REFERENCE_CHECK
+  CREDIT_BUREAU_CHECK
+  CIBIL_SCORE
+  DOCUMENT_VERIFICATION
+  VIDEO_KYC
+  BIOMETRIC_VERIFICATION
+}
+
+enum VerificationStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+  EXPIRED
+  CANCELLED
+}
+
+enum ApprovalDecision {
+  APPROVED
+  REJECTED
+  CONDITIONAL_APPROVAL
+  REFER_TO_HIGHER_AUTHORITY
+  REQUEST_MORE_INFORMATION
+}
+
+enum DisbursementMethod {
+  BANK_TRANSFER
+  UPI
+  CHEQUE
+  DEMAND_DRAFT
+  CASH
+  WALLET
+}
+
+enum DisbursementStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+  REFUNDED
+}
+
+enum EMIStatus {
+  PENDING
+  PAID
+  OVERDUE
+  PARTIALLY_PAID
+  WAIVED
+  BOUNCED
+}
+
+enum EntityType {
+  PRIVATE_LIMITED
+  PUBLIC_LIMITED
+  PARTNERSHIP
+  LLP
+  PROPRIETORSHIP
+  TRUST
+  SOCIETY
+  COOPERATIVE
+  NGO
+  GOVERNMENT
+}
+
+enum PartnershipStatus {
+  PENDING
+  UNDER_REVIEW
+  APPROVED
+  ACTIVE
+  SUSPENDED
+  TERMINATED
+  BLACKLISTED
+}
+
+enum NotificationType {
+  LOAN_STATUS_UPDATE
+  DOCUMENT_REQUIRED
+  PAYMENT_REMINDER
+  PAYMENT_RECEIVED
+  ACCOUNT_UPDATE
+  SECURITY_ALERT
+  PROMOTIONAL
+  SYSTEM_MAINTENANCE
+  REGULATORY_UPDATE
+}
