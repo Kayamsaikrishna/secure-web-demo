@@ -1,221 +1,214 @@
-# Fin-Agentix - Secure Financial Services Demo
+# Fin-Agentix - Secure Financial Lending Platform
 
-A comprehensive financial services platform built with Next.js, featuring secure authentication, loan management, and administrative controls.
+A comprehensive Next.js-based financial lending platform supporting all 12 major loan sectors with advanced KYC verification, AI-powered credit scoring, and seamless user experience.
 
-## 🌟 Features
+## 🚀 Features
 
 ### Core Functionality
-- **User Authentication**: Secure registration and login system with NextAuth.js
-- **Role-Based Access Control**: Admin and user roles with different permissions
-- **Loan Application System**: Complete loan application workflow
-- **KYC Verification**: Aadhaar and PAN verification integration
-- **Credit Bureau Integration**: Real-time credit scoring
-- **Administrative Dashboard**: User management and system analytics
-- **Loan Calculator**: EMI and loan eligibility calculations
+- **Multi-Sector Loan Support**: 12 loan categories including Personal, Home, Vehicle, Business, and more
+- **Advanced KYC Verification**: Aadhaar, PAN, and document verification
+- **AI-Powered Credit Scoring**: Intelligent loan assessment and approval
+- **Real-time Application Tracking**: Public tracking without login required
+- **Interactive EMI Calculator**: Dynamic calculations for all loan types
+- **Admin Dashboard**: Comprehensive management and analytics
 
-### Security Features
-- JWT-based authentication
-- Password hashing with bcryptjs
-- Role-based route protection
-- Secure API endpoints
-- Database access protection
+### Technical Features
+- **Next.js 15** with Turbopack for fast development
+- **TypeScript** for type safety
+- **Prisma ORM** with SQLite database
+- **NextAuth.js** for authentication
+- **Tailwind CSS** for responsive design
+- **Server-Side Rendering** for optimal performance
 
-## 🚀 Technology Stack
+## 🛠️ Quick Setup
 
-### Frontend
-- **Next.js 15.5.2** - Full-stack React framework
-- **React 19.1.0** - UI library
-- **TypeScript** - Type safety
-- **Tailwind CSS 4.x** - Utility-first styling
-- **Headless UI** - Accessible components
-- **React Hook Form** - Form management
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Git
 
-### Backend
-- **Next.js API Routes** - Serverless functions
-- **NextAuth.js** - Authentication system
-- **Prisma ORM** - Database management
-- **Zod** - Schema validation
+### Installation
 
-### Database
-- **Prisma Client** - Type-safe database access
-- **SQLite/PostgreSQL** - Database storage
+1. **Clone the repository**
+```bash
+git clone <your-repo-url>
+cd secure-web-demo
+```
+
+2. **Install dependencies**
+```bash
+npm install
+```
+
+3. **Set up environment variables**
+```bash
+# Copy the example environment file
+cp .env .env.local
+
+# Edit .env.local with your values if needed
+# Default values work for development
+```
+
+4. **Set up the database**
+```bash
+# Generate Prisma client and push schema to database
+npx prisma db push
+npx prisma generate
+```
+
+5. **Start the development server**
+```bash
+npm run dev
+```
+
+6. **Access the application**
+- Main app: http://localhost:3000 (or 3001 if 3000 is in use)
+- Database viewer: `npx prisma studio --port 5556`
+
+## 🎯 Default Test Accounts
+
+The application comes with pre-configured test accounts:
+
+### Admin Account
+- **Email**: admin@finagentic.com
+- **Password**: admin123
+- **Access**: Full admin dashboard, user management, analytics
+
+### User Account  
+- **Email**: test@example.com
+- **Password**: test123
+- **Access**: Standard user features, loan applications, KYC
 
 ## 📁 Project Structure
 
 ```
 src/
-├── app/                    # Next.js App Router
-│   ├── (public)/          # Public routes
-│   ├── admin/             # Admin dashboard
-│   ├── api/               # API endpoints
-│   ├── dashboard/         # User dashboard
-│   ├── loans/             # Loan management
-│   ├── login/             # Authentication
-│   └── register/          # User registration
-├── components/            # Reusable components
-│   ├── layout/           # Layout components
-│   ├── providers/        # Context providers
-│   └── ui/               # UI components
-├── lib/                  # Utilities and configurations
-│   ├── auth.ts          # Authentication config
-│   └── prisma.ts        # Database client
-└── middleware.ts         # Route protection
+├── app/                    # Next.js 13+ app directory
+│   ├── (public)/          # Public pages (no auth required)
+│   ├── admin/             # Admin dashboard pages
+│   ├── api/               # API routes
+│   ├── auth/              # Authentication pages
+│   ├── loans/             # Loan-related pages
+│   └── ...
+├── components/            # Reusable React components
+├── lib/                   # Utility libraries
+│   ├── auth.ts           # NextAuth configuration
+│   └── prisma.ts         # Prisma client
+└── types/                # TypeScript type definitions
+
+prisma/
+├── schema.prisma         # Database schema
+└── dev.db               # SQLite database file
+
 ```
-
-## 🛠️ Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Kayamsaikrishna/secure-web-demo.git
-   cd secure-web-demo
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env.local
-   ```
-   
-   Configure the following variables:
-   ```env
-   NEXTAUTH_SECRET=your-secret-key
-   NEXTAUTH_URL=http://localhost:3000
-   DATABASE_URL="file:./dev.db"
-   ```
-
-4. **Initialize the database**
-   ```bash
-   npx prisma generate
-   npx prisma db push
-   ```
-
-5. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-6. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## 🔧 Available Scripts
 
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
-
-## 🏗️ Architecture Overview
-
-The application follows a layered architecture with clear separation of concerns:
-
-```mermaid
-graph TD
-    A[Client Application] --> B[Next.js App Router]
-    B --> C[API Routes]
-    C --> D[Authentication Layer]
-    C --> E[Business Logic]
-    E --> F[Prisma ORM]
-    F --> G[Database]
-    
-    H[Middleware] --> B
-    H --> I[Route Protection]
-    H --> J[Role-Based Access]
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npx prisma studio    # Open database viewer
+npx prisma db push   # Update database schema
 ```
 
-## 🔐 Authentication Flow
+## 🏦 Loan Sectors Supported
 
-1. **User Registration**: Users create accounts with email/password
-2. **Admin Setup**: First admin user setup during system initialization
-3. **Login**: Credential-based authentication with NextAuth.js
-4. **Session Management**: JWT tokens for secure sessions
-5. **Role Authorization**: Middleware enforces role-based access
+1. **Personal Loans** - Unsecured personal financing
+2. **Home Loans** - Property purchase and construction  
+3. **Vehicle Loans** - Cars, bikes, commercial vehicles
+4. **Business Loans** - Working capital and expansion
+5. **Gold Loans** - Secured against gold jewelry
+6. **Education Loans** - Student financing
+7. **Agriculture Loans** - Farming and rural development
+8. **Microfinance** - Small-scale lending
+9. **Credit Cards** - Revolving credit facilities
+10. **Two-Wheeler Loans** - Motorcycles and scooters
+11. **Healthcare Loans** - Medical expenses
+12. **Digital Loans** - App-based quick loans
 
-## 📊 Core Features
+## 🔐 Security Features
 
-### Loan Management
-- **Loan Application**: Multi-step application process
-- **Document Upload**: Secure file handling
-- **Application Tracking**: Real-time status updates
-- **EMI Calculator**: Loan calculations and projections
+- **JWT-based Authentication** with NextAuth.js
+- **Role-based Access Control** (User, Admin, Agent, etc.)
+- **Input Validation** with Zod schemas
+- **SQL Injection Prevention** with Prisma ORM
+- **Password Hashing** with bcryptjs
+- **Session Management** with secure cookies
 
-### Admin Dashboard
-- **User Management**: Create, update, and manage users
-- **Application Review**: Approve/reject loan applications
-- **System Analytics**: Usage statistics and reports
-- **Configuration**: System settings and parameters
+## 📊 Database Schema
 
-### KYC & Verification
-- **Aadhaar Verification**: Government ID validation
-- **PAN Verification**: Tax ID confirmation
-- **Credit Bureau**: Credit score integration
-- **Document Management**: Secure document storage
+The application uses a comprehensive Prisma schema supporting:
+- User management with profiles
+- KYC and document verification
+- Loan applications and processing
+- Financial profiles and credit scoring
+- Admin actions and audit logs
+- Multi-organizational support
 
-## 🛡️ Security Implementation
+## 🎨 UI/UX Features
 
-- **Password Hashing**: bcryptjs for secure password storage
-- **JWT Authentication**: Secure token-based sessions
-- **Role-Based Access**: Granular permission system
-- **Input Validation**: Zod schema validation
-- **CSRF Protection**: Built-in NextAuth.js protection
-- **Secure Headers**: Security middleware implementation
+- **Responsive Design** - Works on all devices
+- **Dark/Light Mode** - User preference support
+- **Interactive Forms** - Real-time validation
+- **Progress Indicators** - Clear application status
+- **Accessible Design** - WCAG compliant
 
-## 🌐 API Endpoints
+## 📈 Admin Dashboard
+
+- **Real-time Analytics** - Application statistics
+- **User Management** - Account administration  
+- **Loan Processing** - Application review and approval
+- **Report Generation** - Financial and operational reports
+- **System Configuration** - Platform settings
+
+## 🔄 API Endpoints
 
 ### Authentication
 - `POST /api/auth/register` - User registration
-- `POST /api/auth/signin` - User login
-- `POST /api/auth/signout` - User logout
+- `POST /api/auth/login` - User login (handled by NextAuth)
 
-### Loan Management
+### Loans
 - `POST /api/loans/apply` - Submit loan application
-- `GET /api/loans/my-applications` - Get user applications
+- `GET /api/loans/my-applications` - Get user's applications
 
-### Admin Operations
-- `POST /api/admin/setup` - Initialize admin user
-- `GET /api/admin/users` - Manage users
+### Admin
+- `GET /api/admin/users` - Get all users (admin only)
+- `POST /api/admin/setup` - Initial admin setup
 
-### Verification Services
+### Verification
 - `POST /api/aadhaar/verify` - Aadhaar verification
 - `POST /api/pan/verify` - PAN verification
-- `POST /api/credit-bureau` - Credit score check
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-1. Connect your GitHub repository to Vercel
-2. Configure environment variables
-3. Deploy automatically on push
-
-### Manual Deployment
-1. Build the application: `npm run build`
-2. Start the production server: `npm start`
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/new-feature`
-3. Commit changes: `git commit -m "Add new feature"`
-4. Push to branch: `git push origin feature/new-feature`
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 👨‍💻 Developer
+## 🆘 Support
 
-**Kayam Sai Krishna**
-- Portfolio: [https://kayam-sai-krishna-aiml-portfolio.netlify.app/](https://kayam-sai-krishna-aiml-portfolio.netlify.app/)
-- GitHub: [@Kayamsaikrishna](https://github.com/Kayamsaikrishna)
+For support and questions:
+- Create an issue in the GitHub repository
+- Check the documentation in the `/docs` folder
+- Review the Prisma schema for database structure
 
-## 📞 Support
+## 🔮 Roadmap
 
-For support and questions, please open an issue in the GitHub repository.
+- [ ] Mobile app development (React Native)
+- [ ] Advanced AI/ML credit scoring
+- [ ] Blockchain integration for security
+- [ ] Multi-language support
+- [ ] Advanced analytics and reporting
+- [ ] Integration with external financial APIs
 
 ---
 
-**© 2025 Fin-Agentix. All rights reserved.**
+**Built with ❤️ for Fin-Agentix - Making lending accessible and secure**

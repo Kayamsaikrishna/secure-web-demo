@@ -1,0 +1,18 @@
+{
+  "pages": {
+    "/kyc/status/page": [
+      "static/chunks/ff1a16fafef87110.js",
+      "static/chunks/903fd678a051bd8c.js",
+      "static/chunks/d846324019a3089a.css",
+      "static/chunks/8236bd026c91a593.js",
+      "static/chunks/acf1c0a0c8378be6.js",
+      "static/chunks/f43ff276965a0d97.js",
+      "static/chunks/be0181a504c3dd6f.js",
+      "static/chunks/91adb7bdb9870c6a.js",
+      "static/chunks/c19da6693934fea1.js",
+      "static/chunks/8082ab48faca5ea1.js",
+      "static/chunks/8de370c3cbabf345.js",
+      "static/chunks/turbopack-e3875e7819782bf3.js"
+    ]
+  }
+}
