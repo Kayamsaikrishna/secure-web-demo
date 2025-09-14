@@ -78,6 +78,7 @@ export default function RegisterPage() {
                 type="text"
                 {...register("firstName")}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                suppressHydrationWarning
               />
               {errors.firstName && (
                 <p className="mt-2 text-sm text-red-600">{errors.firstName.message}</p>
@@ -98,6 +99,7 @@ export default function RegisterPage() {
                 type="text"
                 {...register("lastName")}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                suppressHydrationWarning
               />
               {errors.lastName && (
                 <p className="mt-2 text-sm text-red-600">{errors.lastName.message}</p>
@@ -119,6 +121,7 @@ export default function RegisterPage() {
                 autoComplete="email"
                 {...register("email")}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                suppressHydrationWarning
               />
               {errors.email && (
                 <p className="mt-2 text-sm text-red-600">{errors.email.message}</p>
@@ -139,6 +142,7 @@ export default function RegisterPage() {
                 type="tel"
                 {...register("phone")}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                suppressHydrationWarning
               />
               {errors.phone && (
                 <p className="mt-2 text-sm text-red-600">{errors.phone.message}</p>
@@ -160,6 +164,7 @@ export default function RegisterPage() {
                 autoComplete="new-password"
                 {...register("password")}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                suppressHydrationWarning
               />
               {errors.password && (
                 <p className="mt-2 text-sm text-red-600">
@@ -174,6 +179,7 @@ export default function RegisterPage() {
               type="submit"
               disabled={isSubmitting}
               className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              suppressHydrationWarning
             >
               {isSubmitting ? "Creating account..." : "Sign up"}
             </button>
