@@ -926,13 +926,14 @@ export default function KYCVerificationPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
                   <div>
                     <p><strong>Customer Support:</strong></p>
-                    <p>📞 1800-FINAGENIX (24/7)</p>
-                    <p>📧 kyc@finagenix.com</p>
+                    <p>📞 1800-FIN-AGENTIX (24/7)</p>
+                    <p>📧 kyc@fin-agentix.com</p>
                   </div>
                   <div>
                     <p><strong>KYC Helpdesk:</strong></p>
                     <p>💬 Live chat available</p>
                     <p>🕒 Mon-Sat: 9 AM - 9 PM</p>
+                    <p>🏢 Head Office: Bangalore</p>
                   </div>
                 </div>
               </div>

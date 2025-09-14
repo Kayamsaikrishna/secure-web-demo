@@ -42,10 +42,10 @@ const Logo = ({ size, className = "" }: LogoProps) => {
     return () => clearTimeout(timeout);
   }, []);
 
-  // Professional fallback design with your branding
+  // Professional fallback design with your branding (circular design preference)
   if (showFallback) {
     return (
-      <div className={`${container} rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 text-gray-900 shadow-lg flex items-center justify-center font-bold ${text} ${className} border-2 border-white ring-2 ring-yellow-200`}>
+      <div className={`${container} rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-lg flex items-center justify-center font-bold ${text} ${className} border-2 border-white ring-2 ring-blue-200`}>
         FA
       </div>
     );

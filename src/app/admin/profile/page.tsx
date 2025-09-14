@@ -244,7 +244,7 @@ export default function AdminProfilePage() {
                       <UsersIcon className="w-6 h-6 text-green-600 mx-auto mb-2" />
                       <p className="text-sm font-medium text-gray-900">Review Applications</p>
                     </Link>
-                    <Link href="/admin/loan-products/create" className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-center">
+                    <Link href="/admin/loan-schemes/create" className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 text-center">
                       <ChartBarIcon className="w-6 h-6 text-purple-600 mx-auto mb-2" />
                       <p className="text-sm font-medium text-gray-900">Create New Scheme</p>
                     </Link>
@@ -324,38 +324,129 @@ export default function AdminProfilePage() {
 
             {activeTab === "settings" && (
               <div className="max-w-4xl">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Admin Settings & Preferences</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="text-md font-medium text-gray-900 mb-3">Security Settings</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-700">Two-Factor Authentication</span>
-                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          Enabled
-                        </span>
+                <h3 className="text-lg font-medium text-gray-900 mb-4">Admin System Settings</h3>
+                <div className="space-y-6">
+                  {/* System Configuration */}
+                  <div className="border border-gray-200 rounded-lg p-6">
+                    <h4 className="text-md font-medium text-gray-900 mb-4">System Configuration</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Auto-Approval Threshold</span>
+                          <span className="text-sm text-gray-900 font-medium">₹5,00,000</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Minimum Credit Score</span>
+                          <span className="text-sm text-gray-900 font-medium">650</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Maximum EMI Ratio</span>
+                          <span className="text-sm text-gray-900 font-medium">50%</span>
+                        </div>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-700">Session Timeout</span>
-                        <span className="text-sm text-gray-900">30 minutes</span>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Daily Processing Limit</span>
+                          <span className="text-sm text-gray-900 font-medium">₹10 Crores</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Risk Assessment AI</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Active
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Real-time Verification</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Enabled
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="text-md font-medium text-gray-900 mb-3">Notification Preferences</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-700">Email Notifications</span>
-                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          Enabled
-                        </span>
+                  {/* Admin Security */}
+                  <div className="border border-gray-200 rounded-lg p-6">
+                    <h4 className="text-md font-medium text-gray-900 mb-4">Admin Security Settings</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Two-Factor Authentication</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Enabled
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Session Timeout</span>
+                          <span className="text-sm text-gray-900 font-medium">30 minutes</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">IP Restrictions</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Active
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-700">System Alerts</span>
-                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          Enabled
-                        </span>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Audit Logging</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Enabled
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Data Backup</span>
+                          <span className="text-sm text-gray-900 font-medium">Daily at 2:00 AM</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">System Monitoring</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            24/7 Active
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Notification Settings */}
+                  <div className="border border-gray-200 rounded-lg p-6">
+                    <h4 className="text-md font-medium text-gray-900 mb-4">System Notifications</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">High-Value Application Alerts</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Enabled
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Risk Assessment Warnings</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Enabled
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">System Performance Alerts</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Enabled
+                          </span>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Daily Reports</span>
+                          <span className="text-sm text-gray-900 font-medium">9:00 AM</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Weekly Summary</span>
+                          <span className="text-sm text-gray-900 font-medium">Monday 10:00 AM</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Emergency Notifications</span>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                            Immediate
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>

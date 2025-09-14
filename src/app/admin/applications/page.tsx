@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import { 
   DocumentTextIcon,
   MagnifyingGlassIcon,
   CheckCircleIcon,
   XCircleIcon,
   ClockIcon,
-  CurrencyRupeeIcon
+  CurrencyRupeeIcon,
+  EyeIcon
 } from "@heroicons/react/24/outline";
 
 // Mock application data
@@ -135,6 +137,15 @@ export default function AdminApplicationsPage() {
                           {application.applicantName}
                         </div>
                         <div className="text-sm text-gray-500">{application.id}</div>
+                        <div className="mt-2">
+                          <Link
+                            href={`/admin/applications/${application.id}`}
+                            className="inline-flex items-center px-3 py-1 border border-transparent text-xs leading-4 font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                          >
+                            <EyeIcon className="h-3 w-3 mr-1" />
+                            View Details
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </td>
@@ -154,17 +165,24 @@ export default function AdminApplicationsPage() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex items-center space-x-2">
+                      <Link
+                        href={`/admin/applications/${application.id}`}
+                        className="text-blue-600 hover:text-blue-900"
+                        title="View Details"
+                      >
+                        <EyeIcon className="h-4 w-4" />
+                      </Link>
                       {application.status === 'PENDING' && (
                         <>
                           <button
                             className="text-green-600 hover:text-green-900"
-                            title="Approve"
+                            title="Quick Approve"
                           >
                             <CheckCircleIcon className="h-4 w-4" />
                           </button>
                           <button
                             className="text-red-600 hover:text-red-900"
-                            title="Reject"
+                            title="Quick Reject"
                           >
                             <XCircleIcon className="h-4 w-4" />
                           </button>
@@ -173,7 +191,7 @@ export default function AdminApplicationsPage() {
                       {application.status === 'UNDER_REVIEW' && (
                         <button
                           className="text-green-600 hover:text-green-900"
-                          title="Approve"
+                          title="Quick Approve"
                         >
                           <CheckCircleIcon className="h-4 w-4" />
                         </button>

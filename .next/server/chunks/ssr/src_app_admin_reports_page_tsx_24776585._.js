@@ -1,3 +1,443 @@
-module.exports=[91245,a=>{"use strict";a.s(["default",()=>p],91245);var b=a.i(87924),c=a.i(72131),d=a.i(75003);let e=c.forwardRef(function({title:a,titleId:b,...d},e){return c.createElement("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 24 24",strokeWidth:1.5,stroke:"currentColor","aria-hidden":"true","data-slot":"icon",ref:e,"aria-labelledby":b},d),a?c.createElement("title",{id:b},a):null,c.createElement("path",{strokeLinecap:"round",strokeLinejoin:"round",d:"M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25M9 16.5v.75m3-3v3M15 12v5.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"}))}),f=c.forwardRef(function({title:a,titleId:b,...d},e){return c.createElement("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 24 24",strokeWidth:1.5,stroke:"currentColor","aria-hidden":"true","data-slot":"icon",ref:e,"aria-labelledby":b},d),a?c.createElement("title",{id:b},a):null,c.createElement("path",{strokeLinecap:"round",strokeLinejoin:"round",d:"M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"}))});var g=a.i(66498),h=a.i(90722),i=a.i(76681),j=a.i(2827),k=a.i(53637),l=a.i(40772),m=a.i(29514);let n=[{id:"loan_performance",name:"Loan Performance Report",description:"Comprehensive analysis of loan applications, approvals, and disbursements",icon:h.ChartBarIcon,color:"bg-blue-500",frequency:["Daily","Weekly","Monthly","Quarterly"],formats:["PDF","Excel","CSV"]},{id:"sector_analysis",name:"Sector-wise Analysis",description:"Performance breakdown across all 12 loan sectors",icon:e,color:"bg-green-500",frequency:["Weekly","Monthly","Quarterly"],formats:["PDF","Excel","PowerPoint"]},{id:"risk_assessment",name:"Risk Assessment Report",description:"Credit risk analysis and default rate monitoring",icon:j.DocumentTextIcon,color:"bg-red-500",frequency:["Weekly","Monthly"],formats:["PDF","Excel"]},{id:"user_analytics",name:"User Analytics Report",description:"User acquisition, KYC completion, and engagement metrics",icon:k.UserGroupIcon,color:"bg-purple-500",frequency:["Daily","Weekly","Monthly"],formats:["PDF","Excel","CSV"]},{id:"financial_summary",name:"Financial Summary",description:"Revenue, disbursements, and financial performance overview",icon:i.CurrencyRupeeIcon,color:"bg-yellow-500",frequency:["Daily","Weekly","Monthly","Quarterly"],formats:["PDF","Excel"]},{id:"operational_efficiency",name:"Operational Efficiency",description:"Processing times, team performance, and workflow analysis",icon:l.ClockIcon,color:"bg-indigo-500",frequency:["Weekly","Monthly"],formats:["PDF","Excel","PowerPoint"]}],o=[{id:"RPT2024001",name:"Monthly Loan Performance - January 2024",type:"loan_performance",generatedAt:"2024-01-20T09:30:00Z",generatedBy:"Admin User",format:"PDF",size:"2.3 MB",status:"completed"},{id:"RPT2024002",name:"Sector Analysis Q4 2023",type:"sector_analysis",generatedAt:"2024-01-19T14:15:00Z",generatedBy:"Admin User",format:"Excel",size:"4.1 MB",status:"completed"},{id:"RPT2024003",name:"Weekly Risk Assessment",type:"risk_assessment",generatedAt:"2024-01-18T11:45:00Z",generatedBy:"Risk Manager",format:"PDF",size:"1.8 MB",status:"completed"},{id:"RPT2024004",name:"User Analytics - January",type:"user_analytics",generatedAt:"2024-01-17T16:20:00Z",generatedBy:"Analytics Team",format:"CSV",size:"856 KB",status:"completed"}];function p(){let{data:a}=(0,d.useSession)(),[i,k]=(0,c.useState)(""),[l,p]=(0,c.useState)("monthly"),[q,r]=(0,c.useState)("PDF"),[s,t]=(0,c.useState)(!1),u=async a=>{t(!0),await new Promise(a=>setTimeout(a,3e3)),t(!1),alert(`${n.find(b=>b.id===a)?.name} generated successfully!`)};return a?.user?.role!=="ADMIN"?(0,b.jsxs)("div",{className:"text-center py-12",children:[(0,b.jsx)("h1",{className:"text-3xl font-bold text-gray-900",children:"Access Denied"}),(0,b.jsx)("p",{className:"text-gray-600",children:"You don't have permission to access reports."})]}):(0,b.jsxs)("div",{className:"space-y-8",children:[(0,b.jsxs)("div",{className:"flex items-center justify-between",children:[(0,b.jsxs)("div",{children:[(0,b.jsx)("h1",{className:"text-3xl font-bold text-gray-900",children:"Reports & Analytics"}),(0,b.jsx)("p",{className:"text-gray-600 mt-1",children:"Generate and download comprehensive business reports"})]}),(0,b.jsx)("div",{className:"flex items-center space-x-4",children:(0,b.jsxs)("button",{className:"bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center",children:[(0,b.jsx)(e,{className:"h-5 w-5 mr-2"}),"Schedule Report"]})})]}),(0,b.jsxs)("div",{className:"grid grid-cols-1 lg:grid-cols-3 gap-8",children:[(0,b.jsxs)("div",{className:"lg:col-span-2 space-y-6",children:[(0,b.jsxs)("div",{className:"bg-white shadow-lg rounded-lg p-6",children:[(0,b.jsx)("h2",{className:"text-xl font-bold text-gray-900 mb-6",children:"Generate New Report"}),(0,b.jsx)("div",{className:"grid grid-cols-1 md:grid-cols-2 gap-4 mb-6",children:n.map(a=>{let c=a.icon;return(0,b.jsx)("div",{onClick:()=>k(a.id),className:`p-4 border-2 rounded-lg cursor-pointer transition-all ${i===a.id?"border-blue-500 bg-blue-50":"border-gray-200 hover:border-gray-300"}`,children:(0,b.jsxs)("div",{className:"flex items-start space-x-3",children:[(0,b.jsx)("div",{className:`p-2 rounded-lg ${a.color} text-white`,children:(0,b.jsx)(c,{className:"h-5 w-5"})}),(0,b.jsxs)("div",{className:"flex-1",children:[(0,b.jsx)("h3",{className:"font-semibold text-gray-900",children:a.name}),(0,b.jsx)("p",{className:"text-sm text-gray-600 mt-1",children:a.description}),(0,b.jsx)("div",{className:"flex items-center space-x-4 mt-2 text-xs text-gray-500",children:(0,b.jsxs)("span",{children:["Formats: ",a.formats.join(", ")]})})]})]})},a.id)})}),i&&(0,b.jsxs)("div",{className:"border-t pt-6",children:[(0,b.jsx)("h3",{className:"text-lg font-semibold text-gray-900 mb-4",children:"Report Configuration"}),(0,b.jsxs)("div",{className:"grid grid-cols-1 md:grid-cols-3 gap-4 mb-6",children:[(0,b.jsxs)("div",{children:[(0,b.jsx)("label",{className:"block text-sm font-medium text-gray-700 mb-2",children:"Date Range"}),(0,b.jsxs)("select",{value:l,onChange:a=>p(a.target.value),className:"w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent",children:[(0,b.jsx)("option",{value:"daily",children:"Daily"}),(0,b.jsx)("option",{value:"weekly",children:"Weekly"}),(0,b.jsx)("option",{value:"monthly",children:"Monthly"}),(0,b.jsx)("option",{value:"quarterly",children:"Quarterly"}),(0,b.jsx)("option",{value:"custom",children:"Custom Range"})]})]}),(0,b.jsxs)("div",{children:[(0,b.jsx)("label",{className:"block text-sm font-medium text-gray-700 mb-2",children:"Format"}),(0,b.jsx)("select",{value:q,onChange:a=>r(a.target.value),className:"w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent",children:n.find(a=>a.id===i)?.formats.map(a=>(0,b.jsx)("option",{value:a,children:a},a))})]}),(0,b.jsx)("div",{className:"flex items-end",children:(0,b.jsx)("button",{onClick:()=>u(i),disabled:s,className:"w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center",children:s?(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)("div",{className:"animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"}),"Generating..."]}):(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)(f,{className:"h-4 w-4 mr-2"}),"Generate Report"]})})})]}),"custom"===l&&(0,b.jsxs)("div",{className:"grid grid-cols-2 gap-4 mb-4",children:[(0,b.jsxs)("div",{children:[(0,b.jsx)("label",{className:"block text-sm font-medium text-gray-700 mb-2",children:"Start Date"}),(0,b.jsx)("input",{type:"date",className:"w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"})]}),(0,b.jsxs)("div",{children:[(0,b.jsx)("label",{className:"block text-sm font-medium text-gray-700 mb-2",children:"End Date"}),(0,b.jsx)("input",{type:"date",className:"w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"})]})]})]})]}),(0,b.jsxs)("div",{className:"bg-white shadow-lg rounded-lg p-6",children:[(0,b.jsxs)("div",{className:"flex items-center justify-between mb-6",children:[(0,b.jsx)("h2",{className:"text-xl font-bold text-gray-900",children:"Recent Reports"}),(0,b.jsx)("button",{className:"text-blue-600 hover:text-blue-800 text-sm font-medium",children:"View All"})]}),(0,b.jsx)("div",{className:"space-y-4",children:o.map(a=>(0,b.jsxs)("div",{className:"flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50",children:[(0,b.jsx)("div",{className:"flex-1",children:(0,b.jsxs)("div",{className:"flex items-center space-x-3",children:[(0,b.jsx)("div",{className:"flex-shrink-0",children:(0,b.jsx)(m.CheckCircleIcon,{className:"h-5 w-5 text-green-500"})}),(0,b.jsxs)("div",{children:[(0,b.jsx)("h3",{className:"font-medium text-gray-900",children:a.name}),(0,b.jsxs)("div",{className:"flex items-center space-x-4 text-sm text-gray-500 mt-1",children:[(0,b.jsxs)("span",{children:["Generated by ",a.generatedBy]}),(0,b.jsx)("span",{children:new Date(a.generatedAt).toLocaleDateString()}),(0,b.jsxs)("span",{children:[a.format," • ",a.size]})]})]})]})}),(0,b.jsx)("div",{className:"flex items-center space-x-2",children:(0,b.jsx)("button",{className:"text-blue-600 hover:text-blue-800 p-2",children:(0,b.jsx)(f,{className:"h-4 w-4"})})})]},a.id))})]})]}),(0,b.jsxs)("div",{className:"space-y-6",children:[(0,b.jsxs)("div",{className:"bg-white shadow-lg rounded-lg p-6",children:[(0,b.jsx)("h3",{className:"text-lg font-semibold text-gray-900 mb-4",children:"Report Statistics"}),(0,b.jsxs)("div",{className:"space-y-4",children:[(0,b.jsxs)("div",{className:"flex justify-between items-center",children:[(0,b.jsx)("span",{className:"text-gray-600",children:"Reports Generated Today"}),(0,b.jsx)("span",{className:"font-semibold text-gray-900",children:"8"})]}),(0,b.jsxs)("div",{className:"flex justify-between items-center",children:[(0,b.jsx)("span",{className:"text-gray-600",children:"This Week"}),(0,b.jsx)("span",{className:"font-semibold text-gray-900",children:"42"})]}),(0,b.jsxs)("div",{className:"flex justify-between items-center",children:[(0,b.jsx)("span",{className:"text-gray-600",children:"This Month"}),(0,b.jsx)("span",{className:"font-semibold text-gray-900",children:"187"})]}),(0,b.jsxs)("div",{className:"flex justify-between items-center",children:[(0,b.jsx)("span",{className:"text-gray-600",children:"Total Downloads"}),(0,b.jsx)("span",{className:"font-semibold text-gray-900",children:"2,143"})]})]})]}),(0,b.jsxs)("div",{className:"bg-white shadow-lg rounded-lg p-6",children:[(0,b.jsx)("h3",{className:"text-lg font-semibold text-gray-900 mb-4",children:"Scheduled Reports"}),(0,b.jsxs)("div",{className:"space-y-3",children:[(0,b.jsxs)("div",{className:"flex items-center justify-between p-3 bg-blue-50 rounded-lg",children:[(0,b.jsxs)("div",{children:[(0,b.jsx)("div",{className:"font-medium text-blue-900",children:"Daily Financial Summary"}),(0,b.jsx)("div",{className:"text-sm text-blue-700",children:"Every day at 9:00 AM"})]}),(0,b.jsx)("div",{className:"text-blue-600",children:(0,b.jsx)(g.CalendarIcon,{className:"h-4 w-4"})})]}),(0,b.jsxs)("div",{className:"flex items-center justify-between p-3 bg-green-50 rounded-lg",children:[(0,b.jsxs)("div",{children:[(0,b.jsx)("div",{className:"font-medium text-green-900",children:"Weekly Performance"}),(0,b.jsx)("div",{className:"text-sm text-green-700",children:"Every Monday at 8:00 AM"})]}),(0,b.jsx)("div",{className:"text-green-600",children:(0,b.jsx)(g.CalendarIcon,{className:"h-4 w-4"})})]}),(0,b.jsxs)("div",{className:"flex items-center justify-between p-3 bg-purple-50 rounded-lg",children:[(0,b.jsxs)("div",{children:[(0,b.jsx)("div",{className:"font-medium text-purple-900",children:"Monthly Analytics"}),(0,b.jsx)("div",{className:"text-sm text-purple-700",children:"1st of every month"})]}),(0,b.jsx)("div",{className:"text-purple-600",children:(0,b.jsx)(g.CalendarIcon,{className:"h-4 w-4"})})]})]}),(0,b.jsx)("button",{className:"w-full mt-4 text-blue-600 hover:text-blue-800 text-sm font-medium",children:"Manage Schedules"})]}),(0,b.jsxs)("div",{className:"bg-white shadow-lg rounded-lg p-6",children:[(0,b.jsx)("h3",{className:"text-lg font-semibold text-gray-900 mb-4",children:"Export Options"}),(0,b.jsxs)("div",{className:"space-y-3",children:[(0,b.jsxs)("button",{className:"w-full p-3 border border-gray-200 rounded-lg hover:bg-gray-50 flex items-center",children:[(0,b.jsx)(j.DocumentTextIcon,{className:"h-5 w-5 text-red-500 mr-3"}),(0,b.jsx)("span",{className:"text-gray-900",children:"Export to PDF"})]}),(0,b.jsxs)("button",{className:"w-full p-3 border border-gray-200 rounded-lg hover:bg-gray-50 flex items-center",children:[(0,b.jsx)(e,{className:"h-5 w-5 text-green-500 mr-3"}),(0,b.jsx)("span",{className:"text-gray-900",children:"Export to Excel"})]}),(0,b.jsxs)("button",{className:"w-full p-3 border border-gray-200 rounded-lg hover:bg-gray-50 flex items-center",children:[(0,b.jsx)(h.ChartBarIcon,{className:"h-5 w-5 text-blue-500 mr-3"}),(0,b.jsx)("span",{className:"text-gray-900",children:"Export to PowerPoint"})]})]})]})]})]})]})}}];
+module.exports = [
+"[project]/src/app/admin/reports/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>AdminReportsPage
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$react$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next-auth/react/index.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$DocumentTextIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__DocumentTextIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/@heroicons/react/24/outline/esm/DocumentTextIcon.js [app-ssr] (ecmascript) <export default as DocumentTextIcon>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@heroicons/react/24/outline/esm/index.js [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+const reportTypes = [
+    {
+        id: "portfolio",
+        name: "Portfolio Report",
+        description: "Complete loan portfolio analysis"
+    },
+    {
+        id: "performance",
+        name: "Performance Report",
+        description: "Monthly business performance metrics"
+    },
+    {
+        id: "risk",
+        name: "Risk Assessment Report",
+        description: "Credit risk and NPA analysis"
+    },
+    {
+        id: "customer",
+        name: "Customer Analytics",
+        description: "Customer behavior and satisfaction"
+    },
+    {
+        id: "compliance",
+        name: "Compliance Report",
+        description: "Regulatory compliance status"
+    }
+];
+function AdminReportsPage() {
+    const { data: session } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$react$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSession"])();
+    const [selectedReport, setSelectedReport] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [dateRange, setDateRange] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
+        start: "",
+        end: ""
+    });
+    const [isGenerating, setIsGenerating] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    if (session?.user?.role !== "ADMIN") {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "text-center py-12",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                    className: "text-3xl font-bold text-gray-900",
+                    children: "Access Denied"
+                }, void 0, false, {
+                    fileName: "[project]/src/app/admin/reports/page.tsx",
+                    lineNumber: 30,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-gray-600",
+                    children: "You don't have permission to access this page."
+                }, void 0, false, {
+                    fileName: "[project]/src/app/admin/reports/page.tsx",
+                    lineNumber: 31,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/app/admin/reports/page.tsx",
+            lineNumber: 29,
+            columnNumber: 7
+        }, this);
+    }
+    const generateReport = async ()=>{
+        setIsGenerating(true);
+        // Simulate report generation
+        setTimeout(()=>{
+            setIsGenerating(false);
+            alert("Report generated successfully! Check your downloads folder.");
+        }, 3000);
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "space-y-8",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "text-3xl font-bold text-gray-900",
+                        children: "Reports & Analytics"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                        lineNumber: 48,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-gray-600 mt-1",
+                        children: "Generate comprehensive business reports and insights"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                        lineNumber: 49,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/admin/reports/page.tsx",
+                lineNumber: 47,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "grid grid-cols-1 lg:grid-cols-3 gap-8",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "lg:col-span-2 bg-white rounded-lg shadow-md p-6",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-xl font-bold text-gray-900 mb-6",
+                                children: "Generate New Report"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                lineNumber: 55,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "space-y-6",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "block text-sm font-medium text-gray-700 mb-3",
+                                                children: "Report Type"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                lineNumber: 59,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "grid grid-cols-1 gap-3",
+                                                children: reportTypes.map((report)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        onClick: ()=>setSelectedReport(report.id),
+                                                        className: `p-4 border rounded-lg cursor-pointer transition-all duration-200 ${selectedReport === report.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'}`,
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-center",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$DocumentTextIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__DocumentTextIcon$3e$__["DocumentTextIcon"], {
+                                                                    className: "h-5 w-5 text-gray-400 mr-3"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                                    lineNumber: 72,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                            className: "font-medium text-gray-900",
+                                                                            children: report.name
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                                            lineNumber: 74,
+                                                                            columnNumber: 25
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-sm text-gray-500",
+                                                                            children: report.description
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                                            lineNumber: 75,
+                                                                            columnNumber: 25
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                                    lineNumber: 73,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                            lineNumber: 71,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    }, report.id, false, {
+                                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                        lineNumber: 62,
+                                                        columnNumber: 19
+                                                    }, this))
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                lineNumber: 60,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                        lineNumber: 58,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "grid grid-cols-2 gap-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "block text-sm font-medium text-gray-700 mb-2",
+                                                        children: "Start Date"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                        lineNumber: 85,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "date",
+                                                        value: dateRange.start,
+                                                        onChange: (e)=>setDateRange((prev)=>({
+                                                                    ...prev,
+                                                                    start: e.target.value
+                                                                })),
+                                                        className: "w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                        lineNumber: 86,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                lineNumber: 84,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "block text-sm font-medium text-gray-700 mb-2",
+                                                        children: "End Date"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                        lineNumber: 94,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "date",
+                                                        value: dateRange.end,
+                                                        onChange: (e)=>setDateRange((prev)=>({
+                                                                    ...prev,
+                                                                    end: e.target.value
+                                                                })),
+                                                        className: "w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                        lineNumber: 95,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                lineNumber: 93,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                        lineNumber: 83,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: generateReport,
+                                        disabled: !selectedReport || isGenerating,
+                                        className: "w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center",
+                                        children: isGenerating ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                    lineNumber: 111,
+                                                    columnNumber: 19
+                                                }, this),
+                                                "Generating Report..."
+                                            ]
+                                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DownloadIcon"], {
+                                                    className: "h-5 w-5 mr-2"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                    lineNumber: 116,
+                                                    columnNumber: 19
+                                                }, this),
+                                                "Generate Report"
+                                            ]
+                                        }, void 0, true)
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                        lineNumber: 104,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                lineNumber: 57,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                        lineNumber: 54,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-lg shadow-md p-6",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-xl font-bold text-gray-900 mb-6",
+                                children: "Recent Reports"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                lineNumber: 126,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "space-y-4",
+                                children: [
+                                    {
+                                        name: "Portfolio Report - Dec 2024",
+                                        date: "2024-12-01",
+                                        size: "2.3 MB"
+                                    },
+                                    {
+                                        name: "Performance Report - Nov 2024",
+                                        date: "2024-11-01",
+                                        size: "1.8 MB"
+                                    },
+                                    {
+                                        name: "Risk Assessment - Nov 2024",
+                                        date: "2024-11-01",
+                                        size: "945 KB"
+                                    },
+                                    {
+                                        name: "Customer Analytics - Oct 2024",
+                                        date: "2024-10-01",
+                                        size: "1.2 MB"
+                                    }
+                                ].map((report, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center justify-between p-3 border border-gray-200 rounded-lg",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$DocumentTextIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__DocumentTextIcon$3e$__["DocumentTextIcon"], {
+                                                        className: "h-5 w-5 text-gray-400 mr-3"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                        lineNumber: 137,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-sm font-medium text-gray-900",
+                                                                children: report.name
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                                lineNumber: 139,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-xs text-gray-500",
+                                                                children: [
+                                                                    report.date,
+                                                                    " • ",
+                                                                    report.size
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                                lineNumber: 140,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                        lineNumber: 138,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                lineNumber: 136,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                className: "text-blue-600 hover:text-blue-700",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DownloadIcon"], {
+                                                    className: "h-4 w-4"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                    lineNumber: 144,
+                                                    columnNumber: 19
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                                lineNumber: 143,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, index, true, {
+                                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                                        lineNumber: 135,
+                                        columnNumber: 15
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/admin/reports/page.tsx",
+                                lineNumber: 128,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/admin/reports/page.tsx",
+                        lineNumber: 125,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/admin/reports/page.tsx",
+                lineNumber: 52,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/app/admin/reports/page.tsx",
+        lineNumber: 46,
+        columnNumber: 5
+    }, this);
+}
+}),
+];
 
 //# sourceMappingURL=src_app_admin_reports_page_tsx_24776585._.js.map

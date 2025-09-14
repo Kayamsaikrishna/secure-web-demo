@@ -53,10 +53,22 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies AppPageConfig<"/">
 }
 
+// Validate ../../src/app/about/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/about/page.js")
+  handler satisfies AppPageConfig<"/about">
+}
+
 // Validate ../../src/app/admin/analytics/page.tsx
 {
   const handler = {} as typeof import("../../src/app/admin/analytics/page.js")
   handler satisfies AppPageConfig<"/admin/analytics">
+}
+
+// Validate ../../src/app/admin/applications/[id]/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/admin/applications/[id]/page.js")
+  handler satisfies AppPageConfig<"/admin/applications/[id]">
 }
 
 // Validate ../../src/app/admin/applications/page.tsx
@@ -65,16 +77,52 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies AppPageConfig<"/admin/applications">
 }
 
+// Validate ../../src/app/admin/disbursements/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/admin/disbursements/page.js")
+  handler satisfies AppPageConfig<"/admin/disbursements">
+}
+
+// Validate ../../src/app/admin/loan-schemes/create/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/admin/loan-schemes/create/page.js")
+  handler satisfies AppPageConfig<"/admin/loan-schemes/create">
+}
+
+// Validate ../../src/app/admin/loan-schemes/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/admin/loan-schemes/page.js")
+  handler satisfies AppPageConfig<"/admin/loan-schemes">
+}
+
 // Validate ../../src/app/admin/page.tsx
 {
   const handler = {} as typeof import("../../src/app/admin/page.js")
   handler satisfies AppPageConfig<"/admin">
 }
 
+// Validate ../../src/app/admin/products/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/admin/products/page.js")
+  handler satisfies AppPageConfig<"/admin/products">
+}
+
+// Validate ../../src/app/admin/profile/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/admin/profile/page.js")
+  handler satisfies AppPageConfig<"/admin/profile">
+}
+
 // Validate ../../src/app/admin/reports/page.tsx
 {
   const handler = {} as typeof import("../../src/app/admin/reports/page.js")
   handler satisfies AppPageConfig<"/admin/reports">
+}
+
+// Validate ../../src/app/admin/settings/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/admin/settings/page.js")
+  handler satisfies AppPageConfig<"/admin/settings">
 }
 
 // Validate ../../src/app/admin/setup/page.tsx
@@ -87,6 +135,18 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   const handler = {} as typeof import("../../src/app/admin/users/page.js")
   handler satisfies AppPageConfig<"/admin/users">
+}
+
+// Validate ../../src/app/contact/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/contact/page.js")
+  handler satisfies AppPageConfig<"/contact">
+}
+
+// Validate ../../src/app/cookies/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/cookies/page.js")
+  handler satisfies AppPageConfig<"/cookies">
 }
 
 // Validate ../../src/app/credit/page.tsx
@@ -105,6 +165,30 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   const handler = {} as typeof import("../../src/app/demo/page.js")
   handler satisfies AppPageConfig<"/demo">
+}
+
+// Validate ../../src/app/fair-practice/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/fair-practice/page.js")
+  handler satisfies AppPageConfig<"/fair-practice">
+}
+
+// Validate ../../src/app/faq/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/faq/page.js")
+  handler satisfies AppPageConfig<"/faq">
+}
+
+// Validate ../../src/app/grievance/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/grievance/page.js")
+  handler satisfies AppPageConfig<"/grievance">
+}
+
+// Validate ../../src/app/help/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/help/page.js")
+  handler satisfies AppPageConfig<"/help">
 }
 
 // Validate ../../src/app/kyc/page.tsx
@@ -137,6 +221,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies AppPageConfig<"/loans/calculator">
 }
 
+// Validate ../../src/app/loans/my-applications/[id]/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/loans/my-applications/[id]/page.js")
+  handler satisfies AppPageConfig<"/loans/my-applications/[id]">
+}
+
 // Validate ../../src/app/loans/my-applications/page.tsx
 {
   const handler = {} as typeof import("../../src/app/loans/my-applications/page.js")
@@ -167,10 +257,34 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies AppPageConfig<"/">
 }
 
+// Validate ../../src/app/privacy/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/privacy/page.js")
+  handler satisfies AppPageConfig<"/privacy">
+}
+
+// Validate ../../src/app/profile/edit/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/profile/edit/page.js")
+  handler satisfies AppPageConfig<"/profile/edit">
+}
+
+// Validate ../../src/app/profile/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/profile/page.js")
+  handler satisfies AppPageConfig<"/profile">
+}
+
 // Validate ../../src/app/register/page.tsx
 {
   const handler = {} as typeof import("../../src/app/register/page.js")
   handler satisfies AppPageConfig<"/register">
+}
+
+// Validate ../../src/app/terms/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/terms/page.js")
+  handler satisfies AppPageConfig<"/terms">
 }
 
 // Validate ../../src/app/api/aadhaar/verify/route.ts
@@ -179,10 +293,22 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies RouteHandlerConfig<"/api/aadhaar/verify">
 }
 
+// Validate ../../src/app/api/admin/profile/route.ts
+{
+  const handler = {} as typeof import("../../src/app/api/admin/profile/route.js")
+  handler satisfies RouteHandlerConfig<"/api/admin/profile">
+}
+
 // Validate ../../src/app/api/admin/setup/route.ts
 {
   const handler = {} as typeof import("../../src/app/api/admin/setup/route.js")
   handler satisfies RouteHandlerConfig<"/api/admin/setup">
+}
+
+// Validate ../../src/app/api/admin/stats/route.ts
+{
+  const handler = {} as typeof import("../../src/app/api/admin/stats/route.js")
+  handler satisfies RouteHandlerConfig<"/api/admin/stats">
 }
 
 // Validate ../../src/app/api/admin/users/route.ts
@@ -225,6 +351,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   const handler = {} as typeof import("../../src/app/api/pan/verify/route.js")
   handler satisfies RouteHandlerConfig<"/api/pan/verify">
+}
+
+// Validate ../../src/app/api/profile/route.ts
+{
+  const handler = {} as typeof import("../../src/app/api/profile/route.js")
+  handler satisfies RouteHandlerConfig<"/api/profile">
 }
 
 

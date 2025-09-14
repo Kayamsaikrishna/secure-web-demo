@@ -362,9 +362,10 @@ export default function TrackApplicationPage() {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Customer Support</h4>
                   <div className="space-y-2 text-sm text-gray-600">
-                    <p>📞 1800-FINAGENIX (24/7)</p>
-                    <p>📧 support@finagenix.com</p>
+                    <p>📞 1800-FIN-AGENTIX (24/7)</p>
+                    <p>📧 support@fin-agentix.com</p>
                     <p>💬 Live chat available on website</p>
+                    <p>🏢 Head Office: Bangalore</p>
                   </div>
                 </div>
                 <div>

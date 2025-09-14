@@ -399,10 +399,11 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>📧 support@finagenix.com</li>
-                <li>📞 1800-FINAGENIX</li>
+                <li>📧 support@fin-agentix.com</li>
+                <li>📞 1800-FIN-AGENTIX</li>
                 <li>🕒 24/7 Customer Support</li>
                 <li>💬 Live Chat Available</li>
+                <li>🏢 Head Office: Bangalore</li>
               </ul>
             </div>
           </div>
