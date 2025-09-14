@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
     // Check authentication and authorization
     const session = await getServerSession(authOptions);
     
-    if (!session) {
+    if (!session || !session.user) {
       return NextResponse.json(
         { error: "Authentication required" },
         { status: 401 }
@@ -36,13 +36,19 @@ export async function GET(req: NextRequest) {
         },
         select: {
           id: true,
-          name: true,
           email: true,
           role: true,
-          phone: true,
+          status: true,
           createdAt: true,
+          lastLoginAt: true,
+          profile: {
+            select: {
+              firstName: true,
+              lastName: true,
+              fullName: true,
+            },
+          },
           // Explicitly exclude sensitive fields
-          password: false,
         },
       }),
       prisma.user.count(),

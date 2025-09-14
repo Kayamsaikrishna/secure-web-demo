@@ -4,11 +4,16 @@ import bcrypt from "bcryptjs";
 import { z } from "zod";
 
 const schema = z.object({
-  name: z
+  firstName: z
     .string()
-    .min(2, "Name must be at least 2 characters")
-    .max(100, "Name is too long")
-    .regex(/^[a-zA-Z\s]+$/, "Name can only contain letters and spaces"),
+    .min(2, "First name must be at least 2 characters")
+    .max(50, "First name is too long")
+    .regex(/^[a-zA-Z\s]+$/, "First name can only contain letters and spaces"),
+  lastName: z
+    .string()
+    .min(2, "Last name must be at least 2 characters")
+    .max(50, "Last name is too long")
+    .regex(/^[a-zA-Z\s]+$/, "Last name can only contain letters and spaces"),
   email: z
     .string()
     .email("Invalid email format")
@@ -37,19 +42,14 @@ export async function POST(req: NextRequest) {
     // Check if user already exists
     const existingUser = await prisma.user.findFirst({
       where: {
-        OR: [
-          { email: validatedData.email },
-          { phone: validatedData.phone },
-        ],
+        email: validatedData.email,
       },
     });
 
     if (existingUser) {
       return NextResponse.json(
         { 
-          error: existingUser.email === validatedData.email
-            ? "Email already registered"
-            : "Phone number already registered",
+          error: "Email already registered",
         },
         { status: 400 }
       );
@@ -58,22 +58,40 @@ export async function POST(req: NextRequest) {
     // Hash password with increased security
     const hashedPassword = await bcrypt.hash(validatedData.password, 12);
 
-    // Create user
+    // Create user with profile
+    const fullName = `${validatedData.firstName} ${validatedData.lastName}`;
     const user = await prisma.user.create({
       data: {
-        name: validatedData.name,
         email: validatedData.email,
         password: hashedPassword,
         role: "USER",
-        phone: validatedData.phone,
+        profile: {
+          create: {
+            firstName: validatedData.firstName,
+            lastName: validatedData.lastName,
+            fullName: fullName,
+            primaryPhone: validatedData.phone,
+            gender: "PREFER_NOT_TO_SAY",
+            dateOfBirth: new Date('1990-01-01'), // Default, user can update later
+            maritalStatus: "SINGLE",
+            fatherName: "To be updated",
+            motherName: "To be updated",
+          },
+        },
       },
       select: {
         id: true,
-        name: true,
         email: true,
         role: true,
-        phone: true,
         createdAt: true,
+        profile: {
+          select: {
+            firstName: true,
+            lastName: true,
+            fullName: true,
+            primaryPhone: true,
+          },
+        },
       },
     });
 
@@ -88,7 +106,7 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     if (error instanceof z.ZodError) {
-      const errorMessage = error.errors[0].message || "Invalid request data";
+      const errorMessage = error.issues[0]?.message || "Invalid request data";
       return NextResponse.json(
         { error: errorMessage },
         { status: 400 }

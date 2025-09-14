@@ -9,7 +9,8 @@ import { z } from "zod";
 import toast from "react-hot-toast";
 
 const schema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
+  firstName: z.string().min(2, "First name must be at least 2 characters"),
+  lastName: z.string().min(2, "Last name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   password: z.string().min(8, "Password must be at least 8 characters"),
   phone: z.string().min(10, "Invalid phone number"),
@@ -66,20 +67,40 @@ export default function RegisterPage() {
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label
-              htmlFor="name"
+              htmlFor="firstName"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              Full Name
+              First Name
             </label>
             <div className="mt-2">
               <input
-                id="name"
+                id="firstName"
                 type="text"
-                {...register("name")}
+                {...register("firstName")}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
-              {errors.name && (
-                <p className="mt-2 text-sm text-red-600">{errors.name.message}</p>
+              {errors.firstName && (
+                <p className="mt-2 text-sm text-red-600">{errors.firstName.message}</p>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="lastName"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Last Name
+            </label>
+            <div className="mt-2">
+              <input
+                id="lastName"
+                type="text"
+                {...register("lastName")}
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+              {errors.lastName && (
+                <p className="mt-2 text-sm text-red-600">{errors.lastName.message}</p>
               )}
             </div>
           </div>
