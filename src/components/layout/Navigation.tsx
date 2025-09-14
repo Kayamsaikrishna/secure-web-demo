@@ -40,6 +40,7 @@ export default function Navigation() {
     { name: "Users", href: "/admin/users" },
     { name: "Analytics", href: "/admin/analytics" },
     { name: "Reports", href: "/admin/reports" },
+    { name: "Admin Profile", href: "/admin/profile" },
     { name: "Setup", href: "/admin/setup" },
   ];
 
@@ -218,7 +219,7 @@ export default function Navigation() {
                         <Menu.Item>
                           {({ active }) => (
                             <Link
-                              href="/profile"
+                              href={(session?.user as any)?.role === 'ADMIN' ? "/admin/profile" : "/profile"}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
@@ -297,7 +298,7 @@ export default function Navigation() {
               </div>
               <div className="mt-3 space-y-1 px-2">
                 <Link
-                  href="/profile"
+                  href={(session?.user as any)?.role === 'ADMIN' ? "/admin/profile" : "/profile"}
                   className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-500"
                 >
                   Profile Settings
