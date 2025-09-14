@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import logoImage from "@/assets/fin-agentix-logo.png";
 
 interface LogoProps {
   size: 'sm' | 'md' | 'lg';
@@ -21,25 +22,8 @@ const Logo = ({ size, className = "" }: LogoProps) => {
 
   // Try to load the logo directly with a timeout fallback
   useEffect(() => {
-    const img = document.createElement('img');
-    img.onload = () => {
-      console.log('Logo loaded successfully');
-      setShowFallback(false);
-    };
-    img.onerror = () => {
-      console.log('Logo failed to load, using fallback');
-      setShowFallback(true);
-    };
-    
-    // Try PNG first, then JPEG
-    img.src = '/fin-agentix-logo.png';
-    
-    // Fallback timeout
-    const timeout = setTimeout(() => {
-      setShowFallback(true);
-    }, 2000);
-    
-    return () => clearTimeout(timeout);
+    // Since we have the logo imported, set showFallback to false
+    setShowFallback(false);
   }, []);
 
   // Professional fallback design with your branding (circular design preference)
@@ -55,11 +39,11 @@ const Logo = ({ size, className = "" }: LogoProps) => {
   return (
     <div className={`${container} rounded-full overflow-hidden bg-white p-1 shadow-lg flex items-center justify-center ${className}`}>
       <Image
-        src="/fin-agentix-logo.png"
+        src={logoImage}
         alt="Fin-Agentix Logo"
         width={image}
         height={image}
-        className="object-cover w-full h-full rounded-full"
+        className="object-contain w-full h-full rounded-full"
         priority={size === 'sm'}
         onError={() => setShowFallback(true)}
       />

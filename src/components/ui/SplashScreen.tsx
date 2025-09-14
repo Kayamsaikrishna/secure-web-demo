@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import logoImage from "@/assets/fin-agentix-logo.png";
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -77,8 +79,15 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
           {/* Logo Circle Background - Following circular logo design preference */}
           <div className="w-32 h-32 rounded-full bg-white shadow-2xl flex items-center justify-center mb-6 mx-auto transition-transform duration-300 hover:scale-105">
             {/* Fin-Agentix Logo */}
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-inner border-2 border-blue-500">
-              <span className="text-white text-2xl font-bold tracking-wide">FA</span>
+            <div className="w-28 h-28 rounded-full overflow-hidden bg-white p-2 shadow-inner border-2 border-blue-500">
+              <Image
+                src={logoImage}
+                alt="Fin-Agentix Logo"
+                width={112}
+                height={112}
+                className="object-contain w-full h-full rounded-full"
+                priority
+              />
             </div>
           </div>
 
