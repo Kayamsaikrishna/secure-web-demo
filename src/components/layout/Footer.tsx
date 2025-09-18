@@ -17,6 +17,7 @@ import {
   ChartBarIcon
 } from "@heroicons/react/24/outline";
 import Logo from "@/components/ui/Logo";
+import { useTranslation } from 'react-i18next';
 
 const contactInfo = {
   phone: "1800-123-LOAN (5626)",
@@ -53,63 +54,64 @@ const offices = [
   }
 ];
 
-const publicLinks = [
-  { name: "Home", href: "/" },
-  { name: "All Loans", href: "/loans" },
-  { name: "EMI Calculator", href: "/loans/calculator" },
-  { name: "Track Application", href: "/loans/track" },
-  { name: "About Us", href: "/about" },
-  { name: "Contact", href: "/contact" }
-];
-
-const userLinks = [
-  { name: "Dashboard", href: "/dashboard" },
-  { name: "Apply for Loan", href: "/loans/apply" },
-  { name: "My Applications", href: "/loans/my-applications" },
-  { name: "KYC Verification", href: "/kyc" },
-  { name: "Profile", href: "/profile" },
-  { name: "EMI Calculator", href: "/loans/calculator" }
-];
-
-const adminLinks = [
-  { name: "Admin Dashboard", href: "/admin" },
-  { name: "Applications", href: "/admin/applications" },
-  { name: "Users Management", href: "/admin/users" },
-  { name: "Analytics", href: "/admin/analytics" },
-  { name: "Reports", href: "/admin/reports" },
-  { name: "Admin Profile", href: "/admin/profile" }
-];
-
-const loanProducts = [
-  { name: "Personal Loans", href: "/loans/personal" },
-  { name: "Home Loans", href: "/loans/home" },
-  { name: "Vehicle Loans", href: "/loans/vehicle" },
-  { name: "Business Loans", href: "/loans/business" },
-  { name: "Education Loans", href: "/loans/education" },
-  { name: "Gold Loans", href: "/loans/gold" }
-];
-
-const supportLinks = [
-  { name: "Help Center", href: "/help" },
-  { name: "FAQs", href: "/faq" },
-  { name: "Customer Support", href: "/contact" },
-  { name: "Grievance Redressal", href: "/grievance" },
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Terms & Conditions", href: "/terms" }
-];
-
-const legalLinks = [
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Terms of Service", href: "/terms" },
-  { name: "Cookie Policy", href: "/cookies" },
-  { name: "Fair Practice Code", href: "/fair-practice" },
-  { name: "Grievance Policy", href: "/grievance" },
-  { name: "Interest Rate Policy", href: "/interest-rates" }
-];
-
 export default function Footer() {
   const { data: session } = useSession();
+  const { t } = useTranslation('common');
   
+  const publicLinks = [
+    { name: t('navigation.home'), href: "/" },
+    { name: t('navigation.all_loans'), href: "/loans" },
+    { name: t('navigation.emi_calculator'), href: "/loans/calculator" },
+    { name: "Track Application", href: "/loans/track" },
+    { name: t('navigation.about'), href: "/about" },
+    { name: t('navigation.contact'), href: "/contact" }
+  ];
+
+  const userLinks = [
+    { name: t('navigation.dashboard'), href: "/dashboard" },
+    { name: t('navigation.apply_for_loan'), href: "/loans/apply" },
+    { name: t('navigation.my_applications'), href: "/loans/my-applications" },
+    { name: t('navigation.kyc_verification'), href: "/kyc" },
+    { name: t('navigation.profile'), href: "/profile" },
+    { name: t('navigation.emi_calculator'), href: "/loans/calculator" }
+  ];
+
+  const adminLinks = [
+    { name: t('navigation.admin_dashboard'), href: "/admin" },
+    { name: t('navigation.applications'), href: "/admin/applications" },
+    { name: t('navigation.users'), href: "/admin/users" },
+    { name: t('navigation.analytics'), href: "/admin/analytics" },
+    { name: t('navigation.reports'), href: "/admin/reports" },
+    { name: t('navigation.admin_profile'), href: "/admin/profile" }
+  ];
+
+  const loanProducts = [
+    { name: t('loan_sectors.personal.name'), href: "/loans/personal" },
+    { name: t('loan_sectors.home.name'), href: "/loans/home" },
+    { name: t('loan_sectors.vehicle.name'), href: "/loans/vehicle" },
+    { name: t('loan_sectors.business.name'), href: "/loans/business" },
+    { name: t('loan_sectors.education.name'), href: "/loans/education" },
+    { name: t('loan_sectors.gold.name'), href: "/loans/gold" }
+  ];
+
+  const supportLinks = [
+    { name: "Help Center", href: "/help" },
+    { name: "FAQs", href: "/faq" },
+    { name: t('navigation.contact'), href: "/contact" },
+    { name: "Grievance Redressal", href: "/grievance" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms & Conditions", href: "/terms" }
+  ];
+
+  const legalLinks = [
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+    { name: "Cookie Policy", href: "/cookies" },
+    { name: "Fair Practice Code", href: "/fair-practice" },
+    { name: "Grievance Policy", href: "/grievance" },
+    { name: "Interest Rate Policy", href: "/interest-rates" }
+  ];
+
   const getQuickLinks = () => {
     if (!session) return publicLinks;
     return (session?.user as any)?.role === "ADMIN" ? adminLinks : userLinks;
@@ -133,8 +135,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
-              Revolutionizing financial services in India with AI-powered digital lending across 12 comprehensive loan sectors. 
-              Connecting borrowers with the right lenders for quick approvals and competitive rates.
+              {t('home.subtitle')}
             </p>
             
             {/* Trust Indicators */}
@@ -156,7 +157,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white">{t('navigation.quick_links')}</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -164,10 +165,10 @@ export default function Footer() {
                     href={link.href} 
                     className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 text-sm flex items-center"
                   >
-                    {link.name === "Dashboard" && <ChartBarIcon className="h-4 w-4 mr-2" />}
-                    {link.name === "Profile" && <UserIcon className="h-4 w-4 mr-2" />}
-                    {link.name === "Apply for Loan" && <CreditCardIcon className="h-4 w-4 mr-2" />}
-                    {link.name === "My Applications" && <DocumentTextIcon className="h-4 w-4 mr-2" />}
+                    {link.name === t('navigation.dashboard') && <ChartBarIcon className="h-4 w-4 mr-2" />}
+                    {link.name === t('navigation.profile') && <UserIcon className="h-4 w-4 mr-2" />}
+                    {link.name === t('navigation.apply_for_loan') && <CreditCardIcon className="h-4 w-4 mr-2" />}
+                    {link.name === t('navigation.my_applications') && <DocumentTextIcon className="h-4 w-4 mr-2" />}
                     {link.href.includes("admin") && <BuildingOfficeIcon className="h-4 w-4 mr-2" />}
                     {link.name}
                   </Link>
@@ -178,7 +179,7 @@ export default function Footer() {
 
           {/* Loan Products */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Loan Products</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white">{t('home.loan_sectors')}</h4>
             <ul className="space-y-3">
               {loanProducts.map((product) => (
                 <li key={product.name}>
@@ -193,20 +194,20 @@ export default function Footer() {
             </ul>
             
             <div className="mt-6 p-4 bg-gray-800 rounded-lg">
-              <h5 className="font-semibold text-yellow-400 mb-2">Need Help Choosing?</h5>
-              <p className="text-xs text-gray-400 mb-3">Get personalized loan recommendations</p>
+              <h5 className="font-semibold text-yellow-400 mb-2">{t('navigation.emi_calculator')}</h5>
+              <p className="text-xs text-gray-400 mb-3">{t('home.ready_to_start_desc')}</p>
               <Link 
                 href="/loans/calculator" 
                 className="inline-block bg-yellow-400 text-gray-900 px-4 py-2 rounded text-xs font-semibold hover:bg-yellow-300 transition-colors duration-200"
               >
-                Calculate EMI
+                {t('home.start_application')}
               </Link>
             </div>
           </div>
 
           {/* Contact & Support */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Contact & Support</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white">{t('navigation.contact')}</h4>
             
             {/* Contact Information */}
             <div className="space-y-4 mb-6">

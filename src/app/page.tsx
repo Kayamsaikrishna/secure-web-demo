@@ -1,7 +1,12 @@
+"use client";
+
 import { ArrowRightIcon, CheckCircleIcon, StarIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+import i18n from '@/lib/i18n';
 
 const loanSectors = [
   {
@@ -91,7 +96,7 @@ const loanSectors = [
     amount: '₹30K - ₹3L',
     rate: '13.5%',
     tenure: '1-3 years',
-    image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop',
+    image: 'https://images.unsplash.com/photo-1449824913935-59a1b58e7e9c?w=400&h=300&fit=crop',
     features: ['Minimal Docs', 'Same Day', 'Insurance']
   },
   {
@@ -167,6 +172,17 @@ const stats = [
 ];
 
 export default function Home() {
+  const { t } = useTranslation('common');
+
+  // Initialize i18n if not already done
+  useEffect(() => {
+    // Check for saved language preference
+    const savedLanguage = typeof window !== 'undefined' ? localStorage.getItem('selectedLanguage') : null;
+    if (savedLanguage && i18n.hasResourceBundle(savedLanguage, 'common')) {
+      i18n.changeLanguage(savedLanguage);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Hero Section */}
@@ -188,25 +204,24 @@ export default function Home() {
               </h1>
             </div>
             <p className="text-xl md:text-2xl mb-4 opacity-90">
-              AI-Powered Digital Lending Platform
+              {t('home.title')}
             </p>
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-80">
-              Connecting borrowers with the right lenders across 12 loan sectors. 
-              Experience instant approvals, competitive rates, and seamless digital processes.
+              {t('home.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/register"
                 className="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors duration-200 flex items-center justify-center"
               >
-                Apply for Loan
+                {t('home.apply_now')}
                 <ArrowRightIcon className="ml-2 h-5 w-5" />
               </Link>
               <Link
                 href="/login"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200"
               >
-                Login to Dashboard
+                {t('home.login_dashboard')}
               </Link>
             </div>
           </div>
@@ -228,7 +243,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-gray-600">{t(`stats.${stat.label.toLowerCase().replace(' ', '_')}`)}</div>
               </div>
             ))}
           </div>
@@ -240,11 +255,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              12 Comprehensive Loan Sectors
+              {t('home.loan_sectors')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From personal needs to business growth, we cover every financial requirement 
-              with tailored solutions and competitive rates.
+              {t('home.loan_sectors_desc')}
             </p>
           </div>
           
@@ -260,11 +274,11 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-xl font-semibold">{sector.name}</h3>
+                    <h3 className="text-xl font-semibold">{t(`loan_sectors.${sector.id}.name`)}</h3>
                   </div>
                 </div>
                 <div className="p-6">
-                  <p className="text-gray-600 mb-4 text-sm">{sector.description}</p>
+                  <p className="text-gray-600 mb-4 text-sm">{t(`loan_sectors.${sector.id}.description`)}</p>
                   
                   <div className="space-y-2 mb-4">
                     <div className="flex justify-between text-sm">
@@ -282,10 +296,10 @@ export default function Home() {
                   </div>
                   
                   <div className="space-y-1 mb-4">
-                    {sector.features.map((feature) => (
+                    {sector.features.map((feature, index) => (
                       <div key={feature} className="flex items-center text-xs text-gray-600">
                         <CheckCircleIcon className="h-3 w-3 text-green-500 mr-1" />
-                        {feature}
+                        {t(`loan_sectors.${sector.id}.features.${index}`)}
                       </div>
                     ))}
                   </div>
@@ -308,11 +322,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Fin-Agentix India?
+              {t('home.why_choose')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Leveraging cutting-edge technology and deep market insights to revolutionize 
-              lending in India.
+              {t('home.why_choose_desc')}
             </p>
           </div>
           
@@ -327,8 +340,8 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{t(`features.${feature.title.toLowerCase().replace(/ /g, '_').replace(/-/g, '_')}.title`)}</h3>
+                <p className="text-gray-600">{t(`features.${feature.title.toLowerCase().replace(/ /g, '_').replace(/-/g, '_')}.description`)}</p>
               </div>
             ))}
           </div>
@@ -339,25 +352,24 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r from-indigo-600 to-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Get Started?
+            {t('home.ready_to_start')}
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Join millions of satisfied customers who trust Fin-Agentix for their financial needs. 
-            Apply now and get instant approval!
+            {t('home.ready_to_start_desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/register"
               className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors duration-200 flex items-center justify-center"
             >
-              Start Your Application
+              {t('home.start_application')}
               <ArrowRightIcon className="ml-2 h-5 w-5" />
             </Link>
             <Link
               href="/loans"
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200"
             >
-              Explore All Loans
+              {t('home.explore_loans')}
             </Link>
           </div>
         </div>

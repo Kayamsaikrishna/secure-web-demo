@@ -1,0 +1,147 @@
+{
+  "home": {
+    "title": "AI-Powered Digital Lending Platform",
+    "subtitle": "Connecting borrowers with the right lenders across 12 loan sectors. Experience instant approvals, competitive rates, and seamless digital processes.",
+    "apply_now": "Apply for Loan",
+    "login_dashboard": "Login to Dashboard",
+    "loan_sectors": "12 Comprehensive Loan Sectors",
+    "loan_sectors_desc": "From personal needs to business growth, we cover every financial requirement with tailored solutions and competitive rates.",
+    "why_choose": "Why Choose Fin-Agentix India?",
+    "why_choose_desc": "Leveraging cutting-edge technology and deep market insights to revolutionize lending in India.",
+    "ready_to_start": "Ready to Get Started?",
+    "ready_to_start_desc": "Join millions of satisfied customers who trust Fin-Agentix for their financial needs. Apply now and get instant approval!",
+    "start_application": "Start Your Application",
+    "explore_loans": "Explore All Loans"
+  },
+  "navigation": {
+    "home": "Home",
+    "all_loans": "All Loans",
+    "emi_calculator": "EMI Calculator",
+    "about": "About",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "apply_for_loan": "Apply for Loan",
+    "my_applications": "My Applications",
+    "kyc_verification": "KYC Verification",
+    "profile": "Profile",
+    "admin_dashboard": "Admin Dashboard",
+    "applications": "Applications",
+    "users": "Users",
+    "analytics": "Analytics",
+    "reports": "Reports",
+    "admin_profile": "Admin Profile",
+    "setup": "Setup",
+    "login": "Login",
+    "apply_now": "Apply Now",
+    "profile_settings": "Profile Settings",
+    "sign_out": "Sign out"
+  },
+  "languages": {
+    "en": "English",
+    "hi": "हिंदी",
+    "ta": "தமிழ்",
+    "te": "తెలుగు",
+    "ml": "മലയാളം",
+    "kn": "ಕನ್ನಡ",
+    "bn": "বাংলা",
+    "gu": "ગુજરાતી",
+    "or": "ଓଡ଼ିଆ",
+    "pa": "ਪੰਜਾਬੀ",
+    "mr": "मराठी",
+    "ur": "اردو"
+  },
+  "loan_sectors": {
+    "personal": {
+      "name": "Personal Loans",
+      "description": "Quick personal loans with minimal documentation",
+      "features": ["No Collateral", "Quick Approval", "Flexible Tenure"]
+    },
+    "home": {
+      "name": "Home Loans",
+      "description": "Home loan for purchasing residential property",
+      "features": ["Tax Benefits", "Long Tenure", "RERA Verified"]
+    },
+    "vehicle": {
+      "name": "Vehicle Loans",
+      "description": "Car and two-wheeler loans with competitive rates",
+      "features": ["Instant Approval", "Zero Down Payment", "Insurance"]
+    },
+    "business": {
+      "name": "Business Loans",
+      "description": "Working capital and expansion loans for MSMEs",
+      "features": ["GST Based", "Quick Disbursal", "Flexible Repayment"]
+    },
+    "education": {
+      "name": "Education Loans",
+      "description": "Education loan for higher studies in India and abroad",
+      "features": ["Moratorium Period", "Full Coverage", "Tax Benefits"]
+    },
+    "agriculture": {
+      "name": "Agriculture Loans",
+      "description": "Comprehensive agricultural loans for farmers",
+      "features": ["Weather Insurance", "Flexible Repayment", "Subsidy"]
+    },
+    "gold": {
+      "name": "Gold Loans",
+      "description": "Instant loan against gold jewelry",
+      "features": ["Instant Approval", "Safe Storage", "Flexible"]
+    },
+    "credit-card": {
+      "name": "Credit Cards",
+      "description": "Premium credit cards with exclusive rewards",
+      "features": ["Reward Points", "Lounge Access", "Cashback"]
+    },
+    "two-wheeler": {
+      "name": "Two Wheeler",
+      "description": "Quick loan for two-wheeler purchase",
+      "features": ["Minimal Docs", "Same Day", "Insurance"]
+    },
+    "healthcare": {
+      "name": "Healthcare Loans",
+      "description": "Emergency loan for medical expenses",
+      "features": ["Hospital Network", "Quick Approval", "EMI Moratorium"]
+    },
+    "digital": {
+      "name": "Digital Loans",
+      "description": "Completely digital loan with instant approval",
+      "features": ["100% Digital", "Instant Disbursal", "Flexible"]
+    },
+    "microfinance": {
+      "name": "Microfinance",
+      "description": "Small business start-ups and income generation",
+      "features": ["Group Lending", "Financial Literacy", "Easy Access"]
+    }
+  },
+  "stats": {
+    "loans_disbursed": "Loans Disbursed",
+    "happy_customers": "Happy Customers",
+    "approval_rate": "Approval Rate",
+    "cities_covered": "Cities Covered"
+  },
+  "features": {
+    "ai_credit_scoring": {
+      "title": "AI-Powered Credit Scoring",
+      "description": "Advanced algorithms analyze 500+ data points for instant credit decisions"
+    },
+    "hour_processing": {
+      "title": "24-Hour Processing",
+      "description": "From application to disbursal in just 24 hours for most loan types"
+    },
+    "government_integration": {
+      "title": "Government Integration",
+      "description": "Direct integration with Aadhaar, PAN, GST for seamless verification"
+    },
+    "multi_language": {
+      "title": "Multi-Language Support",
+      "description": "Available in Hindi and 11 regional languages for rural accessibility"
+    },
+    "competitive_rates": {
+      "title": "Competitive Rates",
+      "description": "Best-in-market interest rates across all 12 loan sectors"
+    },
+    "fraud_prevention": {
+      "title": "Fraud Prevention",
+      "description": "Bank-grade security with real-time fraud detection systems"
+    }
+  }
+}

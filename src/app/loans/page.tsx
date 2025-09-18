@@ -1,16 +1,22 @@
 import Link from "next/link";
 import { ArrowRightIcon, CheckCircleIcon, ClockIcon, CurrencyRupeeIcon } from "@heroicons/react/24/outline";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
 const loanSectors = [
   {
     id: 'personal',
-    name: 'Personal Loans',
-    description: 'Quick personal loans with minimal documentation for your immediate needs',
+    name: 'loan_sectors.personal.name',
+    description: 'loan_sectors.personal.description',
     amount: '₹2L - ₹15L',
     rate: '12.5%',
     tenure: '12-60 months',
     icon: '👤',
-    features: ['No Collateral Required', 'Quick Approval in 24 Hours', 'Flexible Tenure Options', 'Minimal Documentation'],
+    features: [
+      'loan_sectors.personal.features.0',
+      'loan_sectors.personal.features.1', 
+      'loan_sectors.personal.features.2'
+    ],
     eligibility: ['Age: 21-60 years', 'Min Income: ₹25,000/month', 'CIBIL Score: 650+', 'Salaried/Self-employed'],
     documents: ['Aadhaar Card', 'PAN Card', 'Salary Slips/ITR', 'Bank Statements'],
     processingTime: '24-48 hours',
@@ -18,13 +24,17 @@ const loanSectors = [
   },
   {
     id: 'home',
-    name: 'Home Loans',
-    description: 'Fulfill your dream of owning a home with our competitive home loan rates',
+    name: 'loan_sectors.home.name',
+    description: 'loan_sectors.home.description',
     amount: '₹5L - ₹5Cr',
     rate: '8.5%',
     tenure: '5-25 years',
     icon: '🏠',
-    features: ['Tax Benefits under 80C & 24B', 'RERA Verified Projects', 'Flexible Repayment', 'Property Insurance'],
+    features: [
+      'loan_sectors.home.features.0',
+      'loan_sectors.home.features.1',
+      'loan_sectors.home.features.2'
+    ],
     eligibility: ['Age: 23-65 years', 'Min Income: ₹40,000/month', 'CIBIL Score: 650+', 'Property Documents'],
     documents: ['Property Papers', 'NOC from Builder', 'Approved Plan', 'Sale Agreement'],
     processingTime: '7-15 days',
@@ -32,13 +42,17 @@ const loanSectors = [
   },
   {
     id: 'vehicle',
-    name: 'Vehicle Loans',
-    description: 'Drive your dream car with easy EMIs and instant approval',
+    name: 'loan_sectors.vehicle.name',
+    description: 'loan_sectors.vehicle.description',
     amount: '₹2L - ₹50L',
     rate: '9.5%',
     tenure: '1-7 years',
     icon: '🚗',
-    features: ['Up to 100% Financing', 'Insurance Included', 'Quick Processing', 'Flexible Down Payment'],
+    features: [
+      'loan_sectors.vehicle.features.0',
+      'loan_sectors.vehicle.features.1',
+      'loan_sectors.vehicle.features.2'
+    ],
     eligibility: ['Age: 21-65 years', 'Min Income: ₹30,000/month', 'CIBIL Score: 600+', 'Valid Driving License'],
     documents: ['RC Book', 'Insurance', 'Invoice', 'Driving License'],
     processingTime: '2-5 days',
@@ -46,13 +60,17 @@ const loanSectors = [
   },
   {
     id: 'business',
-    name: 'Business Loans',
-    description: 'Grow your business with working capital and expansion loans',
+    name: 'loan_sectors.business.name',
+    description: 'loan_sectors.business.description',
     amount: '₹1L - ₹1Cr',
     rate: '14.0%',
     tenure: '1-5 years',
     icon: '💼',
-    features: ['GST-based Assessment', 'Quick Disbursal', 'Working Capital Support', 'Business Growth'],
+    features: [
+      'loan_sectors.business.features.0',
+      'loan_sectors.business.features.1',
+      'loan_sectors.business.features.2'
+    ],
     eligibility: ['Business Age: 3+ years', 'Annual Turnover: ₹10L+', 'GST Registration', 'Good Credit History'],
     documents: ['GST Returns', 'ITR', 'Bank Statements', 'Business Registration'],
     processingTime: '5-10 days',
@@ -60,13 +78,17 @@ const loanSectors = [
   },
   {
     id: 'education',
-    name: 'Education Loans',
-    description: 'Invest in your future with education loans for higher studies',
+    name: 'loan_sectors.education.name',
+    description: 'loan_sectors.education.description',
     amount: '₹1L - ₹75L',
     rate: '10.5%',
     tenure: '5-15 years',
     icon: '🎓',
-    features: ['Moratorium Period', 'Covers Full Course Fee', 'Tax Benefits', 'Study Abroad Support'],
+    features: [
+      'loan_sectors.education.features.0',
+      'loan_sectors.education.features.1',
+      'loan_sectors.education.features.2'
+    ],
     eligibility: ['Admission Confirmed', 'Co-applicant Required', 'Academic Performance', 'Course Recognition'],
     documents: ['Admission Letter', 'Fee Structure', 'Academic Records', 'Co-applicant Documents'],
     processingTime: '7-14 days',
@@ -74,13 +96,17 @@ const loanSectors = [
   },
   {
     id: 'agriculture',
-    name: 'Agriculture Loans',
-    description: 'Support your farming needs with subsidized agriculture loans',
+    name: 'loan_sectors.agriculture.name',
+    description: 'loan_sectors.agriculture.description',
     amount: '₹50K - ₹20L',
     rate: '7.0%',
     tenure: '6-36 months',
     icon: '🌾',
-    features: ['Government Subsidy', 'Weather Insurance', 'Crop-based Repayment', 'Flexible Terms'],
+    features: [
+      'loan_sectors.agriculture.features.0',
+      'loan_sectors.agriculture.features.1',
+      'loan_sectors.agriculture.features.2'
+    ],
     eligibility: ['Land Ownership', 'Farming Experience', 'Crop Details', 'Village Revenue Records'],
     documents: ['Land Records', 'Revenue Documents', 'Crop Plan', 'Identity Proof'],
     processingTime: '10-15 days',
@@ -88,13 +114,17 @@ const loanSectors = [
   },
   {
     id: 'gold',
-    name: 'Gold Loans',
-    description: 'Get instant cash against your gold jewelry with secure storage',
+    name: 'loan_sectors.gold.name',
+    description: 'loan_sectors.gold.description',
     amount: '₹10K - ₹20L',
     rate: '12.0%',
     tenure: '6-36 months',
     icon: '🥇',
-    features: ['Instant Approval', 'Safe Gold Storage', 'Flexible Repayment', 'Part Payment Option'],
+    features: [
+      'loan_sectors.gold.features.0',
+      'loan_sectors.gold.features.1',
+      'loan_sectors.gold.features.2'
+    ],
     eligibility: ['18+ years', 'Gold Purity 18K+', 'Valid Identity', 'Gold Ownership Proof'],
     documents: ['Gold Jewelry', 'Purchase Receipt', 'Identity Proof', 'Address Proof'],
     processingTime: '30 minutes',
@@ -102,13 +132,17 @@ const loanSectors = [
   },
   {
     id: 'credit-card',
-    name: 'Credit Cards',
-    description: 'Premium credit cards with exclusive rewards and benefits',
+    name: 'loan_sectors.credit-card.name',
+    description: 'loan_sectors.credit-card.description',
     amount: '₹50K - ₹20L',
     rate: '3.5%/month',
     tenure: 'Revolving Credit',
     icon: '💳',
-    features: ['Reward Points', 'Airport Lounge Access', 'Cashback Offers', 'EMI Conversion'],
+    features: [
+      'loan_sectors.credit-card.features.0',
+      'loan_sectors.credit-card.features.1',
+      'loan_sectors.credit-card.features.2'
+    ],
     eligibility: ['Age: 21-60 years', 'Min Income: ₹50,000/month', 'CIBIL Score: 750+', 'Stable Employment'],
     documents: ['Income Proof', 'Identity Documents', 'Address Proof', 'Bank Statements'],
     processingTime: '7-10 days',
@@ -116,13 +150,17 @@ const loanSectors = [
   },
   {
     id: 'two-wheeler',
-    name: 'Two Wheeler Loans',
-    description: 'Easy financing for motorcycles and scooters',
+    name: 'loan_sectors.two-wheeler.name',
+    description: 'loan_sectors.two-wheeler.description',
     amount: '₹30K - ₹3L',
     rate: '13.5%',
     tenure: '1-3 years',
     icon: '🏍️',
-    features: ['Minimal Documentation', 'Same Day Approval', 'Insurance Included', 'Low Down Payment'],
+    features: [
+      'loan_sectors.two-wheeler.features.0',
+      'loan_sectors.two-wheeler.features.1',
+      'loan_sectors.two-wheeler.features.2'
+    ],
     eligibility: ['Age: 18-65 years', 'Min Income: ₹15,000/month', 'CIBIL Score: 550+', 'Valid License'],
     documents: ['Vehicle Invoice', 'Identity Proof', 'Income Proof', 'Driving License'],
     processingTime: 'Same day',
@@ -130,13 +168,17 @@ const loanSectors = [
   },
   {
     id: 'healthcare',
-    name: 'Healthcare Loans',
-    description: 'Emergency medical financing for treatments and surgeries',
+    name: 'loan_sectors.healthcare.name',
+    description: 'loan_sectors.healthcare.description',
     amount: '₹25K - ₹10L',
     rate: '14.5%',
     tenure: '6-48 months',
     icon: '🏥',
-    features: ['Hospital Network', 'Quick Approval', 'EMI Moratorium', 'Cashless Treatment'],
+    features: [
+      'loan_sectors.healthcare.features.0',
+      'loan_sectors.healthcare.features.1',
+      'loan_sectors.healthcare.features.2'
+    ],
     eligibility: ['Medical Emergency', 'Hospital Empanelment', 'Treatment Estimate', 'Guarantor Support'],
     documents: ['Medical Reports', 'Treatment Estimate', 'Doctor Prescription', 'Hospital Bills'],
     processingTime: '4-6 hours',
@@ -144,13 +186,17 @@ const loanSectors = [
   },
   {
     id: 'digital',
-    name: 'Digital Loans',
-    description: 'Completely digital loans with instant approval and disbursal',
+    name: 'loan_sectors.digital.name',
+    description: 'loan_sectors.digital.description',
     amount: '₹5K - ₹5L',
     rate: '18.0%',
     tenure: '3-24 months',
     icon: '📱',
-    features: ['100% Digital Process', 'Instant Disbursal', 'Flexible Tenure', 'AI-based Approval'],
+    features: [
+      'loan_sectors.digital.features.0',
+      'loan_sectors.digital.features.1',
+      'loan_sectors.digital.features.2'
+    ],
     eligibility: ['Age: 21-60 years', 'Digital Footprint', 'UPI Transaction History', 'Mobile Banking'],
     documents: ['Digital KYC', 'Bank Statements', 'UPI History', 'Digital Signatures'],
     processingTime: '15 minutes',
@@ -158,13 +204,17 @@ const loanSectors = [
   },
   {
     id: 'microfinance',
-    name: 'Microfinance',
-    description: 'Small loans for income generation and business start-ups',
+    name: 'loan_sectors.microfinance.name',
+    description: 'loan_sectors.microfinance.description',
     amount: '₹15K - ₹1L',
     rate: '16.0%',
     tenure: '6-36 months',
     icon: '🏪',
-    features: ['Group Lending', 'Financial Literacy', 'Easy Access', 'Women Focused'],
+    features: [
+      'loan_sectors.microfinance.features.0',
+      'loan_sectors.microfinance.features.1',
+      'loan_sectors.microfinance.features.2'
+    ],
     eligibility: ['Women Entrepreneurs', 'Self Help Groups', 'Income Generation Plan', 'Group Guarantee'],
     documents: ['SHG Documents', 'Income Plan', 'Group Consent', 'Identity Proof'],
     processingTime: '3-7 days',
@@ -172,7 +222,7 @@ const loanSectors = [
   }
 ];
 
-export default function LoansPage() {
+export default function LoansPage({ t }: { t: any }) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
@@ -180,14 +230,13 @@ export default function LoansPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Comprehensive Loan Solutions
+              {t('home.loan_sectors')}
             </h1>
             <p className="text-xl md:text-2xl mb-6 opacity-90">
               12 Specialized Loan Sectors for Every Financial Need
             </p>
             <p className="text-lg opacity-80 max-w-3xl mx-auto">
-              From personal needs to business growth, agriculture to education - 
-              find the perfect loan solution with competitive rates and quick approval.
+              {t('home.loan_sectors_desc')}
             </p>
           </div>
         </div>
@@ -207,8 +256,8 @@ export default function LoansPage() {
                     <div className="text-sm opacity-90">Starting Rate</div>
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">{loan.name}</h3>
-                <p className="text-sm opacity-90">{loan.description}</p>
+                <h3 className="text-2xl font-bold mb-2">{t(loan.name)}</h3>
+                <p className="text-sm opacity-90">{t(loan.description)}</p>
               </div>
 
               {/* Content */}
@@ -244,7 +293,7 @@ export default function LoansPage() {
                     {loan.features.slice(0, 3).map((feature, index) => (
                       <div key={index} className="flex items-center text-sm text-gray-600">
                         <CheckCircleIcon className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                        {feature}
+                        {t(feature)}
                       </div>
                     ))}
                   </div>
@@ -277,10 +326,10 @@ export default function LoansPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Fin-Agentix Loans?
+              {t('home.why_choose')}
             </h2>
             <p className="text-xl text-gray-600">
-              Experience the difference with India's most advanced lending platform
+              {t('home.why_choose_desc')}
             </p>
           </div>
           
@@ -289,29 +338,29 @@ export default function LoansPage() {
               <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">⚡</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Quick Approval</h3>
-              <p className="text-gray-600">Get approved in as little as 15 minutes with our AI-powered system</p>
+              <h3 className="text-lg font-semibold mb-2">{t('features.hour_processing.title')}</h3>
+              <p className="text-gray-600">{t('features.hour_processing.description')}</p>
             </div>
             <div className="text-center">
               <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">💰</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Best Rates</h3>
-              <p className="text-gray-600">Competitive interest rates across all loan categories</p>
+              <h3 className="text-lg font-semibold mb-2">{t('features.competitive_rates.title')}</h3>
+              <p className="text-gray-600">{t('features.competitive_rates.description')}</p>
             </div>
             <div className="text-center">
               <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🔒</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Secure Process</h3>
-              <p className="text-gray-600">Bank-grade security with end-to-end encryption</p>
+              <h3 className="text-lg font-semibold mb-2">{t('features.fraud_prevention.title')}</h3>
+              <p className="text-gray-600">{t('features.fraud_prevention.description')}</p>
             </div>
             <div className="text-center">
               <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📱</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Digital First</h3>
-              <p className="text-gray-600">Completely digital process with minimal paperwork</p>
+              <h3 className="text-lg font-semibold mb-2">{t('features.multi_language.title')}</h3>
+              <p className="text-gray-600">{t('features.multi_language.description')}</p>
             </div>
           </div>
         </div>
@@ -321,20 +370,28 @@ export default function LoansPage() {
       <div className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Apply?
+            {t('home.ready_to_start')}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Choose your loan type and get instant approval with competitive rates
+            {t('home.ready_to_start_desc')}
           </p>
           <Link
             href="/register"
             className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors duration-200 inline-flex items-center"
           >
-            Start Application
+            {t('home.start_application')}
             <ArrowRightIcon className="ml-2 h-5 w-5" />
           </Link>
         </div>
       </div>
     </div>
   );
+}
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 }

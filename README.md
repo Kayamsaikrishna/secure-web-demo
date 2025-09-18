@@ -11,6 +11,7 @@ A comprehensive Next.js-based financial lending platform supporting all 12 major
 - **Real-time Application Tracking**: Public tracking without login required
 - **Interactive EMI Calculator**: Dynamic calculations for all loan types
 - **Admin Dashboard**: Comprehensive management and analytics
+- **Multi-Language Support**: Available in 12 Indian languages
 
 ### Technical Features
 - **Next.js 15** with Turbopack for fast development
@@ -62,7 +63,7 @@ npm run dev
 ```
 
 6. **Access the application**
-- Main app: http://localhost:3000 (or 3001 if 3000 is in use)
+- Main app: http://localhost:3000 (or next available port if 3000 is in use)
 - Database viewer: `npx prisma studio --port 5556`
 
 ## 🎯 Default Test Accounts
@@ -137,6 +138,33 @@ npx prisma db push   # Update database schema
 - **Password Hashing** with bcryptjs
 - **Session Management** with secure cookies
 
+## 🌍 Multi-Language Support
+
+The platform now supports 12 Indian languages:
+- English (en)
+- Hindi (hi)
+- Tamil (ta)
+- Telugu (te)
+- Malayalam (ml)
+- Kannada (kn)
+- Bengali (bn)
+- Gujarati (gu)
+- Odia (or)
+- Punjabi (pa)
+- Marathi (mr)
+- Urdu (ur)
+
+### How to Use
+1. Visit the website
+2. Click the language selector (🌐) in the top right corner
+3. Choose your preferred language
+4. The entire interface will translate automatically
+
+### For Developers
+- Translation files are located in `public/locales/[language-code]/common.json`
+- See `MULTILINGUAL_IMPLEMENTATION.md` for detailed implementation information
+- See `MULTILINGUAL_USER_GUIDE.md` for usage instructions
+
 ## 📊 Database Schema
 
 The application uses a comprehensive Prisma schema supporting:
@@ -202,10 +230,10 @@ For support and questions:
 
 ## 🔮 Roadmap
 
+- [x] Multi-language support
 - [ ] Mobile app development (React Native)
 - [ ] Advanced AI/ML credit scoring
 - [ ] Blockchain integration for security
-- [ ] Multi-language support
 - [ ] Advanced analytics and reporting
 - [ ] Integration with external financial APIs
 

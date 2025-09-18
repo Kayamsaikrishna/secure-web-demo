@@ -41,14 +41,16 @@ export default function RegisterPage() {
         body: JSON.stringify(data),
       });
 
+      const responseData = await response.json();
+
       if (!response.ok) {
-        throw new Error("Registration failed");
+        throw new Error(responseData.error || "Registration failed");
       }
 
       toast.success("Registration successful! Please login.");
       router.push("/login");
-    } catch (error) {
-      toast.error("Failed to register. Please try again.");
+    } catch (error: any) {
+      toast.error(error.message || "Failed to register. Please try again.");
       console.error("Registration error:", error);
     } finally {
       setIsSubmitting(false);

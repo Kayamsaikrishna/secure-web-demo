@@ -203,6 +203,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies AppPageConfig<"/kyc/status">
 }
 
+// Validate ../../src/app/language-test/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/language-test/page.js")
+  handler satisfies AppPageConfig<"/language-test">
+}
+
 // Validate ../../src/app/loans/[sector]/page.tsx
 {
   const handler = {} as typeof import("../../src/app/loans/[sector]/page.js")
@@ -251,6 +257,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies AppPageConfig<"/login">
 }
 
+// Validate ../../src/app/multilingual-test/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/multilingual-test/page.js")
+  handler satisfies AppPageConfig<"/multilingual-test">
+}
+
 // Validate ../../src/app/page.tsx
 {
   const handler = {} as typeof import("../../src/app/page.js")
@@ -285,6 +297,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   const handler = {} as typeof import("../../src/app/terms/page.js")
   handler satisfies AppPageConfig<"/terms">
+}
+
+// Validate ../../src/app/test/page.tsx
+{
+  const handler = {} as typeof import("../../src/app/test/page.js")
+  handler satisfies AppPageConfig<"/test">
 }
 
 // Validate ../../src/app/api/aadhaar/verify/route.ts
@@ -335,6 +353,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies RouteHandlerConfig<"/api/credit-bureau">
 }
 
+// Validate ../../src/app/api/languages/route.ts
+{
+  const handler = {} as typeof import("../../src/app/api/languages/route.js")
+  handler satisfies RouteHandlerConfig<"/api/languages">
+}
+
 // Validate ../../src/app/api/loans/apply/route.ts
 {
   const handler = {} as typeof import("../../src/app/api/loans/apply/route.js")
@@ -345,6 +369,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   const handler = {} as typeof import("../../src/app/api/loans/my-applications/route.js")
   handler satisfies RouteHandlerConfig<"/api/loans/my-applications">
+}
+
+// Validate ../../src/app/api/multilingual-status/route.ts
+{
+  const handler = {} as typeof import("../../src/app/api/multilingual-status/route.js")
+  handler satisfies RouteHandlerConfig<"/api/multilingual-status">
 }
 
 // Validate ../../src/app/api/pan/verify/route.ts
