@@ -1,7 +1,24 @@
 import Link from "next/link";
 import { ArrowRightIcon, CheckCircleIcon, ClockIcon, CurrencyRupeeIcon } from "@heroicons/react/24/outline";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
+
+const features = [
+  {
+    name: "instant_approval",
+    description: "ai_driven_instant_loan_approvals_with_real_time_processing",
+    icon: CheckCircleIcon,
+  },
+  {
+    name: "secure_transactions",
+    description: "bank_grade_security_with_end_to_end_encryption",
+    icon: ClockIcon,
+  },
+  {
+    name: "competitive_rates",
+    description: "lowest_interest_rates_in_the_market",
+    icon: CurrencyRupeeIcon,
+  },
+];
 
 const loanSectors = [
   {
@@ -9,8 +26,10 @@ const loanSectors = [
     name: 'loan_sectors.personal.name',
     description: 'loan_sectors.personal.description',
     amount: '₹2L - ₹15L',
+    maxAmount: 1500000,
     rate: '12.5%',
     tenure: '12-60 months',
+    maxTenure: 60,
     icon: '👤',
     features: [
       'loan_sectors.personal.features.0',
@@ -27,8 +46,10 @@ const loanSectors = [
     name: 'loan_sectors.home.name',
     description: 'loan_sectors.home.description',
     amount: '₹5L - ₹5Cr',
+    maxAmount: 50000000,
     rate: '8.5%',
     tenure: '5-25 years',
+    maxTenure: 300,
     icon: '🏠',
     features: [
       'loan_sectors.home.features.0',
@@ -45,8 +66,10 @@ const loanSectors = [
     name: 'loan_sectors.vehicle.name',
     description: 'loan_sectors.vehicle.description',
     amount: '₹2L - ₹50L',
+    maxAmount: 5000000,
     rate: '9.5%',
     tenure: '1-7 years',
+    maxTenure: 84,
     icon: '🚗',
     features: [
       'loan_sectors.vehicle.features.0',
@@ -63,8 +86,10 @@ const loanSectors = [
     name: 'loan_sectors.business.name',
     description: 'loan_sectors.business.description',
     amount: '₹1L - ₹1Cr',
+    maxAmount: 10000000,
     rate: '14.0%',
     tenure: '1-5 years',
+    maxTenure: 60,
     icon: '💼',
     features: [
       'loan_sectors.business.features.0',
@@ -81,8 +106,10 @@ const loanSectors = [
     name: 'loan_sectors.education.name',
     description: 'loan_sectors.education.description',
     amount: '₹1L - ₹75L',
+    maxAmount: 7500000,
     rate: '10.5%',
     tenure: '5-15 years',
+    maxTenure: 180,
     icon: '🎓',
     features: [
       'loan_sectors.education.features.0',
@@ -99,8 +126,10 @@ const loanSectors = [
     name: 'loan_sectors.agriculture.name',
     description: 'loan_sectors.agriculture.description',
     amount: '₹50K - ₹20L',
+    maxAmount: 2000000,
     rate: '7.0%',
     tenure: '6-36 months',
+    maxTenure: 36,
     icon: '🌾',
     features: [
       'loan_sectors.agriculture.features.0',
@@ -117,8 +146,10 @@ const loanSectors = [
     name: 'loan_sectors.gold.name',
     description: 'loan_sectors.gold.description',
     amount: '₹10K - ₹20L',
+    maxAmount: 2000000,
     rate: '12.0%',
     tenure: '6-36 months',
+    maxTenure: 36,
     icon: '🥇',
     features: [
       'loan_sectors.gold.features.0',
@@ -135,8 +166,10 @@ const loanSectors = [
     name: 'loan_sectors.credit-card.name',
     description: 'loan_sectors.credit-card.description',
     amount: '₹50K - ₹20L',
+    maxAmount: 2000000,
     rate: '3.5%/month',
     tenure: 'Revolving Credit',
+    maxTenure: 60,
     icon: '💳',
     features: [
       'loan_sectors.credit-card.features.0',
@@ -153,8 +186,10 @@ const loanSectors = [
     name: 'loan_sectors.two-wheeler.name',
     description: 'loan_sectors.two-wheeler.description',
     amount: '₹30K - ₹3L',
+    maxAmount: 300000,
     rate: '13.5%',
     tenure: '1-3 years',
+    maxTenure: 36,
     icon: '🏍️',
     features: [
       'loan_sectors.two-wheeler.features.0',
@@ -171,8 +206,10 @@ const loanSectors = [
     name: 'loan_sectors.healthcare.name',
     description: 'loan_sectors.healthcare.description',
     amount: '₹25K - ₹10L',
+    maxAmount: 1000000,
     rate: '14.5%',
     tenure: '6-48 months',
+    maxTenure: 48,
     icon: '🏥',
     features: [
       'loan_sectors.healthcare.features.0',
@@ -189,8 +226,10 @@ const loanSectors = [
     name: 'loan_sectors.digital.name',
     description: 'loan_sectors.digital.description',
     amount: '₹5K - ₹5L',
+    maxAmount: 500000,
     rate: '18.0%',
     tenure: '3-24 months',
+    maxTenure: 24,
     icon: '📱',
     features: [
       'loan_sectors.digital.features.0',
@@ -207,8 +246,10 @@ const loanSectors = [
     name: 'loan_sectors.microfinance.name',
     description: 'loan_sectors.microfinance.description',
     amount: '₹15K - ₹1L',
+    maxAmount: 100000,
     rate: '16.0%',
     tenure: '6-36 months',
+    maxTenure: 36,
     icon: '🏪',
     features: [
       'loan_sectors.microfinance.features.0',
@@ -222,176 +263,158 @@ const loanSectors = [
   }
 ];
 
-export default function LoansPage({ t }: { t: any }) {
+export default function LoansPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Section */}
+      {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {t('home.loan_sectors')}
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+              {t("ai_powered_digital_lending_platform")}
             </h1>
-            <p className="text-xl md:text-2xl mb-6 opacity-90">
-              12 Specialized Loan Sectors for Every Financial Need
-            </p>
-            <p className="text-lg opacity-80 max-w-3xl mx-auto">
-              {t('home.loan_sectors_desc')}
+            <p className="mt-6 max-w-lg mx-auto text-xl text-blue-100 sm:max-w-3xl">
+              {t("access_credit_in_minutes_with_our_ai_driven_platform")}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Loans Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {loanSectors.map((loan) => (
-            <div key={loan.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-              {/* Header */}
-              <div className={`${loan.color} text-white p-6`}>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-4xl">{loan.icon}</div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold">{loan.rate}*</div>
-                    <div className="text-sm opacity-90">Starting Rate</div>
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold mb-2">{t(loan.name)}</h3>
-                <p className="text-sm opacity-90">{t(loan.description)}</p>
-              </div>
+      {/* Marketplace Banner */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl shadow-lg p-6 text-white">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+            <div className="mb-4 md:mb-0">
+              <h2 className="text-2xl font-bold">{t("consumption_marketplace")}</h2>
+              <p className="mt-1 text-green-100">
+                {t("get_financing_for_real_consumption_needs")}
+              </p>
+            </div>
+            <Link
+              href="/loans/marketplace"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-green-600 bg-white hover:bg-green-50 focus:outline-none"
+            >
+              {t("explore_offers")}
+              <ArrowRightIcon className="ml-2 -mr-1 h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      </div>
 
-              {/* Content */}
-              <div className="p-6">
-                {/* Loan Details */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="text-center">
-                    <CurrencyRupeeIcon className="h-6 w-6 mx-auto mb-1 text-gray-600" />
-                    <div className="text-sm text-gray-600">Amount</div>
-                    <div className="font-semibold">{loan.amount}</div>
-                  </div>
-                  <div className="text-center">
-                    <ClockIcon className="h-6 w-6 mx-auto mb-1 text-gray-600" />
-                    <div className="text-sm text-gray-600">Tenure</div>
-                    <div className="font-semibold">{loan.tenure}</div>
-                  </div>
-                </div>
+      {/* Loan Sectors Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            {t("our_comprehensive_loan_sectors")}
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+            {t("tailored_financial_solutions_for_every_need")}
+          </p>
+        </div>
 
-                {/* Processing Time */}
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
-                  <div className="flex items-center">
-                    <CheckCircleIcon className="h-5 w-5 text-green-600 mr-2" />
-                    <span className="text-sm font-medium text-green-800">
-                      Processing Time: {loan.processingTime}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {loanSectors.map((sector) => (
+            <Link
+              key={sector.id}
+              href={`/loans/${sector.id}`}
+              className="block group"
+            >
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
+                <div className={`${sector.color} p-6 text-white`}>
+                  <div className="text-4xl mb-4">{sector.icon}</div>
+                  <h3 className="text-xl font-bold">{t(`loan_sectors.${sector.id}.name`)}</h3>
+                </div>
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                      {sector.rate}% {t("interest_rate_from")}
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {t("tenure_upto")} {sector.maxTenure} {t("months")}
                     </span>
                   </div>
-                </div>
-
-                {/* Features */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Features</h4>
-                  <div className="space-y-2">
-                    {loan.features.slice(0, 3).map((feature, index) => (
-                      <div key={index} className="flex items-center text-sm text-gray-600">
-                        <CheckCircleIcon className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                        {t(feature)}
-                      </div>
-                    ))}
+                  <p className="text-gray-600 mb-4">
+                    {t(`loan_sectors.${sector.id}.description`)}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-900">
+                      {t("loan_amount_upto")} ₹{(sector.maxAmount / 100000).toFixed(1)}L
+                    </span>
+                    <ArrowRightIcon className="h-5 w-5 text-gray-400 group-hover:text-blue-600" />
                   </div>
                 </div>
-
-                {/* CTA Buttons */}
-                <div className="space-y-3">
-                  <Link
-                    href={`/loans/apply?type=${loan.id}`}
-                    className={`w-full ${loan.color} text-white py-3 px-4 rounded-lg hover:opacity-90 transition-opacity duration-200 text-center block font-semibold flex items-center justify-center`}
-                  >
-                    Apply Now
-                    <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Link>
-                  <Link
-                    href={`/loans/${loan.id}`}
-                    className="w-full border border-gray-300 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-center block font-medium"
-                  >
-                    View Details
-                  </Link>
-                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
 
-      {/* Benefits Section */}
-      <div className="bg-white py-16">
+      {/* Features Section */}
+      <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {t('home.why_choose')}
+          <div className="lg:text-center mb-12">
+            <h2 className="text-base font-semibold tracking-wide text-blue-600 uppercase">
+              {t("why_choose_fin_agentix")}
             </h2>
-            <p className="text-xl text-gray-600">
-              {t('home.why_choose_desc')}
+            <p className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              {t("innovative_features_for_your_financial_needs")}
+            </p>
+            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+              {t("experience_the_future_of_digital_lending")}
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">⚡</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">{t('features.hour_processing.title')}</h3>
-              <p className="text-gray-600">{t('features.hour_processing.description')}</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💰</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">{t('features.competitive_rates.title')}</h3>
-              <p className="text-gray-600">{t('features.competitive_rates.description')}</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🔒</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">{t('features.fraud_prevention.title')}</h3>
-              <p className="text-gray-600">{t('features.fraud_prevention.description')}</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📱</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">{t('features.multi_language.title')}</h3>
-              <p className="text-gray-600">{t('features.multi_language.description')}</p>
+
+          <div className="mt-10">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {features.map((feature) => (
+                <div key={feature.name} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                    <feature.icon className="h-6 w-6" />
+                  </div>
+                  <div className="mt-4">
+                    <h3 className="text-lg font-medium text-gray-900">{t(feature.name)}</h3>
+                    <p className="mt-2 text-gray-600">
+                      {t(feature.description)}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {t('home.ready_to_start')}
+      <div className="bg-blue-600">
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            <span className="block">{t("ready_to_get_started")}</span>
+            <span className="block text-blue-200">
+              {t("apply_for_a_loan_today")}
+            </span>
           </h2>
-          <p className="text-xl mb-8 opacity-90">
-            {t('home.ready_to_start_desc')}
-          </p>
-          <Link
-            href="/register"
-            className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors duration-200 inline-flex items-center"
-          >
-            {t('home.start_application')}
-            <ArrowRightIcon className="ml-2 h-5 w-5" />
-          </Link>
+          <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+            <div className="inline-flex rounded-md shadow">
+              <Link
+                href="/loans/apply"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50"
+              >
+                {t("apply_now")}
+              </Link>
+            </div>
+            <div className="ml-3 inline-flex rounded-md shadow">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-700 hover:bg-blue-800"
+              >
+                {t("contact_sales")}
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
-}
-
-export async function getStaticProps({ locale }: { locale: string }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
 }

@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
-import i18n from '@/lib/i18n';
+import { useEffect, useState } from 'react';
+import i18n from '@/lib/i18n-preload';
 
 const loanSectors = [
   {
@@ -172,16 +172,49 @@ const stats = [
 ];
 
 export default function Home() {
-  const { t } = useTranslation('common');
+  const { t, ready, i18n: i18nInstance } = useTranslation('common');
+  const [isClient, setIsClient] = useState(false);
 
-  // Initialize i18n if not already done
   useEffect(() => {
+    setIsClient(true);
+    
     // Check for saved language preference
     const savedLanguage = typeof window !== 'undefined' ? localStorage.getItem('selectedLanguage') : null;
-    if (savedLanguage && i18n.hasResourceBundle(savedLanguage, 'common')) {
-      i18n.changeLanguage(savedLanguage);
+    if (savedLanguage && i18nInstance.hasResourceBundle && i18nInstance.hasResourceBundle(savedLanguage, 'common')) {
+      i18nInstance.changeLanguage(savedLanguage).catch((error) => {
+        console.warn("Error changing language:", error);
+      });
     }
-  }, []);
+  }, [i18nInstance]);
+
+  // Show loading state while translations are loading
+  if (!ready || !isClient) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading translations...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Fallback for translation keys
+  const translateWithFallback = (key: string, fallback: string) => {
+    try {
+      // Check if the key exists in the translation resources
+      if (i18nInstance.exists && !i18nInstance.exists(key)) {
+        console.warn(`Translation key not found: ${key}`);
+        return fallback;
+      }
+      const translation = t(key);
+      // If key equals translation, it means it's not found
+      return translation === key ? fallback : translation;
+    } catch (error) {
+      console.warn(`Translation error for key: ${key}`, error);
+      return fallback;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -204,24 +237,24 @@ export default function Home() {
               </h1>
             </div>
             <p className="text-xl md:text-2xl mb-4 opacity-90">
-              {t('home.title')}
+              {translateWithFallback('home.title', 'AI-Powered Digital Lending Platform')}
             </p>
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-80">
-              {t('home.subtitle')}
+              {translateWithFallback('home.subtitle', 'Connecting borrowers with the right lenders across 12 loan sectors. Experience instant approvals, competitive rates, and seamless digital processes.')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/register"
                 className="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors duration-200 flex items-center justify-center"
               >
-                {t('home.apply_now')}
+                {translateWithFallback('home.apply_now', 'Apply for Loan')}
                 <ArrowRightIcon className="ml-2 h-5 w-5" />
               </Link>
               <Link
                 href="/login"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200"
               >
-                {t('home.login_dashboard')}
+                {translateWithFallback('home.login_dashboard', 'Login to Dashboard')}
               </Link>
             </div>
           </div>
@@ -243,7 +276,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                <div className="text-gray-600">{t(`stats.${stat.label.toLowerCase().replace(' ', '_')}`)}</div>
+                <div className="text-gray-600">{translateWithFallback(`home.stats.${stat.label.toLowerCase().replace(' ', '_')}`, stat.label)}</div>
               </div>
             ))}
           </div>
@@ -255,10 +288,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {t('home.loan_sectors')}
+              {translateWithFallback('home.loan_sectors', '12 Comprehensive Loan Sectors')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('home.loan_sectors_desc')}
+              {translateWithFallback('home.loan_sectors_desc', 'From personal needs to business growth, we cover every financial requirement with tailored solutions and competitive rates.')}
             </p>
           </div>
           
@@ -274,11 +307,11 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-xl font-semibold">{t(`loan_sectors.${sector.id}.name`)}</h3>
+                    <h3 className="text-xl font-semibold">{translateWithFallback(`loan_sectors.${sector.id}.name`, sector.name)}</h3>
                   </div>
                 </div>
                 <div className="p-6">
-                  <p className="text-gray-600 mb-4 text-sm">{t(`loan_sectors.${sector.id}.description`)}</p>
+                  <p className="text-gray-600 mb-4 text-sm">{translateWithFallback(`loan_sectors.${sector.id}.description`, sector.description)}</p>
                   
                   <div className="space-y-2 mb-4">
                     <div className="flex justify-between text-sm">
@@ -299,7 +332,7 @@ export default function Home() {
                     {sector.features.map((feature, index) => (
                       <div key={feature} className="flex items-center text-xs text-gray-600">
                         <CheckCircleIcon className="h-3 w-3 text-green-500 mr-1" />
-                        {t(`loan_sectors.${sector.id}.features.${index}`)}
+                        {translateWithFallback(`loan_sectors.${sector.id}.features.${index}`, feature)}
                       </div>
                     ))}
                   </div>
@@ -322,10 +355,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {t('home.why_choose')}
+              {translateWithFallback('home.why_choose', 'Why Choose Fin-Agentix India?')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('home.why_choose_desc')}
+              {translateWithFallback('home.why_choose_desc', 'Leveraging cutting-edge technology and deep market insights to revolutionize lending in India.')}
             </p>
           </div>
           
@@ -340,8 +373,8 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{t(`features.${feature.title.toLowerCase().replace(/ /g, '_').replace(/-/g, '_')}.title`)}</h3>
-                <p className="text-gray-600">{t(`features.${feature.title.toLowerCase().replace(/ /g, '_').replace(/-/g, '_')}.description`)}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{translateWithFallback(`home.features.${feature.title.toLowerCase().replace(/ /g, '_').replace(/-/g, '_')}.title`, feature.title)}</h3>
+                <p className="text-gray-600">{translateWithFallback(`home.features.${feature.title.toLowerCase().replace(/ /g, '_').replace(/-/g, '_')}.description`, feature.description)}</p>
               </div>
             ))}
           </div>
@@ -352,24 +385,24 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r from-indigo-600 to-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {t('home.ready_to_start')}
+            {translateWithFallback('home.ready_to_start', 'Ready to Get Started?')}
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            {t('home.ready_to_start_desc')}
+            {translateWithFallback('home.ready_to_start_desc', 'Join millions of satisfied customers who trust Fin-Agentix for their financial needs. Apply now and get instant approval!')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/register"
               className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors duration-200 flex items-center justify-center"
             >
-              {t('home.start_application')}
+              {translateWithFallback('home.start_application', 'Start Your Application')}
               <ArrowRightIcon className="ml-2 h-5 w-5" />
             </Link>
             <Link
               href="/loans"
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200"
             >
-              {t('home.explore_loans')}
+              {translateWithFallback('home.explore_loans', 'Explore All Loans')}
             </Link>
           </div>
         </div>

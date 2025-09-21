@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { 
   QuestionMarkCircleIcon,
@@ -24,7 +25,7 @@ const faqData: FAQItem[] = [
     id: 1,
     category: "General",
     question: "What is Fin-Agentix and how does it work?",
-    answer: "Fin-Agentix is India's AI-powered digital lending platform that connects borrowers with the right lenders. We offer 12 comprehensive loan sectors including personal, home, vehicle, business, education, and gold loans. Our platform uses advanced AI algorithms to match your profile with suitable lenders for quick approvals and competitive rates."
+    answer: "Fin-Agentix is India&apos;s AI-powered digital lending platform that connects borrowers with the right lenders. We offer 12 comprehensive loan sectors including personal, home, vehicle, business, education, and gold loans. Our platform uses advanced AI algorithms to match your profile with suitable lenders for quick approvals and competitive rates."
   },
   {
     id: 2,
@@ -116,13 +117,13 @@ const faqData: FAQItem[] = [
     id: 15,
     category: "Technology",
     question: "Can I track my loan application status online?",
-    answer: "Yes! Our customer dashboard provides real-time application tracking with status updates. You'll receive SMS and email notifications at every stage. You can also use our mobile app or call customer support for instant status updates."
+    answer: "Yes! Our customer dashboard provides real-time application tracking with status updates. You&apos;ll receive SMS and email notifications at every stage. You can also use our mobile app or call customer support for instant status updates."
   },
   {
     id: 16,
     category: "Technology",
     question: "Do you have a mobile app?",
-    answer: "Yes, our mobile app is available on Google Play Store and Apple App Store. The app offers all features including loan application, EMI calculator, document upload, application tracking, and customer support. It's optimized for Indian users with multi-language support."
+    answer: "Yes, our mobile app is available on Google Play Store and Apple App Store. The app offers all features including loan application, EMI calculator, document upload, application tracking, and customer support. It&apos;s optimized for Indian users with multi-language support."
   },
 
   // EMI & Repayment
@@ -142,7 +143,7 @@ const faqData: FAQItem[] = [
     id: 19,
     category: "EMI & Repayment",
     question: "What happens if I miss an EMI payment?",
-    answer: "Missing EMI payments incurs late payment charges (typically ₹500-1000) and affects your credit score. We provide grace period of 3-7 days and send multiple reminders. If you're facing financial difficulties, contact us immediately - we offer restructuring options and payment holidays in genuine cases."
+    answer: "Missing EMI payments incurs late payment charges (typically ₹500-1000) and affects your credit score. We provide grace period of 3-7 days and send multiple reminders. If you&apos;re facing financial difficulties, contact us immediately - we offer restructuring options and payment holidays in genuine cases."
   },
 
   // KYC & Documentation
@@ -150,7 +151,7 @@ const faqData: FAQItem[] = [
     id: 20,
     category: "KYC",
     question: "How does the KYC verification process work?",
-    answer: "Our KYC process is completely digital: Upload Aadhaar & PAN documents, Instant verification through government APIs, Video KYC call (if required), Bank account verification, and Address verification. Most KYC processes are completed within 30 minutes to 2 hours."
+    answer: "Our KYC process is completely digital: Upload Aadhaar &amp; PAN documents, Instant verification through government APIs, Video KYC call (if required), Bank account verification, and Address verification. Most KYC processes are completed within 30 minutes to 2 hours."
   },
   {
     id: 21,
@@ -210,7 +211,7 @@ export default function FAQPage() {
               Find quick answers to common questions about Fin-Agentix lending platform
             </p>
             <p className="text-sm text-purple-200 mt-4">
-              Can't find what you're looking for? Contact our 24/7 support team
+              Can&apos;t find what you&apos;re looking for? Contact our 24/7 support team
             </p>
           </div>
         </div>
@@ -255,7 +256,7 @@ export default function FAQPage() {
               Showing {filteredFAQs.length} of {faqData.length} questions
               {searchTerm && (
                 <span className="ml-2">
-                  for "<span className="font-medium text-purple-600">{searchTerm}</span>"
+                  for &quot;<span className="font-medium text-purple-600">{searchTerm}</span>&quot;
                 </span>
               )}
             </div>
@@ -380,8 +381,8 @@ export default function FAQPage() {
         <div className="mt-8 text-center text-gray-500 text-sm">
           <p>© 2025 Fin-Agentix India. All rights reserved.</p>
           <p className="mt-2">
-            For more information, visit our <a href="/help" className="text-purple-600 hover:underline">Help Center</a> or 
-            <a href="/contact" className="text-purple-600 hover:underline ml-1">Contact Us</a>
+            For more information, visit our <Link href="/help" className="text-purple-600 hover:underline">Help Center</Link> or 
+            <Link href="/contact" className="text-purple-600 hover:underline ml-1">Contact Us</Link>
           </p>
         </div>
 

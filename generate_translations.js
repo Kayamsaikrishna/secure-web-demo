@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+import { readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
 
 // Read the English translation file as a template
-const englishTranslations = JSON.parse(fs.readFileSync('./public/locales/en/common.json', 'utf8'));
+const englishTranslations = JSON.parse(readFileSync('./public/locales/en/common.json', 'utf8'));
 
 // List of all Indian language codes we want to support
 const languages = [
@@ -23,7 +23,7 @@ languages.forEach(lang => {
   
   // For now, we'll just copy the English translations
   // In a real implementation, these would be properly translated
-  fs.writeFileSync(filePath, JSON.stringify(englishTranslations, null, 2));
+  writeFileSync(filePath, JSON.stringify(englishTranslations, null, 2));
   
   console.log(`Created translation file for ${lang.name} (${lang.code})`);
 });

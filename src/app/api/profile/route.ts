@@ -5,19 +5,31 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET(req: NextRequest) {
   try {
+    // Log the incoming request headers for debugging
+    console.log("[PROFILE_API] Incoming request headers:");
+    req.headers.forEach((value, key) => {
+      console.log(`[PROFILE_API] ${key}: ${value}`);
+    });
+    
     // Check authentication
     const session = await getServerSession(authOptions);
     
+    console.log("[PROFILE_API] Session check:", session ? "Authenticated" : "Not authenticated");
+    
     if (!session || !session.user) {
+      console.log("[PROFILE_API] No session or user found");
+      // Return a more descriptive error
       return NextResponse.json(
-        { error: "Authentication required" },
+        { error: "Authentication required - no valid session found" },
         { status: 401 }
       );
     }
 
     const userId = session.user.id;
+    console.log("[PROFILE_API] User ID:", userId);
 
     // Fetch user profile with all related data
+    console.log("[PROFILE_API] Attempting to fetch user data...");
     const user = await prisma.user.findUnique({
       where: { id: userId },
       include: {
@@ -54,8 +66,11 @@ export async function GET(req: NextRequest) {
         },
       },
     });
+    
+    console.log("[PROFILE_API] User query result:", user ? "Found" : "Not found");
 
     if (!user) {
+      console.log("[PROFILE_API] User not found in database");
       return NextResponse.json(
         { error: "User not found" },
         { status: 404 }
@@ -64,14 +79,25 @@ export async function GET(req: NextRequest) {
 
     // Remove sensitive information
     const { password, ...userWithoutPassword } = user;
-
+    
+    console.log("[PROFILE_API] Returning user data");
     return NextResponse.json({
       user: userWithoutPassword,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("[PROFILE_GET_ERROR]", error);
+    console.error("[PROFILE_GET_ERROR] Error name:", error.name);
+    console.error("[PROFILE_GET_ERROR] Error message:", error.message);
+    console.error("[PROFILE_GET_ERROR] Error stack:", error.stack);
+    
+    // Check if it's a Prisma error
+    if (error.code) {
+      console.error("[PROFILE_GET_ERROR] Prisma error code:", error.code);
+      console.error("[PROFILE_GET_ERROR] Prisma error meta:", error.meta);
+    }
+    
     return NextResponse.json(
-      { error: "Failed to fetch profile" },
+      { error: "Failed to fetch profile: " + error.message },
       { status: 500 }
     );
   }

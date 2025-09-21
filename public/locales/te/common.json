@@ -1,147 +1,232 @@
 {
   "home": {
-    "title": "AI-ఆధారిత డిజిటల్ రుణ ప్లాట్‌ఫాం",
-    "subtitle": "12 రుణ రంగాలలో రుణదాతలను సరైన లెండర్‌లతో కలుపుతుంది. తక్షణ ఆమోదాలు, పోటీ ధరలు మరియు సున్నితమైన డిజిటల్ ప్రక్రియలను అనుభవించండి.",
-    "apply_now": "రుణానికి దరఖాస్తు చేయండి",
-    "login_dashboard": "డాష్‌బోర్డ్‌కు లాగిన్ అవ్వండి",
-    "loan_sectors": "12 విస్తృత రుణ రంగాలు",
-    "loan_sectors_desc": "వ్యక్తిగత అవసరాల నుండి వ్యాపార పెరుగుదల వరకు, మేము ప్రతి ఆర్థిక అవసరాన్ని కొలతలేని పరిష్కారాలు మరియు పోటీ ధరలతో కవర్ చేస్తాము.",
-    "why_choose": "ఎందుకు ఫిన్-ఏజెంటిక్స్ ఇండియాను ఎంచుకోవాలి?",
-    "why_choose_desc": "భారతదేశంలో రుణాన్ని విప్లవాత్మకంగా మార్చడానికి అత్యాధునిక సాంకేతికత మరియు లోతైన మార్కెట్ అంతర్దృష్టిని ఉపయోగించడం.",
-    "ready_to_start": "ప్రారంభించడానికి సిద్ధంగా ఉన్నారా?",
-    "ready_to_start_desc": "వారి ఆర్థిక అవసరాలకు ఫిన్-ఏజెంటిక్స్‌పై నమ్మకం ఉంచిన మిలియన్ల సంతృప్తి కార్యనిర్వాహకులలో చేరండి. ఇప్పుడే దరఖాస్తు చేసి తక్షణ ఆమోదం పొందండి!",
-    "start_application": "మీ దరఖాస్తును ప్రారంభించండి",
-    "explore_loans": "అన్ని రుణాలను అన్వేషించండి"
+    "title": "AI-Powered Digital Lending Platform",
+    "subtitle": "Connecting borrowers with the right lenders across 12 loan sectors. Experience instant approvals, competitive rates, and seamless digital processes.",
+    "apply_now": "Apply for Loan",
+    "login_dashboard": "Login to Dashboard",
+    "loan_sectors": "12 Comprehensive Loan Sectors",
+    "loan_sectors_desc": "From personal needs to business growth, we cover every financial requirement with tailored solutions and competitive rates.",
+    "why_choose": "Why Choose Fin-Agentix India?",
+    "why_choose_desc": "Leveraging cutting-edge technology and deep market insights to revolutionize lending in India.",
+    "ready_to_start": "Ready to Get Started?",
+    "ready_to_start_desc": "Join millions of satisfied customers who trust Fin-Agentix for their financial needs. Apply now and get instant approval!",
+    "start_application": "Start Your Application",
+    "explore_loans": "Explore All Loans"
+  },
+  "loan_sectors": {
+    "personal": {
+      "name": "వ్యక్తిగత రుణం",
+      "description": "పోటీ వడ్డీ రేట్లు మరియు త్వరిత విడుదలతో మీ అన్ని వ్యక్తిగత అవసరాల కోసం సరళమైన వ్యక్తిగత రుణాలు."
+    },
+    "home": {
+      "name": "గృహ రుణం",
+      "description": "సరళమైన రిపే ఆప్షన్లతో ఇంటి కొనుగోలు కోసం మీ కలను నిజం చేసే అందుబాటులో ఉన్న గృహ రుణాలు."
+    },
+    "vehicle": {
+      "name": "వాహన రుణం",
+      "description": "మీ కల కారు, బైక్ లేదా వాణిజ్య వాహనం కోసం పోటీ రుణ పథకాలతో ఫైనాన్స్ చేయండి."
+    },
+    "business": {
+      "name": "వ్యాపార రుణం",
+      "description": "ఎంటర్ప్రెనర్లు మరియు ఎంటర్ప్రైజెస్ కోసం మా ప్రత్యేక వ్యాపార రుణ పరిష్కారాలతో మీ వ్యాపార పెరుగుదలను పెంచండి."
+    },
+    "education": {
+      "name": "విద్యా రుణం",
+      "description": "డొమెస్టిక్ మరియు అంతర్జాతీయ అధ్యయనాల కోసం మా విస్తృత విద్యా రుణ ప్రోగ్రాములతో మీ భవిష్యత్తులో పెట్టుబడి పెట్టండి."
+    },
+    "gold": {
+      "name": "బంగారు రుణం",
+      "description": "కనీస పత్రాలు మరియు పోటీ రేట్లతో మీ విలువైన లోహాలపై త్వరితమైన మరియు సులభమైన బంగారు రుణాలు."
+    },
+    "agriculture": {
+      "name": "వ్యవసాయ రుణం",
+      "description": "పంట సాగు మరియు వ్యవసాయ పరికరాల కోసం రైతులు మరియు వ్యవసాయ వ్యవహారాల కోసం ప్రత్యేక వ్యవసాయ ఫైనాన్సింగ్."
+    },
+    "microfinance": {
+      "name": "సూక్ష్మ ఆర్థిక సహాయం",
+      "description": "సరళమైన నిబంధనలతో సూక్ష్మ-ఎంటర్ప్రైజెస్, స్వీయ సహాయ సమూహాలు మరియు మహిళా ఎంటర్ప్రెనర్ల కోసం చిన్న టికెట్ రుణాలు."
+    },
+    "credit-card": {
+      "name": "క్రెడిట్ కార్డ్",
+      "description": "అన్ని మీ ఖర్చు అవసరాల కోసం బహుమతుల పాయింట్లు, క్యాష్‌బ్యాక్ ఆఫర్లు మరియు ప్రత్యేక ప్రయోజనాలతో ప్రీమియం క్రెడిట్ కార్డులు."
+    },
+    "two-wheeler": {
+      "name": "రెండు చక్రాల వాహన రుణం",
+      "description": "త్వరిత ప్రాసెసింగ్ మరియు ఆకర్షక వడ్డీ రేట్లతో మీ రెండు చక్రాల వాహనం కొనుగోలు కోసం అందుబాటులో ఉన్న ఫైనాన్సింగ్."
+    },
+    "healthcare": {
+      "name": "ఆరోగ్య రుణం",
+      "description": "సరళమైన రిపే ఐచ్ఛికాలు మరియు త్వరిత విడుదలతో అత్యవసర మరియు ప్లాన్ చేయబడిన వైద్య చికిత్స ఫైనాన్సింగ్."
+    },
+    "digital": {
+      "name": "డిజిటల్ రుణం",
+      "description": "మీ డిజిటల్ ఫుట్‌ప్రింట్ మరియు లావాదేవీ చరిత్ర ఆధారంగా వెంటనే డిజిటల్ రుణాలు పూర్తిగా ఆన్‌లైన్ ప్రాసెసింగ్తో."
+    }
   },
   "navigation": {
     "home": "హోమ్",
     "all_loans": "అన్ని రుణాలు",
+    "consumption_marketplace": "వినియోగ మార్కెట్‌ప్లేస్",
     "emi_calculator": "EMI లెక్కింపు",
     "about": "గురించి",
     "contact": "సంప్రదించండి",
+    "login": "లాగిన్",
+    "apply_now": "ఇప్పుడే దరఖాస్తు చేయండి",
     "dashboard": "డాష్‌బోర్డ్",
-    "apply_for_loan": "రుణానికి దరఖాస్తు చేయండి",
     "my_applications": "నా దరఖాస్తులు",
     "kyc_verification": "KYC ధృవీకరణ",
     "profile": "ప్రొఫైల్",
     "admin_dashboard": "అడ్మిన్ డాష్‌బోర్డ్",
-    "applications": "దరఖాస్తులు",
+    "consumption_partners": "భాగస్వాములు",
+    "consumption_marketplace_admin": "మార్కెట్‌ప్లేస్",
+    "consumption_loans": "వినియోగ రుణాలు",
     "users": "వినియోగదారులు",
     "analytics": "విశ్లేషణ",
     "reports": "నివేదికలు",
     "admin_profile": "అడ్మిన్ ప్రొఫైల్",
+    "profile_settings": "ప్రొఫైల్ సెట్టింగ్స్",
+    "sign_out": "సైన్ అవుట్",
     "setup": "సెటప్",
-    "login": "లాగిన్",
-    "apply_now": "ఇప్పుడే దరఖాస్తు చేయండి",
-    "profile_settings": "ప్రొఫైల్ సెట్టింగులు",
-    "sign_out": "సైన్ అవుట్"
+    "marketplace": "Marketplace",
+    "partners": "Partners",
+    "loan_applications": "Loan Applications",
+    "products": "Products",
+    "loan_schemes": "Loan Schemes",
+    "disbursements": "Disbursements",
+    "settings": "Settings",
+    "quick_links": "త్వరిత లింకులు",
+    "applications": "దరఖాస్తులు"
   },
-  "languages": {
-    "en": "English",
-    "hi": "हिंदी",
-    "ta": "தமிழ்",
-    "te": "తెలుగు",
-    "ml": "മലയാളം",
-    "kn": "ಕನ್ನಡ",
-    "bn": "বাংলা",
-    "gu": "ગુજરાતી",
-    "or": "ଓଡ଼ିଆ",
-    "pa": "ਪੰਜਾਬੀ",
-    "mr": "मराठी",
-    "ur": "اردو"
-  },
-  "loan_sectors": {
-    "personal": {
-      "name": "వ్యక్తిగత రుణాలు",
-      "description": "కనీసం పత్రాలతో త్వరిత వ్యక్తిగత రుణాలు",
-      "features": ["సంపాదన లేదు", "త్వరిత ఆమోదం", "సరళమైన కాలం"]
-    },
-    "home": {
-      "name": "హోమ్ రుణాలు",
-      "description": "నివాస ఆస్తిని కొనడానికి హోమ్ రుణం",
-      "features": ["పన్ను ప్రయోజనాలు", "దీర్ఘ కాలం", "RERA ధృవీకరించబడింది"]
-    },
-    "vehicle": {
-      "name": "వాహన రుణాలు",
-      "description": "పోటీ ధరలతో కారు మరియు రెండు-వీలర్ రుణాలు",
-      "features": ["తక్షణ ఆమోదం", "సున్నా డౌన్ పేమెంట్", "బీమా"]
-    },
-    "business": {
-      "name": "వ్యాపార రుణాలు",
-      "description": "MSMEల కోసం పని మూలధనం మరియు విస్తరణ రుణాలు",
-      "features": ["GST ఆధారితం", "త్వరిత డిస్బర్సల్", "సరళమైన రిపేమెంట్"]
-    },
-    "education": {
-      "name": "విద్య రుణాలు",
-      "description": "భారతదేశం మరియు విదేశాలలో ఉన్నత చదువు కోసం విద్య రుణం",
-      "features": ["మోరేటరియం కాలం", "పూర్తి కవర్ చేయబడింది", "పన్ను ప్రయోజనాలు"]
-    },
-    "agriculture": {
-      "name": "వ్యవసాయ రుణాలు",
-      "description": "రైతుల కోసం విస్తృత వ్యవసాయ రుణాలు",
-      "features": ["వాతావరణ బీమా", "సరళమైన రిపేమెంట్", "సబ్సిడీ"]
-    },
-    "gold": {
-      "name": "బంగారు రుణాలు",
-      "description": "బంగారు ఆభరణాలకు ఎదురుగా తక్షణ రుణం",
-      "features": ["తక్షణ ఆమోదం", "సురక్షిత నిల్వ", "సరళమైన"]
-    },
-    "credit-card": {
-      "name": "క్రెడిట్ కార్డులు",
-      "description": "ప్రత్యేక బహుమతులతో ప్రీమియం క్రెడిట్ కార్డులు",
-      "features": ["బహుమతి పాయింట్లు", "లౌంజ్ యాక్సెస్", "క్యాష్‌బ్యాక్"]
-    },
-    "two-wheeler": {
-      "name": "రెండు వీలర్",
-      "description": "రెండు వీలర్ కొనడానికి త్వరిత రుణం",
-      "features": ["కనీసం డాక్స్", "అదే రోజు", "బీమా"]
-    },
-    "healthcare": {
-      "name": "ఆరోగ్య రుణాలు",
-      "description": "వైద్య ఖర్చుల కోసం అత్యవసర రుణం",
-      "features": ["ఆస్పత్రి నెట్‌వర్క్", "త్వరిత ఆమోదం", "EMI మోరేటరియం"]
-    },
-    "digital": {
-      "name": "డిజిటల్ రుణాలు",
-      "description": "తక్షణ ఆమోదంతో పూర్తిగా డిజిటల్ రుణం",
-      "features": ["100% డిజిటల్", "తక్షణ డిస్బర్సల్", "సరళమైన"]
-    },
-    "microfinance": {
-      "name": "మైక్రోఫైనాన్స్",
-      "description": "చిన్న వ్యాపార ప్రారంభాలు మరియు ఆదాయం సృష్టించడం",
-      "features": ["గ్రూప్ లెండింగ్", "ఆర్థిక అక్షరాస్యత", "సులభమైన యాక్సెస్"]
-    }
-  },
-  "stats": {
-    "loans_disbursed": "రుణాలు డిస్బర్స్ చేయబడ్డాయి",
-    "happy_customers": "సంతోషంగా ఉన్న కస్టమర్లు",
-    "approval_rate": "ఆమోద రేటు",
-    "cities_covered": "కవర్ చేయబడిన నగరాలు"
-  },
-  "features": {
-    "ai_credit_scoring": {
-      "title": "AI-ఆధారిత క్రెడిట్ స్కోరింగ్",
-      "description": "ఉన్నత యాల్గోరిథమ్‌లు తక్షణ క్రెడిట్ నిర్ణయాల కోసం 500+ డేటా పాయింట్‌లను విశ్లేషిస్తాయి"
-    },
-    "hour_processing": {
-      "title": "24 గంటల ప్రాసెసింగ్",
-      "description": "చాలా రుణ రకాలకు దరఖాస్తు నుండి డిస్బర్సల్ వరకు కేవలం 24 గంటలలో"
-    },
-    "government_integration": {
-      "title": "ప్రభుత్వ ఏకీకరణ",
-      "description": "సున్నితమైన ధృవీకరణ కోసం ఆధార్, PAN, GST తో నేరుగా ఏకీకరణ"
-    },
-    "multi_language": {
-      "title": "బహుభాషా మద్దతు",
-      "description": "గ్రామీణ యాక్సెసిబిలిటీ కోసం హిందీ మరియు 11 ప్రాంతీయ భాషలలో అందుబాటులో ఉంది"
-    },
-    "competitive_rates": {
-      "title": "పోటీ ధరలు",
-      "description": "అన్ని 12 రుణ రంగాలలో మార్కెట్ లో ఉత్తమ వడ్డీ రేట్లు"
-    },
-    "fraud_prevention": {
-      "title": "మోసపూరిత నిరోధం",
-      "description": "రియల్-టైమ్ మోసపూరిత గుర్తింపు సిస్టమ్‌లతో బ్యాంక్-గ్రేడ్ భద్రత"
+  "consumption_marketplace": "వినియోగ మార్కెట్‌ప్లేస్",
+  "consumption_partners": "వినియోగ భాగస్వాములు",
+  "consumption_loans": "వినియోగ రుణాలు",
+  "admin_partners_management": "భాగస్వాముల నిర్వహణ",
+  "admin_marketplace_management": "మార్కెట్‌ప్లేస్ నిర్వహణ",
+  "admin_dashboard": "అడ్మిన్ డాష్‌బోర్డ్",
+  "total_partners": "మొత్తం భాగస్వాములు",
+  "total_offers": "మొత్తం ప్రతిపాదనలు",
+  "active_loans": "సక్రియ రుణాలు",
+  "pending_approvals": "పెండింగ్ ఆమోదాలు",
+  "quick_actions": "త్వరిత చర్యలు",
+  "manage_partners": "భాగస్వాములను నిర్వహించండి",
+  "add_edit_partners": "భాగస్వాములను జోడించండి లేదా సవరించండి",
+  "manage_marketplace": "మార్కెట్‌ప్లేస్ నిర్వహించండి",
+  "create_edit_offers": "ప్రతిపాదనలను సృష్టించండి లేదా సవరించండి",
+  "manage_loans": "రుణాలను నిర్వహించండి",
+  "view_track_loans": "రుణాలను వీక్షించండి మరియు ట్రాక్ చేయండి",
+  "recent_activity": "ఇటీవలి కార్యాచరణ",
+  "new_partner_registered": "కొత్త భాగస్వామి నమోదైంది",
+  "loan_offer_created": "రుణ ప్రతిపాదన సృష్టించబడింది",
+  "consumption_loan_disbursed": "వినియోగ రుణం విడుదలైంది",
+  "education_loan": "విద్యా రుణం",
+  "personal_loan": "వ్యక్తిగత రుణం",
+  "home_loan": "గృహ రుణం",
+  "vehicle_loan": "వాహన రుణం",
+  "business_loan": "వ్యాపార రుణం",
+  "gold_loan": "బంగారు రుణం",
+  "agriculture_loan": "వ్యవసాయ రుణం",
+  "microfinance": "సూక్ష్మ ఆర్థిక సహాయం",
+  "credit_card": "క్రెడిట్ కార్డ్",
+  "two_wheeler_loan": "రెండు చక్రాల వాహన రుణం",
+  "healthcare_loan": "ఆరోగ్య రుణం",
+  "digital_loan": "డిజిటల్ రుణం",
+  "apply_for_loan": "రుణం కోసం దరఖాస్తు చేయండి",
+  "selected_offer": "ఎంచుకున్న ప్రతిపాదన",
+  "loan_application_form": "రుణ దరఖాస్తు ఫారమ్",
+  "loan_amount": "రుణ మొత్తం",
+  "tenure": "కాలావధి",
+  "loan_purpose": "రుణ ఉద్దేశ్యం",
+  "partner_reference": "భాగస్వామి సూచన",
+  "invoice_order_number": "ఇన్‌వాయిస్/ఆర్డర్ సంఖ్య",
+  "partner_reference_help": "భాగస్వామి నుండి ఇన్‌వాయిస్ లేదా ఆర్డర్ సంఖ్యను నమోదు చేయండి",
+  "describe_purpose_of_loan": "రుణం యొక్క ఉద్దేశ్యాన్ని వివరించండి",
+  "submit_application": "దరఖాస్తు సమర్పించండి",
+  "application_submitted": "దరఖాస్తు సమర్పించబడింది!",
+  "application_submitted_description": "మీ రుణ దరఖాస్తు విజయవంతంగా సమర్పించబడింది. మీ దరఖాస్తు స్థితిపై నవీకరణలు త్వరలో మీకు అందుతాయి.",
+  "redirecting_to_status": "దరఖాస్తు స్థితి పేజీకి దారి మళ్లిస్తోంది...",
+  "submitting": "సమర్పిస్తోంది...",
+  "search": "శోధన",
+  "search_offers": "ప్రతిపాదనలను శోధించండి...",
+  "loan_sector": "రుణ రంగం",
+  "all_sectors": "అన్ని రంగాలు",
+  "sort_by": "క్రమబద్ధీకరణ ప్రకారం",
+  "recommended": "సిఫార్సు చేయబడింది",
+  "lowest_interest_rate": "కనీస వడ్డీ రేటు",
+  "highest_amount": "అత్యధిక మొత్తం",
+  "tenure_options": "కాలావధి ఎంపికలు",
+  "months": "నెలలు",
+  "interest_rate": "వడ్డీ రేటు",
+  "processing_fee": "ప్రాసెసింగ్ ఫీజు",
+  "apply_now": "ఇప్పుడే దరఖాస్తు చేయండి",
+  "no_offers_available": "ప్రతిపాదనలు అందుబాటులో లేవు",
+  "check_back_later_for_new_offers": "కొత్త ప్రతిపాదనల కోసం తర్వాత తనిఖీ చేయండి",
+  "no_offers_match_criteria": "మీ శోధన ప్రమాణాలకు పోలిక చెందే ప్రతిపాదనలు లేవు",
+  "refresh": "రిఫ్రెష్",
+  "error": "దోషం",
+  "try_again": "మళ్ళీ ప్రయత్నించండి",
+  "cancel": "రద్దు చేయండి",
+  "add_new_partner": "కొత్త భాగస్వామిని జోడించండి",
+  "create_new_partner": "కొత్త భాగస్వామిని సృష్టించండి",
+  "partner_name": "భాగస్వామి పేరు",
+  "contact_person": "సంప్రదింపు వ్యక్తి",
+  "email": "ఈమెయిల్",
+  "phone": "ఫోన్",
+  "partner_type": "భాగస్వామి రకం",
+  "university": "విశ్వవిద్యాలయం",
+  "hospital": "ఆసుపత్రి",
+  "dealer": "డీలర్",
+  "supplier": "సరఫరాదారు",
+  "ecommerce": "ఈ-కామర్స్",
+  "service_provider": "సేవా ప్రొవైడర్",
+  "other": "ఇతర",
+  "commission_rate": "కమీషన్ రేటు",
+  "create_partner": "భాగస్వామిని సృష్టించండి",
+  "type": "రకం",
+  "sector": "రంగం",
+  "contact": "సంప్రదింపు",
+  "status": "స్థితి",
+  "integration": "ఒకీకరణ",
+  "no_partners_found": "భాగస్వాములు కనుగొనబడలేదు",
+  "create_first_partner": "ప్రారంభించడానికి మీ మొదటి భాగస్వామిని సృష్టించండి",
+  "more": "మరిన్ని",
+  "amount_range": "మొత్తం పరిధి",
+  "chatbot": {
+    "title": "Fin-Agentix Assistant",
+    "welcome_message": "Hello! I'm your Fin-Agentix assistant. How can I help you today?",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "quick_actions": "Quick Actions",
+    "loan_options": "Loan Options",
+    "kyc_process": "KYC Process",
+    "education_loans": "Education Loans",
+    "healthcare_loans": "Healthcare Loans",
+    "vehicle_loans": "Vehicle Loans",
+    "business_loans": "Business Loans",
+    "suggestions": {
+      "how_apply": "How do I apply for a loan?",
+      "documents_required": "What documents are required for KYC?",
+      "show_loans": "Show me loan options",
+      "check_profile": "Check my profile",
+      "loan_rates": "Show me current rates",
+      "approval_process": "How long does approval take?",
+      "marketplace": "Show me marketplace",
+      "consumption_lending": "How does consumption lending work?",
+      "available_partners": "What partners are available?",
+      "complete_kyc": "How do I complete KYC?",
+      "no_aadhaar": "What if I don't have Aadhaar?",
+      "kyc_duration": "How long does KYC take?",
+      "eligibility": "Check my eligibility",
+      "minimum_income": "What is the minimum income?",
+      "credit_score": "How does credit score affect eligibility?",
+      "tenure_options": "Show me tenure options",
+      "prepay_loan": "Can I prepay my loan?",
+      "early_repayment": "Are there penalties for early repayment?",
+      "calculate_emi": "Calculate my EMI",
+      "auto_debit": "How do I set up auto-debit?",
+      "missed_payment": "What if I miss a payment?",
+      "helpline": "What is your helpline number?",
+      "support_ticket": "How do I submit a support ticket?",
+      "faq": "Do you have a FAQ section?"
     }
   }
 }

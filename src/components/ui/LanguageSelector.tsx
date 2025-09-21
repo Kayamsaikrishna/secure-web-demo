@@ -26,18 +26,26 @@ export default function LanguageSelector() {
   useEffect(() => {
     // Get the current language from i18n
     const currentLanguage = i18n.language.split('-')[0]; // Get base language code
+    console.log('Current language from i18n:', i18n.language);
+    console.log('Selected language (base):', currentLanguage);
     setSelectedLanguage(currentLanguage);
   }, [i18n.language]);
 
   const changeLanguage = (languageCode: string) => {
-    i18n.changeLanguage(languageCode);
-    setSelectedLanguage(languageCode);
-    setIsOpen(false);
-    
-    // Store the selected language in localStorage
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('selectedLanguage', languageCode);
-    }
+    console.log('Changing language to:', languageCode);
+    i18n.changeLanguage(languageCode).then(() => {
+      console.log('Language changed successfully to:', i18n.language);
+      setSelectedLanguage(languageCode);
+      setIsOpen(false);
+      
+      // Store the selected language in localStorage
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('selectedLanguage', languageCode);
+        console.log('Stored language in localStorage:', languageCode);
+      }
+    }).catch(err => {
+      console.error('Error changing language:', err);
+    });
   };
 
   return (

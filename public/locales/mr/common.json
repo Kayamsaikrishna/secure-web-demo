@@ -13,183 +13,220 @@
     "start_application": "तुमचा अर्ज सुरू करा",
     "explore_loans": "सर्व कर्जांचा शोध घ्या"
   },
+  "loan_sectors": {
+    "personal": {
+      "name": "वैयक्तिक कर्जे",
+      "description": "किमान दस्तऐवजीकरणासह जलद वैयक्तिक कर्जे"
+    },
+    "home": {
+      "name": "गृह कर्जे",
+      "description": "रहिवासीय मालमत्ता खरेदीसाठी गृह कर्ज"
+    },
+    "vehicle": {
+      "name": "वाहन कर्जे",
+      "description": "स्पर्धात्मक दरांसह कार आणि दुचाकी कर्जे"
+    },
+    "business": {
+      "name": "व्यवसाय कर्जे",
+      "description": "MSME साठी कार्यरत मूलभूत भांडवल आणि विस्तार कर्जे"
+    },
+    "education": {
+      "name": "शिक्षण कर्जे",
+      "description": "भारत आणि परदेशात उच्च शिक्षणासाठी शिक्षण कर्ज"
+    },
+    "gold": {
+      "name": "सोन्याचे कर्जे",
+      "description": "सोन्याच्या आभूषणांविरुद्ध तात्काळ कर्ज"
+    },
+    "agriculture": {
+      "name": "कृषी कर्जे",
+      "description": "शेतकऱ्यांसाठी विस्तृत कृषी कर्जे"
+    },
+    "microfinance": {
+      "name": "माइक्रोफायनन्स",
+      "description": "लहान व्यवसाय सुरू करणे आणि उत्पन्न निर्माण"
+    },
+    "credit-card": {
+      "name": "क्रेडिट कार्डे",
+      "description": "विशेष बक्षिसांसह प्रीमियम क्रेडिट कार्डे"
+    },
+    "two-wheeler": {
+      "name": "दुचाकी",
+      "description": "दुचाकी खरेदीसाठी जलद कर्ज"
+    },
+    "healthcare": {
+      "name": "आरोग्य कर्जे",
+      "description": "तात्काळ कर्ज वैद्यकीय खर्चासाठी"
+    },
+    "digital": {
+      "name": "डिजिटल कर्जे",
+      "description": "तात्काळ मंजूरीसह पूर्णपणे डिजिटल कर्ज"
+    }
+  },
   "navigation": {
     "home": "होम",
     "all_loans": "सर्व कर्जे",
+    "consumption_marketplace": "Consumption Marketplace",
     "emi_calculator": "EMI कॅलक्युलेटर",
     "about": "आमच्याबद्दल",
     "contact": "संपर्क साधा",
+    "login": "लॉग इन करा",
+    "apply_now": "आता अर्ज करा",
     "dashboard": "डॅशबोर्ड",
-    "apply_for_loan": "कर्जासाठी अर्ज करा",
     "my_applications": "माझे अर्ज",
     "kyc_verification": "KYC सत्यापन",
     "profile": "प्रोफाइल",
     "admin_dashboard": "प्रशासक डॅशबोर्ड",
-    "applications": "अर्ज",
+    "consumption_partners": "Partners",
+    "consumption_marketplace_admin": "Marketplace",
+    "consumption_loans": "Consumption Loans",
     "users": "वापरकर्ते",
     "analytics": "विश्लेषण",
     "reports": "अहवाल",
     "admin_profile": "प्रशासक प्रोफाइल",
-    "setup": "सेटअप",
-    "login": "लॉग इन करा",
-    "apply_now": "आता अर्ज करा",
     "profile_settings": "प्रोफाइल सेटिंग्ज",
-    "sign_out": "साइन आउट करा"
+    "sign_out": "साइन आउट करा",
+    "setup": "सेटअप",
+    "marketplace": "Marketplace",
+    "partners": "Partners",
+    "loan_applications": "Loan Applications",
+    "products": "Products",
+    "loan_schemes": "Loan Schemes",
+    "disbursements": "Disbursements",
+    "settings": "Settings",
+    "quick_links": "जलद दुवे",
+    "applications": "अर्ज"
   },
-  "languages": {
-    "en": "English",
-    "hi": "हिंदी",
-    "ta": "தமிழ்",
-    "te": "తెలుగు",
-    "ml": "മലയാളം",
-    "kn": "ಕನ್ನಡ",
-    "bn": "বাংলা",
-    "gu": "ગુજરાતી",
-    "or": "ଓଡ଼ିଆ",
-    "pa": "ਪੰਜਾਬੀ",
-    "mr": "मराठी",
-    "ur": "اردو"
-  },
-  "loan_sectors": {
-    "personal": {
-      "name": "वैयक्तिक कर्जे",
-      "description": "किमान दस्तऐवजीकरणासह जलद वैयक्तिक कर्जे",
-      "features": [
-        "काहीही गिरवी नाही",
-        "जलद मंजूरी",
-        "लवचिक कालावधी"
-      ]
-    },
-    "home": {
-      "name": "गृह कर्जे",
-      "description": "रहिवासीय मालमत्ता खरेदीसाठी गृह कर्ज",
-      "features": [
-        "कर फायदे",
-        "दीर्घ कालावधी",
-        "RERA सत्यापित"
-      ]
-    },
-    "vehicle": {
-      "name": "वाहन कर्जे",
-      "description": "स्पर्धात्मक दरांसह कार आणि दुचाकी कर्जे",
-      "features": [
-        "तात्काळ मंजूरी",
-        "शून्य डाउन पेमेंट",
-        "विमा"
-      ]
-    },
-    "business": {
-      "name": "व्यवसाय कर्जे",
-      "description": "MSME साठी कार्यरत मूलभूत भांडवल आणि विस्तार कर्जे",
-      "features": [
-        "GST आधारित",
-        "जलद वितरण",
-        "लवचिक पुनर्पेमेंट"
-      ]
-    },
-    "education": {
-      "name": "शिक्षण कर्जे",
-      "description": "भारत आणि परदेशात उच्च शिक्षणासाठी शिक्षण कर्ज",
-      "features": [
-        "मोरेटोरियम कालावधी",
-        "संपूर्ण कव्हरेज",
-        "कर फायदे"
-      ]
-    },
-    "agriculture": {
-      "name": "कृषी कर्जे",
-      "description": "शेतकऱ्यांसाठी विस्तृत कृषी कर्जे",
-      "features": [
-        "हवामान विमा",
-        "लवचिक पुनर्पेमेंट",
-        "अनुदान"
-      ]
-    },
-    "gold": {
-      "name": "सोन्याचे कर्जे",
-      "description": "सोन्याच्या आभूषणांविरुद्ध तात्काळ कर्ज",
-      "features": [
-        "तात्काळ मंजूरी",
-        "सुरक्षित साठवण",
-        "लवचिक"
-      ]
-    },
-    "credit-card": {
-      "name": "क्रेडिट कार्डे",
-      "description": "विशेष बक्षिसांसह प्रीमियम क्रेडिट कार्डे",
-      "features": [
-        "बक्षिस गुण",
-        "लाऊंज प्रवेश",
-        "कॅशबॅक"
-      ]
-    },
-    "two-wheeler": {
-      "name": "दुचाकी",
-      "description": "दुचाकी खरेदीसाठी जलद कर्ज",
-      "features": [
-        "किमान दस्तऐवज",
-        "त्याच दिवशी",
-        "विमा"
-      ]
-    },
-    "healthcare": {
-      "name": "आरोग्य कर्जे",
-      "description": "तात्काळ कर्ज वैद्यकीय खर्चासाठी",
-      "features": [
-        "हॉस्पिटल नेटवर्क",
-        "जलद मंजूरी",
-        "EMI मोरेटोरियम"
-      ]
-    },
-    "digital": {
-      "name": "डिजिटल कर्जे",
-      "description": "तात्काळ मंजूरीसह पूर्णपणे डिजिटल कर्ज",
-      "features": [
-        "100% डिजिटल",
-        "तात्काळ वितरण",
-        "लवचिक"
-      ]
-    },
-    "microfinance": {
-      "name": "माइक्रोफायनन्स",
-      "description": "लहान व्यवसाय सुरू करणे आणि उत्पन्न निर्माण",
-      "features": [
-        "गट कर्जदारी",
-        "आर्थिक साक्षरता",
-        "सोपा प्रवेश"
-      ]
-    }
-  },
-  "stats": {
-    "loans_disbursed": "वितरित कर्जे",
-    "happy_customers": "निराळे ग्राहक",
-    "approval_rate": "मंजूरी दर",
-    "cities_covered": "कव्हर केलेली शहरे"
-  },
-  "features": {
-    "ai_credit_scoring": {
-      "title": "AI-चालित क्रेडिट स्कोअरिंग",
-      "description": "तात्काळ क्रेडिट निर्णयांसाठी प्रगत अल्गोरिदम 500+ डेटा बिंदूंचे विश्लेषण करतात"
-    },
-    "hour_processing": {
-      "title": "24-तास प्रक्रिया",
-      "description": "अधिकांश कर्ज प्रकारांसाठी अर्जापासून वितरणापर्यंत फक्त 24 तासांत"
-    },
-    "government_integration": {
-      "title": "सरकारी एकीकरण",
-      "description": "सुगम सत्यापनासाठी आधार, PAN, GST शी थेट एकीकरण"
-    },
-    "multi_language": {
-      "title": "बहुभाषिक समर्थन",
-      "description": "ग्रामीण प्रवेशक्षमतेसाठी हिंदी आणि 11 प्रादेशिक भाषांमध्ये उपलब्ध"
-    },
-    "competitive_rates": {
-      "title": "स्पर्धात्मक दर",
-      "description": "सर्व 12 कर्ज क्षेत्रांमध्ये मार्केटमध्ये सर्वोत्तम व्याज दर"
-    },
-    "fraud_prevention": {
-      "title": "धोखेबाजी प्रतिबंध",
-      "description": "तात्काळ धोखेबाजी शोध प्रणालींसह बँक-ग्रेड सुरक्षा"
+  "consumption_marketplace": "Consumption Marketplace",
+  "consumption_partners": "Consumption Partners",
+  "consumption_loans": "Consumption Loans",
+  "admin_partners_management": "Partners Management",
+  "admin_marketplace_management": "Marketplace Management",
+  "admin_dashboard": "Admin Dashboard",
+  "total_partners": "Total Partners",
+  "total_offers": "Total Offers",
+  "active_loans": "Active Loans",
+  "pending_approvals": "Pending Approvals",
+  "quick_actions": "Quick Actions",
+  "manage_partners": "Manage Partners",
+  "add_edit_partners": "Add or edit partners",
+  "manage_marketplace": "Manage Marketplace",
+  "create_edit_offers": "Create or edit offers",
+  "manage_loans": "Manage Loans",
+  "view_track_loans": "View and track loans",
+  "recent_activity": "Recent Activity",
+  "new_partner_registered": "New Partner Registered",
+  "loan_offer_created": "Loan Offer Created",
+  "consumption_loan_disbursed": "Consumption Loan Disbursed",
+  "education_loan": "Education Loan",
+  "personal_loan": "Personal Loan",
+  "home_loan": "Home Loan",
+  "vehicle_loan": "Vehicle Loan",
+  "business_loan": "Business Loan",
+  "gold_loan": "Gold Loan",
+  "agriculture_loan": "Agriculture Loan",
+  "microfinance": "Microfinance",
+  "credit_card": "Credit Card",
+  "two_wheeler_loan": "Two Wheeler Loan",
+  "healthcare_loan": "Healthcare Loan",
+  "digital_loan": "Digital Loan",
+  "apply_for_loan": "Apply for Loan",
+  "selected_offer": "Selected Offer",
+  "loan_application_form": "Loan Application Form",
+  "loan_amount": "Loan Amount",
+  "tenure": "Tenure",
+  "loan_purpose": "Loan Purpose",
+  "partner_reference": "Partner Reference",
+  "invoice_order_number": "Invoice/Order Number",
+  "partner_reference_help": "Enter the invoice or order number from the partner",
+  "describe_purpose_of_loan": "Describe the purpose of the loan",
+  "submit_application": "Submit Application",
+  "application_submitted": "Application Submitted!",
+  "application_submitted_description": "Your loan application has been successfully submitted. You will receive updates on your application status shortly.",
+  "redirecting_to_status": "Redirecting to application status page...",
+  "submitting": "Submitting...",
+  "search": "Search",
+  "search_offers": "Search offers...",
+  "loan_sector": "Loan Sector",
+  "all_sectors": "All Sectors",
+  "sort_by": "Sort By",
+  "recommended": "Recommended",
+  "lowest_interest_rate": "Lowest Interest Rate",
+  "highest_amount": "Highest Amount",
+  "tenure_options": "Tenure Options",
+  "months": "months",
+  "interest_rate": "Interest Rate",
+  "processing_fee": "Processing Fee",
+  "apply_now": "Apply Now",
+  "no_offers_available": "No Offers Available",
+  "check_back_later_for_new_offers": "Check back later for new offers",
+  "no_offers_match_criteria": "No offers match your search criteria",
+  "refresh": "Refresh",
+  "error": "Error",
+  "try_again": "Try Again",
+  "cancel": "Cancel",
+  "add_new_partner": "Add New Partner",
+  "create_new_partner": "Create New Partner",
+  "partner_name": "Partner Name",
+  "contact_person": "Contact Person",
+  "email": "Email",
+  "phone": "Phone",
+  "partner_type": "Partner Type",
+  "university": "University",
+  "hospital": "Hospital",
+  "dealer": "Dealer",
+  "supplier": "Supplier",
+  "ecommerce": "E-commerce",
+  "service_provider": "Service Provider",
+  "other": "Other",
+  "commission_rate": "Commission Rate",
+  "create_partner": "Create Partner",
+  "type": "Type",
+  "sector": "Sector",
+  "contact": "Contact",
+  "status": "Status",
+  "integration": "Integration",
+  "no_partners_found": "No Partners Found",
+  "create_first_partner": "Create your first partner to get started",
+  "more": "more",
+  "amount_range": "Amount Range",
+  "chatbot": {
+    "title": "Fin-Agentix Assistant",
+    "welcome_message": "Hello! I'm your Fin-Agentix assistant. How can I help you today?",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "quick_actions": "Quick Actions",
+    "loan_options": "Loan Options",
+    "kyc_process": "KYC Process",
+    "education_loans": "Education Loans",
+    "healthcare_loans": "Healthcare Loans",
+    "vehicle_loans": "Vehicle Loans",
+    "business_loans": "Business Loans",
+    "suggestions": {
+      "how_apply": "How do I apply for a loan?",
+      "documents_required": "What documents are required for KYC?",
+      "show_loans": "Show me loan options",
+      "check_profile": "Check my profile",
+      "loan_rates": "Show me current rates",
+      "approval_process": "How long does approval take?",
+      "marketplace": "Show me marketplace",
+      "consumption_lending": "How does consumption lending work?",
+      "available_partners": "What partners are available?",
+      "complete_kyc": "How do I complete KYC?",
+      "no_aadhaar": "What if I don't have Aadhaar?",
+      "kyc_duration": "How long does KYC take?",
+      "eligibility": "Check my eligibility",
+      "minimum_income": "What is the minimum income?",
+      "credit_score": "How does credit score affect eligibility?",
+      "tenure_options": "Show me tenure options",
+      "prepay_loan": "Can I prepay my loan?",
+      "early_repayment": "Are there penalties for early repayment?",
+      "calculate_emi": "Calculate my EMI",
+      "auto_debit": "How do I set up auto-debit?",
+      "missed_payment": "What if I miss a payment?",
+      "helpline": "What is your helpline number?",
+      "support_ticket": "How do I submit a support ticket?",
+      "faq": "Do you have a FAQ section?"
     }
   }
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { 
@@ -56,48 +57,98 @@ const offices = [
 
 export default function Footer() {
   const { data: session } = useSession();
-  const { t } = useTranslation('common');
+  const { t, i18n: i18nInstance } = useTranslation('common');
+  const [translationsLoaded, setTranslationsLoaded] = useState(false);
   
+  useEffect(() => {
+    // Check if translations are loaded
+    const checkTranslations = () => {
+      if (i18nInstance.hasResourceBundle && 
+          i18nInstance.hasResourceBundle(i18nInstance.language || 'en', 'common')) {
+        setTranslationsLoaded(true);
+      } else {
+        // Listen for translations loaded event
+        const handleTranslationsLoaded = () => {
+          setTranslationsLoaded(true);
+        };
+        
+        window.addEventListener('translationsLoaded', handleTranslationsLoaded);
+        
+        // Retry after a short delay
+        setTimeout(checkTranslations, 100);
+        
+        // Cleanup
+        return () => {
+          window.removeEventListener('translationsLoaded', handleTranslationsLoaded);
+        };
+      }
+    };
+    
+    checkTranslations();
+  }, [i18nInstance]);
+
+  // Fallback for translation keys
+  const translateWithFallback = (key: string, fallback: string) => {
+    // If translations aren't loaded yet, return fallback
+    if (!translationsLoaded) {
+      return fallback;
+    }
+    
+    try {
+      // Check if the key exists in the translation resources
+      if (i18nInstance.exists && !i18nInstance.exists(key)) {
+        console.warn(`Translation key not found: ${key}`);
+        return fallback;
+      }
+      const translation = t(key);
+      // If key equals translation, it means it's not found
+      return translation === key ? fallback : translation;
+    } catch (error) {
+      console.warn(`Translation error for key: ${key}`, error);
+      return fallback;
+    }
+  };
+
   const publicLinks = [
-    { name: t('navigation.home'), href: "/" },
-    { name: t('navigation.all_loans'), href: "/loans" },
-    { name: t('navigation.emi_calculator'), href: "/loans/calculator" },
+    { name: translateWithFallback('navigation.home', 'Home'), href: "/" },
+    { name: translateWithFallback('navigation.all_loans', 'All Loans'), href: "/loans" },
+    { name: translateWithFallback('navigation.emi_calculator', 'EMI Calculator'), href: "/loans/calculator" },
     { name: "Track Application", href: "/loans/track" },
-    { name: t('navigation.about'), href: "/about" },
-    { name: t('navigation.contact'), href: "/contact" }
+    { name: translateWithFallback('navigation.about', 'About'), href: "/about" },
+    { name: translateWithFallback('navigation.contact', 'Contact'), href: "/contact" }
   ];
 
   const userLinks = [
-    { name: t('navigation.dashboard'), href: "/dashboard" },
-    { name: t('navigation.apply_for_loan'), href: "/loans/apply" },
-    { name: t('navigation.my_applications'), href: "/loans/my-applications" },
-    { name: t('navigation.kyc_verification'), href: "/kyc" },
-    { name: t('navigation.profile'), href: "/profile" },
-    { name: t('navigation.emi_calculator'), href: "/loans/calculator" }
+    { name: translateWithFallback('navigation.dashboard', 'Dashboard'), href: "/dashboard" },
+    { name: translateWithFallback('navigation.apply_for_loan', 'Apply for Loan'), href: "/loans/apply" },
+    { name: translateWithFallback('navigation.my_applications', 'My Applications'), href: "/loans/my-applications" },
+    { name: translateWithFallback('navigation.kyc_verification', 'KYC Verification'), href: "/kyc" },
+    { name: translateWithFallback('navigation.profile', 'Profile'), href: "/profile" },
+    { name: translateWithFallback('navigation.emi_calculator', 'EMI Calculator'), href: "/loans/calculator" }
   ];
 
   const adminLinks = [
-    { name: t('navigation.admin_dashboard'), href: "/admin" },
-    { name: t('navigation.applications'), href: "/admin/applications" },
-    { name: t('navigation.users'), href: "/admin/users" },
-    { name: t('navigation.analytics'), href: "/admin/analytics" },
-    { name: t('navigation.reports'), href: "/admin/reports" },
-    { name: t('navigation.admin_profile'), href: "/admin/profile" }
+    { name: translateWithFallback('navigation.admin_dashboard', 'Admin Dashboard'), href: "/admin" },
+    { name: translateWithFallback('navigation.applications', 'Applications'), href: "/admin/applications" },
+    { name: translateWithFallback('navigation.users', 'Users'), href: "/admin/users" },
+    { name: translateWithFallback('navigation.analytics', 'Analytics'), href: "/admin/analytics" },
+    { name: translateWithFallback('navigation.reports', 'Reports'), href: "/admin/reports" },
+    { name: translateWithFallback('navigation.admin_profile', 'Admin Profile'), href: "/admin/profile" }
   ];
 
   const loanProducts = [
-    { name: t('loan_sectors.personal.name'), href: "/loans/personal" },
-    { name: t('loan_sectors.home.name'), href: "/loans/home" },
-    { name: t('loan_sectors.vehicle.name'), href: "/loans/vehicle" },
-    { name: t('loan_sectors.business.name'), href: "/loans/business" },
-    { name: t('loan_sectors.education.name'), href: "/loans/education" },
-    { name: t('loan_sectors.gold.name'), href: "/loans/gold" }
+    { name: translateWithFallback('loan_sectors.personal.name', 'Personal Loan'), href: "/loans/personal" },
+    { name: translateWithFallback('loan_sectors.home.name', 'Home Loan'), href: "/loans/home" },
+    { name: translateWithFallback('loan_sectors.vehicle.name', 'Vehicle Loan'), href: "/loans/vehicle" },
+    { name: translateWithFallback('loan_sectors.business.name', 'Business Loan'), href: "/loans/business" },
+    { name: translateWithFallback('loan_sectors.education.name', 'Education Loan'), href: "/loans/education" },
+    { name: translateWithFallback('loan_sectors.gold.name', 'Gold Loan'), href: "/loans/gold" }
   ];
 
   const supportLinks = [
     { name: "Help Center", href: "/help" },
     { name: "FAQs", href: "/faq" },
-    { name: t('navigation.contact'), href: "/contact" },
+    { name: translateWithFallback('navigation.contact', 'Contact'), href: "/contact" },
     { name: "Grievance Redressal", href: "/grievance" },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms & Conditions", href: "/terms" }
@@ -114,7 +165,7 @@ export default function Footer() {
 
   const getQuickLinks = () => {
     if (!session) return publicLinks;
-    return (session?.user as any)?.role === "ADMIN" ? adminLinks : userLinks;
+    return (session?.user as { role: string })?.role === "ADMIN" ? adminLinks : userLinks;
   };
 
   const quickLinks = getQuickLinks();
@@ -131,11 +182,11 @@ export default function Footer() {
               <Logo size="md" className="mr-3" />
               <div>
                 <h3 className="text-2xl font-bold text-yellow-400">Fin-Agentix</h3>
-                <p className="text-sm text-gray-400">India's AI-Powered Lending Platform</p>
+                <p className="text-sm text-gray-400">India&apos;s AI-Powered Lending Platform</p>
               </div>
             </div>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
-              {t('home.subtitle')}
+              {translateWithFallback('home.subtitle', 'Connecting borrowers with the right lenders across 12 loan sectors. Experience instant approvals, competitive rates, and seamless digital processes.')}
             </p>
             
             {/* Trust Indicators */}
@@ -157,7 +208,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">{t('navigation.quick_links')}</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white">{translateWithFallback('navigation.quick_links', 'Quick Links')}</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -165,10 +216,10 @@ export default function Footer() {
                     href={link.href} 
                     className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 text-sm flex items-center"
                   >
-                    {link.name === t('navigation.dashboard') && <ChartBarIcon className="h-4 w-4 mr-2" />}
-                    {link.name === t('navigation.profile') && <UserIcon className="h-4 w-4 mr-2" />}
-                    {link.name === t('navigation.apply_for_loan') && <CreditCardIcon className="h-4 w-4 mr-2" />}
-                    {link.name === t('navigation.my_applications') && <DocumentTextIcon className="h-4 w-4 mr-2" />}
+                    {link.name === translateWithFallback('navigation.dashboard', 'Dashboard') && <ChartBarIcon className="h-4 w-4 mr-2" />}
+                    {link.name === translateWithFallback('navigation.profile', 'Profile') && <UserIcon className="h-4 w-4 mr-2" />}
+                    {link.name === translateWithFallback('navigation.apply_for_loan', 'Apply for Loan') && <CreditCardIcon className="h-4 w-4 mr-2" />}
+                    {link.name === translateWithFallback('navigation.my_applications', 'My Applications') && <DocumentTextIcon className="h-4 w-4 mr-2" />}
                     {link.href.includes("admin") && <BuildingOfficeIcon className="h-4 w-4 mr-2" />}
                     {link.name}
                   </Link>
@@ -179,7 +230,7 @@ export default function Footer() {
 
           {/* Loan Products */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">{t('home.loan_sectors')}</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white">{translateWithFallback('home.loan_sectors', '12 Comprehensive Loan Sectors')}</h4>
             <ul className="space-y-3">
               {loanProducts.map((product) => (
                 <li key={product.name}>
@@ -194,20 +245,20 @@ export default function Footer() {
             </ul>
             
             <div className="mt-6 p-4 bg-gray-800 rounded-lg">
-              <h5 className="font-semibold text-yellow-400 mb-2">{t('navigation.emi_calculator')}</h5>
-              <p className="text-xs text-gray-400 mb-3">{t('home.ready_to_start_desc')}</p>
+              <h5 className="font-semibold text-yellow-400 mb-2">{translateWithFallback('navigation.emi_calculator', 'EMI Calculator')}</h5>
+              <p className="text-xs text-gray-400 mb-3">{translateWithFallback('home.ready_to_start_desc', 'Join millions of satisfied customers who trust Fin-Agentix for their financial needs. Apply now and get instant approval!')}</p>
               <Link 
                 href="/loans/calculator" 
                 className="inline-block bg-yellow-400 text-gray-900 px-4 py-2 rounded text-xs font-semibold hover:bg-yellow-300 transition-colors duration-200"
               >
-                {t('home.start_application')}
+                {translateWithFallback('home.start_application', 'Start Your Application')}
               </Link>
             </div>
           </div>
 
           {/* Contact & Support */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">{t('navigation.contact')}</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white">{translateWithFallback('navigation.contact', 'Contact')}</h4>
             
             {/* Contact Information */}
             <div className="space-y-4 mb-6">

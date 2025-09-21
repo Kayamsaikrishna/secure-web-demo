@@ -2,6 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { User, Role, Gender, MaritalStatus } from "@prisma/client";
+
+interface SessionUser extends Omit<User, 'role'> {
+  role: Role;
+  id: string;
+}
 
 export async function GET(req: NextRequest) {
   try {
@@ -15,14 +21,15 @@ export async function GET(req: NextRequest) {
     }
 
     // Check if user is admin
-    if ((session.user as any).role !== "ADMIN") {
+    const sessionUser = session.user as SessionUser;
+    if (sessionUser.role !== Role.ADMIN) {
       return NextResponse.json(
         { error: "Admin access required" },
         { status: 403 }
       );
     }
 
-    const userId = (session.user as any).id;
+    const userId = sessionUser.id;
 
     // Fetch admin user data with profile
     const adminUser = await prisma.user.findUnique({
@@ -60,8 +67,8 @@ export async function GET(req: NextRequest) {
       lastLogin: new Date().toISOString(), // This could be tracked in a sessions table
       accountCreated: adminUser.createdAt.toISOString(),
       sessionsCount: 142, // This would come from a sessions tracking table
-      gender: adminUser.profile?.gender || "PREFER_NOT_TO_SAY",
-      dateOfBirth: adminUser.profile?.dateOfBirth || "1985-01-01",
+      gender: adminUser.profile?.gender || Gender.PREFER_NOT_TO_SAY,
+      dateOfBirth: adminUser.profile?.dateOfBirth || new Date("1985-01-01"),
       nationality: adminUser.profile?.nationality || "Indian"
     };
 
@@ -79,6 +86,16 @@ export async function GET(req: NextRequest) {
   }
 }
 
+interface ProfileUpdateBody {
+  firstName: string;
+  lastName: string;
+  primaryPhone: string;
+  alternateEmail: string;
+  gender: Gender;
+  dateOfBirth: string;
+  nationality: string;
+}
+
 export async function PUT(req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
@@ -91,15 +108,16 @@ export async function PUT(req: NextRequest) {
     }
 
     // Check if user is admin
-    if ((session.user as any).role !== "ADMIN") {
+    const sessionUser = session.user as SessionUser;
+    if (sessionUser.role !== Role.ADMIN) {
       return NextResponse.json(
         { error: "Admin access required" },
         { status: 403 }
       );
     }
 
-    const userId = (session.user as any).id;
-    const body = await req.json();
+    const userId = sessionUser.id;
+    const body: ProfileUpdateBody = await req.json();
 
     // Update admin profile
     const updatedProfile = await prisma.userProfile.upsert({
@@ -111,7 +129,7 @@ export async function PUT(req: NextRequest) {
         primaryPhone: body.primaryPhone,
         alternateEmail: body.alternateEmail,
         gender: body.gender,
-        dateOfBirth: body.dateOfBirth,
+        dateOfBirth: new Date(body.dateOfBirth),
         nationality: body.nationality,
       },
       create: {
@@ -121,10 +139,10 @@ export async function PUT(req: NextRequest) {
         fullName: `${body.firstName} ${body.lastName}`,
         primaryPhone: body.primaryPhone,
         alternateEmail: body.alternateEmail,
-        gender: body.gender || "PREFER_NOT_TO_SAY",
-        dateOfBirth: body.dateOfBirth || "1985-01-01",
+        gender: body.gender || Gender.PREFER_NOT_TO_SAY,
+        dateOfBirth: new Date(body.dateOfBirth || "1985-01-01"),
         nationality: body.nationality || "Indian",
-        maritalStatus: "PREFER_NOT_TO_SAY",
+        maritalStatus: MaritalStatus.SINGLE, // Using SINGLE as default since PREFER_NOT_TO_SAY is not available
         fatherName: "Admin User",
         motherName: "Admin User",
         dependents: 0,

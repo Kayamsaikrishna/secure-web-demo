@@ -8,7 +8,6 @@ import {
   DocumentTextIcon,
   ClockIcon,
   CheckCircleIcon,
-  XCircleIcon,
   EyeIcon,
   CurrencyRupeeIcon
 } from "@heroicons/react/24/outline";
@@ -57,7 +56,7 @@ const statusColors = {
 export default function MyApplicationsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const [applications, setApplications] = useState(mockApplications);
+  const [applications] = useState(mockApplications);
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -65,7 +64,7 @@ export default function MyApplicationsPage() {
       return;
     }
 
-    if ((session?.user as any)?.role === "ADMIN") {
+    if ((session?.user as { role: string })?.role === "ADMIN") {
       router.push("/admin");
       return;
     }
@@ -233,13 +232,13 @@ export default function MyApplicationsPage() {
         <div className="text-center py-12 bg-white rounded-lg shadow-md">
           <DocumentTextIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">No Applications Yet</h3>
-          <p className="text-gray-600 mb-6">You haven't submitted any loan applications.</p>
-          <a
+          <p className="text-gray-600 mb-6">You haven&apos;t submitted any loan applications.</p>
+          <Link
             href="/loans/apply"
             className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
           >
             Apply for a Loan
-          </a>
+          </Link>
         </div>
       )}
     </div>

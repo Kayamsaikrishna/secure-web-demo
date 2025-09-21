@@ -13,135 +13,220 @@
     "start_application": "Start Your Application",
     "explore_loans": "Explore All Loans"
   },
+  "loan_sectors": {
+    "personal": {
+      "name": "Personal Loan",
+      "description": "Flexible personal loans for all your individual needs with competitive interest rates and quick disbursal."
+    },
+    "home": {
+      "name": "Home Loan",
+      "description": "Affordable home loans to make your dream of owning a house a reality with flexible repayment options."
+    },
+    "vehicle": {
+      "name": "Vehicle Loan",
+      "description": "Finance your dream car, bike, or commercial vehicle with our competitive vehicle loan schemes."
+    },
+    "business": {
+      "name": "Business Loan",
+      "description": "Fuel your business growth with our tailored business loan solutions for entrepreneurs and enterprises."
+    },
+    "education": {
+      "name": "Education Loan",
+      "description": "Invest in your future with our comprehensive education loan programs for domestic and international studies."
+    },
+    "gold": {
+      "name": "Gold Loan",
+      "description": "Quick and easy gold loans with minimal documentation and competitive rates on your precious metals."
+    },
+    "agriculture": {
+      "name": "Agriculture Loan",
+      "description": "Specialized agricultural financing for farmers and agri-businesses to support crop cultivation and farming equipment."
+    },
+    "microfinance": {
+      "name": "Microfinance",
+      "description": "Small ticket loans for micro-enterprises, self-help groups, and women entrepreneurs with flexible terms."
+    },
+    "credit-card": {
+      "name": "Credit Card",
+      "description": "Premium credit cards with reward points, cashback offers, and exclusive benefits for all your spending needs."
+    },
+    "two-wheeler": {
+      "name": "Two Wheeler Loan",
+      "description": "Affordable financing for your two-wheeler purchase with quick processing and attractive interest rates."
+    },
+    "healthcare": {
+      "name": "Healthcare Loan",
+      "description": "Emergency and planned medical treatment financing with flexible repayment options and quick disbursal."
+    },
+    "digital": {
+      "name": "Digital Loan",
+      "description": "Instant digital loans based on your digital footprint and transaction history with completely online processing."
+    }
+  },
   "navigation": {
     "home": "Home",
     "all_loans": "All Loans",
+    "consumption_marketplace": "Consumption Marketplace",
     "emi_calculator": "EMI Calculator",
     "about": "About",
     "contact": "Contact",
+    "login": "Login",
+    "apply_now": "Apply Now",
     "dashboard": "Dashboard",
-    "apply_for_loan": "Apply for Loan",
     "my_applications": "My Applications",
     "kyc_verification": "KYC Verification",
     "profile": "Profile",
     "admin_dashboard": "Admin Dashboard",
-    "applications": "Applications",
+    "consumption_partners": "Partners",
+    "consumption_marketplace_admin": "Marketplace",
+    "consumption_loans": "Consumption Loans",
     "users": "Users",
     "analytics": "Analytics",
     "reports": "Reports",
     "admin_profile": "Admin Profile",
-    "setup": "Setup",
-    "login": "Login",
-    "apply_now": "Apply Now",
     "profile_settings": "Profile Settings",
-    "sign_out": "Sign out"
+    "sign_out": "Sign Out",
+    "setup": "Setup",
+    "marketplace": "Marketplace",
+    "partners": "Partners",
+    "loan_applications": "Loan Applications",
+    "products": "Products",
+    "loan_schemes": "Loan Schemes",
+    "disbursements": "Disbursements",
+    "settings": "Settings",
+    "quick_links": "Quick Links",
+    "applications": "Applications"
   },
-  "languages": {
-    "en": "English",
-    "hi": "हिंदी",
-    "ta": "தமிழ்",
-    "te": "తెలుగు",
-    "ml": "മലയാളം",
-    "kn": "ಕನ್ನಡ",
-    "bn": "বাংলা",
-    "gu": "ગુજરાતી",
-    "or": "ଓଡ଼ିଆ",
-    "pa": "ਪੰਜਾਬੀ",
-    "mr": "मराठी",
-    "ur": "اردو"
-  },
-  "loan_sectors": {
-    "personal": {
-      "name": "Personal Loans",
-      "description": "Quick personal loans with minimal documentation",
-      "features": ["No Collateral", "Quick Approval", "Flexible Tenure"]
-    },
-    "home": {
-      "name": "Home Loans",
-      "description": "Home loan for purchasing residential property",
-      "features": ["Tax Benefits", "Long Tenure", "RERA Verified"]
-    },
-    "vehicle": {
-      "name": "Vehicle Loans",
-      "description": "Car and two-wheeler loans with competitive rates",
-      "features": ["Instant Approval", "Zero Down Payment", "Insurance"]
-    },
-    "business": {
-      "name": "Business Loans",
-      "description": "Working capital and expansion loans for MSMEs",
-      "features": ["GST Based", "Quick Disbursal", "Flexible Repayment"]
-    },
-    "education": {
-      "name": "Education Loans",
-      "description": "Education loan for higher studies in India and abroad",
-      "features": ["Moratorium Period", "Full Coverage", "Tax Benefits"]
-    },
-    "agriculture": {
-      "name": "Agriculture Loans",
-      "description": "Comprehensive agricultural loans for farmers",
-      "features": ["Weather Insurance", "Flexible Repayment", "Subsidy"]
-    },
-    "gold": {
-      "name": "Gold Loans",
-      "description": "Instant loan against gold jewelry",
-      "features": ["Instant Approval", "Safe Storage", "Flexible"]
-    },
-    "credit-card": {
-      "name": "Credit Cards",
-      "description": "Premium credit cards with exclusive rewards",
-      "features": ["Reward Points", "Lounge Access", "Cashback"]
-    },
-    "two-wheeler": {
-      "name": "Two Wheeler",
-      "description": "Quick loan for two-wheeler purchase",
-      "features": ["Minimal Docs", "Same Day", "Insurance"]
-    },
-    "healthcare": {
-      "name": "Healthcare Loans",
-      "description": "Emergency loan for medical expenses",
-      "features": ["Hospital Network", "Quick Approval", "EMI Moratorium"]
-    },
-    "digital": {
-      "name": "Digital Loans",
-      "description": "Completely digital loan with instant approval",
-      "features": ["100% Digital", "Instant Disbursal", "Flexible"]
-    },
-    "microfinance": {
-      "name": "Microfinance",
-      "description": "Small business start-ups and income generation",
-      "features": ["Group Lending", "Financial Literacy", "Easy Access"]
-    }
-  },
-  "stats": {
-    "loans_disbursed": "Loans Disbursed",
-    "happy_customers": "Happy Customers",
-    "approval_rate": "Approval Rate",
-    "cities_covered": "Cities Covered"
-  },
-  "features": {
-    "ai_credit_scoring": {
-      "title": "AI-Powered Credit Scoring",
-      "description": "Advanced algorithms analyze 500+ data points for instant credit decisions"
-    },
-    "hour_processing": {
-      "title": "24-Hour Processing",
-      "description": "From application to disbursal in just 24 hours for most loan types"
-    },
-    "government_integration": {
-      "title": "Government Integration",
-      "description": "Direct integration with Aadhaar, PAN, GST for seamless verification"
-    },
-    "multi_language": {
-      "title": "Multi-Language Support",
-      "description": "Available in Hindi and 11 regional languages for rural accessibility"
-    },
-    "competitive_rates": {
-      "title": "Competitive Rates",
-      "description": "Best-in-market interest rates across all 12 loan sectors"
-    },
-    "fraud_prevention": {
-      "title": "Fraud Prevention",
-      "description": "Bank-grade security with real-time fraud detection systems"
+  "consumption_marketplace": "Consumption Marketplace",
+  "consumption_partners": "Consumption Partners",
+  "consumption_loans": "Consumption Loans",
+  "admin_partners_management": "Partners Management",
+  "admin_marketplace_management": "Marketplace Management",
+  "admin_dashboard": "Admin Dashboard",
+  "total_partners": "Total Partners",
+  "total_offers": "Total Offers",
+  "active_loans": "Active Loans",
+  "pending_approvals": "Pending Approvals",
+  "quick_actions": "Quick Actions",
+  "manage_partners": "Manage Partners",
+  "add_edit_partners": "Add or edit partners",
+  "manage_marketplace": "Manage Marketplace",
+  "create_edit_offers": "Create or edit offers",
+  "manage_loans": "Manage Loans",
+  "view_track_loans": "View and track loans",
+  "recent_activity": "Recent Activity",
+  "new_partner_registered": "New Partner Registered",
+  "loan_offer_created": "Loan Offer Created",
+  "consumption_loan_disbursed": "Consumption Loan Disbursed",
+  "education_loan": "Education Loan",
+  "personal_loan": "Personal Loan",
+  "home_loan": "Home Loan",
+  "vehicle_loan": "Vehicle Loan",
+  "business_loan": "Business Loan",
+  "gold_loan": "Gold Loan",
+  "agriculture_loan": "Agriculture Loan",
+  "microfinance": "Microfinance",
+  "credit_card": "Credit Card",
+  "two_wheeler_loan": "Two Wheeler Loan",
+  "healthcare_loan": "Healthcare Loan",
+  "digital_loan": "Digital Loan",
+  "apply_for_loan": "Apply for Loan",
+  "selected_offer": "Selected Offer",
+  "loan_application_form": "Loan Application Form",
+  "loan_amount": "Loan Amount",
+  "tenure": "Tenure",
+  "loan_purpose": "Loan Purpose",
+  "partner_reference": "Partner Reference",
+  "invoice_order_number": "Invoice/Order Number",
+  "partner_reference_help": "Enter the invoice or order number from the partner",
+  "describe_purpose_of_loan": "Describe the purpose of the loan",
+  "submit_application": "Submit Application",
+  "application_submitted": "Application Submitted!",
+  "application_submitted_description": "Your loan application has been successfully submitted. You will receive updates on your application status shortly.",
+  "redirecting_to_status": "Redirecting to application status page...",
+  "submitting": "Submitting...",
+  "search": "Search",
+  "search_offers": "Search offers...",
+  "loan_sector": "Loan Sector",
+  "all_sectors": "All Sectors",
+  "sort_by": "Sort By",
+  "recommended": "Recommended",
+  "lowest_interest_rate": "Lowest Interest Rate",
+  "highest_amount": "Highest Amount",
+  "tenure_options": "Tenure Options",
+  "months": "months",
+  "interest_rate": "Interest Rate",
+  "processing_fee": "Processing Fee",
+  "apply_now": "Apply Now",
+  "no_offers_available": "No Offers Available",
+  "check_back_later_for_new_offers": "Check back later for new offers",
+  "no_offers_match_criteria": "No offers match your search criteria",
+  "refresh": "Refresh",
+  "error": "Error",
+  "try_again": "Try Again",
+  "cancel": "Cancel",
+  "add_new_partner": "Add New Partner",
+  "create_new_partner": "Create New Partner",
+  "partner_name": "Partner Name",
+  "contact_person": "Contact Person",
+  "email": "Email",
+  "phone": "Phone",
+  "partner_type": "Partner Type",
+  "university": "University",
+  "hospital": "Hospital",
+  "dealer": "Dealer",
+  "supplier": "Supplier",
+  "ecommerce": "E-commerce",
+  "service_provider": "Service Provider",
+  "other": "Other",
+  "commission_rate": "Commission Rate",
+  "create_partner": "Create Partner",
+  "type": "Type",
+  "sector": "Sector",
+  "contact": "Contact",
+  "status": "Status",
+  "integration": "Integration",
+  "no_partners_found": "No Partners Found",
+  "create_first_partner": "Create your first partner to get started",
+  "more": "more",
+  "amount_range": "Amount Range",
+  "chatbot": {
+    "title": "Fin-Agentix Assistant",
+    "welcome_message": "Hello! I'm your Fin-Agentix assistant. How can I help you today?",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "quick_actions": "Quick Actions",
+    "loan_options": "Loan Options",
+    "kyc_process": "KYC Process",
+    "education_loans": "Education Loans",
+    "healthcare_loans": "Healthcare Loans",
+    "vehicle_loans": "Vehicle Loans",
+    "business_loans": "Business Loans",
+    "suggestions": {
+      "how_apply": "How do I apply for a loan?",
+      "documents_required": "What documents are required for KYC?",
+      "show_loans": "Show me loan options",
+      "check_profile": "Check my profile",
+      "loan_rates": "Show me current rates",
+      "approval_process": "How long does approval take?",
+      "marketplace": "Show me marketplace",
+      "consumption_lending": "How does consumption lending work?",
+      "available_partners": "What partners are available?",
+      "complete_kyc": "How do I complete KYC?",
+      "no_aadhaar": "What if I don't have Aadhaar?",
+      "kyc_duration": "How long does KYC take?",
+      "eligibility": "Check my eligibility",
+      "minimum_income": "What is the minimum income?",
+      "credit_score": "How does credit score affect eligibility?",
+      "tenure_options": "Show me tenure options",
+      "prepay_loan": "Can I prepay my loan?",
+      "early_repayment": "Are there penalties for early repayment?",
+      "calculate_emi": "Calculate my EMI",
+      "auto_debit": "How do I set up auto-debit?",
+      "missed_payment": "What if I miss a payment?",
+      "helpline": "What is your helpline number?",
+      "support_ticket": "How do I submit a support ticket?",
+      "faq": "Do you have a FAQ section?"
     }
   }
 }

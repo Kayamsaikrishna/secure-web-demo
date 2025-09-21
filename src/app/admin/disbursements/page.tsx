@@ -23,7 +23,7 @@ const mockDisbursements = [
     loanType: "Vehicle Loan",
     disbursementDate: "2024-01-21T14:30:00Z",
     accountNumber: "****8765",
-    status: "COMPLETED",
+    status: "COMPLETED" as const,
     referenceNumber: "HDFC240121001"
   },
   {
@@ -36,7 +36,7 @@ const mockDisbursements = [
     loanType: "Education Loan",
     disbursementDate: "2024-01-20T16:45:00Z", 
     accountNumber: "****4321",
-    status: "COMPLETED",
+    status: "COMPLETED" as const,
     referenceNumber: "HDFC240120002"
   },
   {
@@ -49,7 +49,7 @@ const mockDisbursements = [
     loanType: "Home Loan",
     disbursementDate: null,
     accountNumber: "****9876",
-    status: "PENDING",
+    status: "PENDING" as const,
     referenceNumber: null
   }
 ];
@@ -59,18 +59,32 @@ const statusColors = {
   PENDING: "text-yellow-600 bg-yellow-100",
   FAILED: "text-red-600 bg-red-100",
   IN_PROGRESS: "text-blue-600 bg-blue-100"
-};
+} as const;
+
+interface Disbursement {
+  id: string;
+  applicationId: string;
+  applicantName: string;
+  loanAmount: number;
+  approvedAmount: number;
+  disbursedAmount: number;
+  loanType: string;
+  disbursementDate: string | null;
+  accountNumber: string;
+  status: keyof typeof statusColors;
+  referenceNumber: string | null;
+}
 
 export default function DisbursementsPage() {
   const { data: session } = useSession();
-  const [disbursements] = useState(mockDisbursements);
+  const [disbursements] = useState<Disbursement[]>(mockDisbursements);
   const [searchTerm, setSearchTerm] = useState("");
 
-  if ((session?.user as any)?.role !== "ADMIN") {
+  if (session?.user.role !== "ADMIN") {
     return (
       <div className="text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+        <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
       </div>
     );
   }
@@ -222,7 +236,7 @@ export default function DisbursementsPage() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      statusColors[disbursement.status as keyof typeof statusColors]
+                      statusColors[disbursement.status]
                     }`}>
                       {disbursement.status}
                     </span>

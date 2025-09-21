@@ -13,183 +13,220 @@
     "start_application": "നിങ്ങളുടെ അപേക്ഷ തുടങ്ങുക",
     "explore_loans": "എല്ലാ ലോണുകളും പര്യവേക്ഷണം ചെയ്യുക"
   },
+  "loan_sectors": {
+    "personal": {
+      "name": "വ്യക്തിഗത ലോണുകൾ",
+      "description": "ഏറ്റവും കുറവ് രേഖപ്പെടുത്തലുകളോടെ വേഗത്തിലുള്ള വ്യക്തിഗത ലോണുകൾ"
+    },
+    "home": {
+      "name": "ഹോം ലോണുകൾ",
+      "description": "വാസസ്ഥല ആസ്തി വാങ്ങുന്നതിനുള്ള ഹോം ലോൺ"
+    },
+    "vehicle": {
+      "name": "വാഹന ലോണുകൾ",
+      "description": "മത്സര നിരക്കുകളോടെ കാർ, രണ്ടു ചക്ര വാഹനങ്ങൾക്കായുള്ള ലോണുകൾ"
+    },
+    "business": {
+      "name": "ബിസിനസ് ലോണുകൾ",
+      "description": "MSME-കൾക്കായുള്ള പ്രവർത്തന മൂലധനവും വിപുലീകരണ ലോണുകളും"
+    },
+    "education": {
+      "name": "വിദ്യാഭ്യാസ ലോണുകൾ",
+      "description": "ഇന്ത്യയിലും വെളിനാടുകളിലും ഉയർന്ന പഠനത്തിനായുള്ള വിദ്യാഭ്യാസ ലോൺ"
+    },
+    "gold": {
+      "name": "സ്വർണ്ണ ലോണുകൾ",
+      "description": "ചെമ്പടികൾക്കെതിരെ ഉടനടി ലോൺ"
+    },
+    "agriculture": {
+      "name": "കാർഷിക ലോണുകൾ",
+      "description": "കർഷകരുടെ വിപുലമായ കാർഷിക ലോണുകൾ"
+    },
+    "microfinance": {
+      "name": "മൈക്രോഫൈനാൻസ്",
+      "description": "ചെറിയ ബിസിനസ് ആരംഭങ്ങളും വരുമാന സൃഷ്ടിയും"
+    },
+    "credit-card": {
+      "name": "ക്രെഡിറ്റ് കാർഡുകൾ",
+      "description": "പ്രത്യേക ബഹുമതികളുള്ള പ്രീമിയം ക്രെഡിറ്റ് കാർഡുകൾ"
+    },
+    "two-wheeler": {
+      "name": "രണ്ടു ചക്ര വാഹനം",
+      "description": "രണ്ടു ചക്ര വാഹന വാങ്ങുന്നതിനുള്ള വേഗത്തിലുള്ള ലോൺ"
+    },
+    "healthcare": {
+      "name": "ആരോഗ്യ ലോണുകൾ",
+      "description": "മെഡിക്കൽ ചെലവുകൾക്കായുള്ള അടിയന്തര ലോൺ"
+    },
+    "digital": {
+      "name": "ഡിജിറ്റൽ ലോണുകൾ",
+      "description": "ഉടനടി അംഗീകാരമുള്ള പൂർണ്ണമായും ഡിജിറ്റൽ ലോൺ"
+    }
+  },
   "navigation": {
     "home": "ഹോം",
     "all_loans": "എല്ലാ ലോണുകളും",
+    "consumption_marketplace": "Consumption Marketplace",
     "emi_calculator": "EMI കാൽക്കുലേറ്റർ",
     "about": "ഞങ്ങളെക്കുറിച്ച്",
     "contact": "ബന്ധപ്പെടുക",
+    "login": "ലോഗിൻ",
+    "apply_now": "ഇപ്പോൾ അപേക്ഷിക്കുക",
     "dashboard": "ഡാഷ്ബോർഡ്",
-    "apply_for_loan": "ലോൺ-നായി അപേക്ഷിക്കുക",
     "my_applications": "എന്റെ അപേക്ഷകൾ",
     "kyc_verification": "KYC പരിശോധന",
     "profile": "പ്രൊഫൈൽ",
     "admin_dashboard": "അഡ്മിൻ ഡാഷ്ബോർഡ്",
-    "applications": "അപേക്ഷകൾ",
+    "consumption_partners": "Partners",
+    "consumption_marketplace_admin": "Marketplace",
+    "consumption_loans": "Consumption Loans",
     "users": "ഉപയോക്താക്കൾ",
     "analytics": "വിശകലനം",
     "reports": "റിപ്പോർട്ടുകൾ",
     "admin_profile": "അഡ്മിൻ പ്രൊഫൈൽ",
-    "setup": "സജ്ജീകരണം",
-    "login": "ലോഗിൻ",
-    "apply_now": "ഇപ്പോൾ അപേക്ഷിക്കുക",
     "profile_settings": "പ്രൊഫൈൽ ക്രമീകരണങ്ങൾ",
-    "sign_out": "സൈൻ ഔട്ട്"
+    "sign_out": "സൈൻ ഔട്ട്",
+    "setup": "സജ്ജീകരണം",
+    "marketplace": "Marketplace",
+    "partners": "Partners",
+    "loan_applications": "Loan Applications",
+    "products": "Products",
+    "loan_schemes": "Loan Schemes",
+    "disbursements": "Disbursements",
+    "settings": "Settings",
+    "quick_links": "വേഗത്തിലുള്ള ലിങ്കുകൾ",
+    "applications": "അപേക്ഷകൾ"
   },
-  "languages": {
-    "en": "English",
-    "hi": "हिंदी",
-    "ta": "தமிழ்",
-    "te": "తెలుగు",
-    "ml": "മലയാളം",
-    "kn": "ಕನ್ನಡ",
-    "bn": "বাংলা",
-    "gu": "ગુજરાતી",
-    "or": "ଓଡ଼ିଆ",
-    "pa": "ਪੰਜਾਬੀ",
-    "mr": "मराठी",
-    "ur": "اردو"
-  },
-  "loan_sectors": {
-    "personal": {
-      "name": "വ്യക്തിഗത ലോണുകൾ",
-      "description": "ഏറ്റവും കുറവ് രേഖപ്പെടുത്തലുകളോടെ വേഗത്തിലുള്ള വ്യക്തിഗത ലോണുകൾ",
-      "features": [
-        "ആഹരണം ആവശ്യമില്ല",
-        "വേഗത്തിലുള്ള അംഗീകാരം",
-        "ഫ്ലെക്സിബിൾ കാലാവധി"
-      ]
-    },
-    "home": {
-      "name": "ഹോം ലോണുകൾ",
-      "description": "വാസസ്ഥല ആസ്തി വാങ്ങുന്നതിനുള്ള ഹോം ലോൺ",
-      "features": [
-        "നികുതി ഗുണങ്ങൾ",
-        "ദീർഘകാലാവധി",
-        "RERA പരിശോധിച്ചത്"
-      ]
-    },
-    "vehicle": {
-      "name": "വാഹന ലോണുകൾ",
-      "description": "മത്സര നിരക്കുകളോടെ കാർ, രണ്ടു ചക്ര വാഹനങ്ങൾക്കായുള്ള ലോണുകൾ",
-      "features": [
-        "ഉടനടി അംഗീകാരം",
-        "പൂജ്യം ഡൗൺ പേയ്മെന്റ്",
-        "ഇൻഷുറൻസ്"
-      ]
-    },
-    "business": {
-      "name": "ബിസിനസ് ലോണുകൾ",
-      "description": "MSME-കൾക്കായുള്ള പ്രവർത്തന മൂലധനവും വിപുലീകരണ ലോണുകളും",
-      "features": [
-        "GST അടിസ്ഥാനമാക്കിയത്",
-        "വേഗത്തിലുള്ള വിതരണം",
-        "ഫ്ലെക്സിബിൾ തിരിച്ചടവ്"
-      ]
-    },
-    "education": {
-      "name": "വിദ്യാഭ്യാസ ലോണുകൾ",
-      "description": "ഇന്ത്യയിലും വെളിനാടുകളിലും ഉയർന്ന പഠനത്തിനായുള്ള വിദ്യാഭ്യാസ ലോൺ",
-      "features": [
-        "മോറേറ്റോറിയം കാലാവധി",
-        "പൂർണ്ണ കവറേജ്",
-        "നികുതി ഗുണങ്ങൾ"
-      ]
-    },
-    "agriculture": {
-      "name": "കാർഷിക ലോണുകൾ",
-      "description": "കർഷകരുടെ വിപുലമായ കാർഷിക ലോണുകൾ",
-      "features": [
-        "കാലാവസ്ഥാ ഇൻഷുറൻസ്",
-        "ഫ്ലെക്സിബിൾ തിരിച്ചടവ്",
-        "സബ്സിഡി"
-      ]
-    },
-    "gold": {
-      "name": "സ്വർണ്ണ ലോണുകൾ",
-      "description": "ചെമ്പടികൾക്കെതിരെ ഉടനടി ലോൺ",
-      "features": [
-        "ഉടനടി അംഗീകാരം",
-        "സുരക്ഷിത സംഭരണം",
-        "ഫ്ലെക്സിബിൾ"
-      ]
-    },
-    "credit-card": {
-      "name": "ക്രെഡിറ്റ് കാർഡുകൾ",
-      "description": "പ്രത്യേക ബഹുമതികളുള്ള പ്രീമിയം ക്രെഡിറ്റ് കാർഡുകൾ",
-      "features": [
-        "ബഹുമതി പോയിന്റുകൾ",
-        "ലൗഞ്ച് ആക്സസ്",
-        "ക്യാഷ്ബാക്ക്"
-      ]
-    },
-    "two-wheeler": {
-      "name": "രണ്ടു ചക്ര വാഹനം",
-      "description": "രണ്ടു ചക്ര വാഹന വാങ്ങുന്നതിനുള്ള വേഗത്തിലുള്ള ലോൺ",
-      "features": [
-        "ഏറ്റവും കുറവ് രേഖകൾ",
-        "ഒരേ ദിവസം",
-        "ഇൻഷുറൻസ്"
-      ]
-    },
-    "healthcare": {
-      "name": "ആരോഗ്യ ലോണുകൾ",
-      "description": "മെഡിക്കൽ ചെലവുകൾക്കായുള്ള അടിയന്തര ലോൺ",
-      "features": [
-        "ആശുപത്രി നെറ്റ്‌വർക്ക്",
-        "വേഗത്തിലുള്ള അംഗീകാരം",
-        "EMI മോറേറ്റോറിയം"
-      ]
-    },
-    "digital": {
-      "name": "ഡിജിറ്റൽ ലോണുകൾ",
-      "description": "ഉടനടി അംഗീകാരമുള്ള പൂർണ്ണമായും ഡിജിറ്റൽ ലോൺ",
-      "features": [
-        "100% ഡിജിറ്റൽ",
-        "ഉടനടി വിതരണം",
-        "ഫ്ലെക്സിബിൾ"
-      ]
-    },
-    "microfinance": {
-      "name": "മൈക്രോഫൈനാൻസ്",
-      "description": "ചെറിയ ബിസിനസ് ആരംഭങ്ങളും വരുമാന സൃഷ്ടിയും",
-      "features": [
-        "ഗ്രൂപ്പ് ലെൻഡിംഗ്",
-        "ഫൈനാൻഷ്യൽ ലിറ്ററസി",
-        "എളുപ്പത്തിലുള്ള ആക്സസ്"
-      ]
-    }
-  },
-  "stats": {
-    "loans_disbursed": "വിതരണം ചെയ്ത ലോണുകൾ",
-    "happy_customers": "സംതൃപ്തരായ ഉപഭോക്താക്കൾ",
-    "approval_rate": "അംഗീകാര നിരക്ക്",
-    "cities_covered": "പരിധിയിൽ ഉൾപ്പെട്ട നഗരങ്ങൾ"
-  },
-  "features": {
-    "ai_credit_scoring": {
-      "title": "AI-പവർഡ് ക്രെഡിറ്റ് സ്കോറിംഗ്",
-      "description": "ഉടനടി ക്രെഡിറ്റ് തീരുമാനങ്ങൾക്കായി നൂറ്റിലധികം ഡാറ്റാ പോയിന്റുകൾ വിശകലനം ചെയ്യുന്ന നൂതന അൽഗോരിതങ്ങൾ"
-    },
-    "hour_processing": {
-      "title": "24-മണിക്കൂർ പ്രോസസ്സിംഗ്",
-      "description": "മിക്ക ലോൺ തരങ്ങൾക്കും അപേക്ഷയിൽ നിന്ന് വിതരണം വരെ മാത്രം 24 മണിക്കൂറിൽ"
-    },
-    "government_integration": {
-      "title": "സർക്കാർ സംയോജനം",
-      "description": "സുഗമമായ പരിശോധനയ്ക്കായി ആധാർ, PAN, GST-നൊപ്പം നേരിട്ടുള്ള സംയോജനം"
-    },
-    "multi_language": {
-      "title": "ബഹുഭാഷാ പിന്തുണ",
-      "description": "ഗ്രാമീണ ആക്സസിബിലിറ്റിക്കായി ഹിന്ദിയിലും 11 പ്രാദേശിക ഭാഷകളിലും ലഭ്യം"
-    },
-    "competitive_rates": {
-      "title": "മത്സര നിരക്കുകൾ",
-      "description": "എല്ലാ 12 ലോൺ മേഖലകളിലും മാർക്കറ്റിൽ ഉത്തമമായ പലിശ നിരക്കുകൾ"
-    },
-    "fraud_prevention": {
-      "title": "വഞ്ചന തടയൽ",
-      "description": "തൽസമയ വഞ്ചന കണ്ടെത്തൽ സംവിധാനങ്ങളോടെ ബാങ്ക്-ഗ്രേഡ് സുരക്ഷ"
+  "consumption_marketplace": "Consumption Marketplace",
+  "consumption_partners": "Consumption Partners",
+  "consumption_loans": "Consumption Loans",
+  "admin_partners_management": "Partners Management",
+  "admin_marketplace_management": "Marketplace Management",
+  "admin_dashboard": "Admin Dashboard",
+  "total_partners": "Total Partners",
+  "total_offers": "Total Offers",
+  "active_loans": "Active Loans",
+  "pending_approvals": "Pending Approvals",
+  "quick_actions": "Quick Actions",
+  "manage_partners": "Manage Partners",
+  "add_edit_partners": "Add or edit partners",
+  "manage_marketplace": "Manage Marketplace",
+  "create_edit_offers": "Create or edit offers",
+  "manage_loans": "Manage Loans",
+  "view_track_loans": "View and track loans",
+  "recent_activity": "Recent Activity",
+  "new_partner_registered": "New Partner Registered",
+  "loan_offer_created": "Loan Offer Created",
+  "consumption_loan_disbursed": "Consumption Loan Disbursed",
+  "education_loan": "Education Loan",
+  "personal_loan": "Personal Loan",
+  "home_loan": "Home Loan",
+  "vehicle_loan": "Vehicle Loan",
+  "business_loan": "Business Loan",
+  "gold_loan": "Gold Loan",
+  "agriculture_loan": "Agriculture Loan",
+  "microfinance": "Microfinance",
+  "credit_card": "Credit Card",
+  "two_wheeler_loan": "Two Wheeler Loan",
+  "healthcare_loan": "Healthcare Loan",
+  "digital_loan": "Digital Loan",
+  "apply_for_loan": "Apply for Loan",
+  "selected_offer": "Selected Offer",
+  "loan_application_form": "Loan Application Form",
+  "loan_amount": "Loan Amount",
+  "tenure": "Tenure",
+  "loan_purpose": "Loan Purpose",
+  "partner_reference": "Partner Reference",
+  "invoice_order_number": "Invoice/Order Number",
+  "partner_reference_help": "Enter the invoice or order number from the partner",
+  "describe_purpose_of_loan": "Describe the purpose of the loan",
+  "submit_application": "Submit Application",
+  "application_submitted": "Application Submitted!",
+  "application_submitted_description": "Your loan application has been successfully submitted. You will receive updates on your application status shortly.",
+  "redirecting_to_status": "Redirecting to application status page...",
+  "submitting": "Submitting...",
+  "search": "Search",
+  "search_offers": "Search offers...",
+  "loan_sector": "Loan Sector",
+  "all_sectors": "All Sectors",
+  "sort_by": "Sort By",
+  "recommended": "Recommended",
+  "lowest_interest_rate": "Lowest Interest Rate",
+  "highest_amount": "Highest Amount",
+  "tenure_options": "Tenure Options",
+  "months": "months",
+  "interest_rate": "Interest Rate",
+  "processing_fee": "Processing Fee",
+  "apply_now": "Apply Now",
+  "no_offers_available": "No Offers Available",
+  "check_back_later_for_new_offers": "Check back later for new offers",
+  "no_offers_match_criteria": "No offers match your search criteria",
+  "refresh": "Refresh",
+  "error": "Error",
+  "try_again": "Try Again",
+  "cancel": "Cancel",
+  "add_new_partner": "Add New Partner",
+  "create_new_partner": "Create New Partner",
+  "partner_name": "Partner Name",
+  "contact_person": "Contact Person",
+  "email": "Email",
+  "phone": "Phone",
+  "partner_type": "Partner Type",
+  "university": "University",
+  "hospital": "Hospital",
+  "dealer": "Dealer",
+  "supplier": "Supplier",
+  "ecommerce": "E-commerce",
+  "service_provider": "Service Provider",
+  "other": "Other",
+  "commission_rate": "Commission Rate",
+  "create_partner": "Create Partner",
+  "type": "Type",
+  "sector": "Sector",
+  "contact": "Contact",
+  "status": "Status",
+  "integration": "Integration",
+  "no_partners_found": "No Partners Found",
+  "create_first_partner": "Create your first partner to get started",
+  "more": "more",
+  "amount_range": "Amount Range",
+  "chatbot": {
+    "title": "Fin-Agentix Assistant",
+    "welcome_message": "Hello! I'm your Fin-Agentix assistant. How can I help you today?",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "quick_actions": "Quick Actions",
+    "loan_options": "Loan Options",
+    "kyc_process": "KYC Process",
+    "education_loans": "Education Loans",
+    "healthcare_loans": "Healthcare Loans",
+    "vehicle_loans": "Vehicle Loans",
+    "business_loans": "Business Loans",
+    "suggestions": {
+      "how_apply": "How do I apply for a loan?",
+      "documents_required": "What documents are required for KYC?",
+      "show_loans": "Show me loan options",
+      "check_profile": "Check my profile",
+      "loan_rates": "Show me current rates",
+      "approval_process": "How long does approval take?",
+      "marketplace": "Show me marketplace",
+      "consumption_lending": "How does consumption lending work?",
+      "available_partners": "What partners are available?",
+      "complete_kyc": "How do I complete KYC?",
+      "no_aadhaar": "What if I don't have Aadhaar?",
+      "kyc_duration": "How long does KYC take?",
+      "eligibility": "Check my eligibility",
+      "minimum_income": "What is the minimum income?",
+      "credit_score": "How does credit score affect eligibility?",
+      "tenure_options": "Show me tenure options",
+      "prepay_loan": "Can I prepay my loan?",
+      "early_repayment": "Are there penalties for early repayment?",
+      "calculate_emi": "Calculate my EMI",
+      "auto_debit": "How do I set up auto-debit?",
+      "missed_payment": "What if I miss a payment?",
+      "helpline": "What is your helpline number?",
+      "support_ticket": "How do I submit a support ticket?",
+      "faq": "Do you have a FAQ section?"
     }
   }
 }

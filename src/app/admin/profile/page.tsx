@@ -37,6 +37,13 @@ interface SystemStats {
   totalDisbursed: number;
 }
 
+interface User {
+  id?: string;
+  name?: string | null;
+  email?: string | null;
+  role?: string;
+}
+
 export default function AdminProfilePage() {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -51,7 +58,7 @@ export default function AdminProfilePage() {
       return;
     }
 
-    if (session?.user && (session.user as any)?.role !== "ADMIN") {
+    if (session?.user && session.user.role !== "ADMIN") {
       router.push("/profile");
       return;
     }
@@ -80,7 +87,7 @@ export default function AdminProfilePage() {
       
       setLoading(false);
     }
-  }, [session, status]);
+  }, [session, status, router]);
 
   if (loading) {
     return (
@@ -167,7 +174,7 @@ export default function AdminProfilePage() {
           <div className="px-6 py-6">
             {activeTab === "overview" && systemStats && (
               <div className="space-y-6">
-                <h3 className="text-lg font-medium text-gray-900">System Overview & Statistics</h3>
+                <h3 className="text-lg font-medium text-gray-900">System Overview &amp; Statistics</h3>
                 
                 {/* Quick Stats Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -291,7 +298,7 @@ export default function AdminProfilePage() {
 
             {activeTab === "permissions" && profile && (
               <div className="max-w-4xl">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Admin Permissions & Access Control</h3>
+                <h3 className="text-lg font-medium text-gray-900 mb-4">Admin Permissions &amp; Access Control</h3>
                 <div className="space-y-6">
                   <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                     <div className="flex">

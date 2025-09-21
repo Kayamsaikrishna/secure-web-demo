@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, FieldValues } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { 
@@ -112,11 +112,37 @@ const mockPANDB = {
   }
 };
 
+interface VerificationStatus {
+  [key: string]: {
+    status: string;
+    data?: Record<string, any>;
+    error?: string;
+  } | undefined;
+}
+
+interface UploadedFiles {
+  [key: string]: {
+    name: string;
+    size: number;
+    type: string;
+    lastModified: number;
+    url: string;
+  } | null;
+}
+
+interface BiometricData {
+  [key: string]: {
+    captured: boolean;
+    timestamp: string;
+    quality: number;
+  } | null;
+}
+
 export default function KYCVerificationPage() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [verificationStatus, setVerificationStatus] = useState<any>({});
-  const [uploadedFiles, setUploadedFiles] = useState<any>({});
-  const [biometricData, setBiometricData] = useState<any>({});
+  const [verificationStatus, setVerificationStatus] = useState<VerificationStatus>({});
+  const [uploadedFiles, setUploadedFiles] = useState<UploadedFiles>({});
+  const [biometricData, setBiometricData] = useState<BiometricData>({});
   const [isProcessing, setIsProcessing] = useState(false);
   
   const fileInputRefs = {
@@ -148,7 +174,7 @@ export default function KYCVerificationPage() {
     const aadhaarData = mockAadhaarDB[aadhaarNumber as keyof typeof mockAadhaarDB];
     
     if (aadhaarData) {
-      setVerificationStatus(prev => ({
+      setVerificationStatus((prev: VerificationStatus) => ({
         ...prev,
         aadhaar: { status: 'verified', data: aadhaarData }
       }));
@@ -166,7 +192,7 @@ export default function KYCVerificationPage() {
       setValue('state', addressParts[2] || '');
       setValue('pincode', addressParts[3] || '');
     } else {
-      setVerificationStatus(prev => ({
+      setVerificationStatus((prev: VerificationStatus) => ({
         ...prev,
         aadhaar: { status: 'failed', error: 'Aadhaar number not found' }
       }));
@@ -184,14 +210,14 @@ export default function KYCVerificationPage() {
     const panData = mockPANDB[panNumber as keyof typeof mockPANDB];
     
     if (panData) {
-      setVerificationStatus(prev => ({
+      setVerificationStatus((prev: VerificationStatus) => ({
         ...prev,
         pan: { status: 'verified', data: panData }
       }));
       
       setValue('panName', panData.name);
     } else {
-      setVerificationStatus(prev => ({
+      setVerificationStatus((prev: VerificationStatus) => ({
         ...prev,
         pan: { status: 'failed', error: 'PAN number not found' }
       }));
@@ -202,7 +228,7 @@ export default function KYCVerificationPage() {
 
   // Handle file uploads
   const handleFileUpload = (fileType: string, file: File) => {
-    setUploadedFiles(prev => ({
+    setUploadedFiles((prev: UploadedFiles) => ({
       ...prev,
       [fileType]: {
         name: file.name,
@@ -216,7 +242,7 @@ export default function KYCVerificationPage() {
 
   // Mock biometric capture
   const captureBiometric = (type: 'fingerprint' | 'iris') => {
-    setBiometricData(prev => ({
+    setBiometricData((prev: BiometricData) => ({
       ...prev,
       [type]: {
         captured: true,
@@ -226,7 +252,7 @@ export default function KYCVerificationPage() {
     }));
   };
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: FieldValues) => {
     console.log("KYC Data:", { ...data, uploadedFiles, biometricData });
     alert("KYC verification completed successfully! Your profile will be updated shortly.");
   };
@@ -480,7 +506,7 @@ export default function KYCVerificationPage() {
               <button
                 type="button"
                 onClick={nextStep}
-                disabled={!verificationStatus.aadhaar?.status === 'verified' || !verificationStatus.pan?.status === 'verified'}
+                disabled={!(verificationStatus.aadhaar?.status === 'verified') || !(verificationStatus.pan?.status === 'verified')}
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center font-semibold"
               >
                 Continue to Documents
@@ -512,7 +538,7 @@ export default function KYCVerificationPage() {
                           <p className="text-sm text-gray-600">{uploadedFiles.aadhaarFront.name}</p>
                           <button
                             type="button"
-                            onClick={() => setUploadedFiles(prev => ({ ...prev, aadhaarFront: null }))}
+                            onClick={() => setUploadedFiles((prev: Record<string, any>) => ({ ...prev, aadhaarFront: null }))}
                             className="text-red-600 hover:text-red-700 text-sm"
                           >
                             Remove
@@ -550,7 +576,7 @@ export default function KYCVerificationPage() {
                           <p className="text-sm text-gray-600">{uploadedFiles.aadhaarBack.name}</p>
                           <button
                             type="button"
-                            onClick={() => setUploadedFiles(prev => ({ ...prev, aadhaarBack: null }))}
+                            onClick={() => setUploadedFiles((prev: Record<string, any>) => ({ ...prev, aadhaarBack: null }))}
                             className="text-red-600 hover:text-red-700 text-sm"
                           >
                             Remove
@@ -593,7 +619,7 @@ export default function KYCVerificationPage() {
                         <p className="text-sm text-gray-600">{uploadedFiles.panCard.name}</p>
                         <button
                           type="button"
-                          onClick={() => setUploadedFiles(prev => ({ ...prev, panCard: null }))}
+                          onClick={() => setUploadedFiles((prev: Record<string, any>) => ({ ...prev, panCard: null }))}
                           className="text-red-600 hover:text-red-700 text-sm"
                         >
                           Remove
@@ -636,7 +662,7 @@ export default function KYCVerificationPage() {
                           <p className="text-sm text-gray-600">{uploadedFiles.selfie.name}</p>
                           <button
                             type="button"
-                            onClick={() => setUploadedFiles(prev => ({ ...prev, selfie: null }))}
+                            onClick={() => setUploadedFiles((prev: Record<string, any>) => ({ ...prev, selfie: null }))}
                             className="text-red-600 hover:text-red-700 text-sm"
                           >
                             Remove
@@ -675,7 +701,7 @@ export default function KYCVerificationPage() {
                           <p className="text-sm text-gray-600">{uploadedFiles.signature.name}</p>
                           <button
                             type="button"
-                            onClick={() => setUploadedFiles(prev => ({ ...prev, signature: null }))}
+                            onClick={() => setUploadedFiles((prev: Record<string, any>) => ({ ...prev, signature: null }))}
                             className="text-red-600 hover:text-red-700 text-sm"
                           >
                             Remove
@@ -754,7 +780,7 @@ export default function KYCVerificationPage() {
                       </div>
                       <button
                         type="button"
-                        onClick={() => setBiometricData(prev => ({ ...prev, fingerprint: null }))}
+                        onClick={() => setBiometricData((prev: Record<string, any>) => ({ ...prev, fingerprint: null }))}
                         className="text-blue-600 hover:text-blue-700 text-sm"
                       >
                         Recapture Fingerprint
@@ -796,7 +822,7 @@ export default function KYCVerificationPage() {
                       </div>
                       <button
                         type="button"
-                        onClick={() => setBiometricData(prev => ({ ...prev, iris: null }))}
+                        onClick={() => setBiometricData((prev: Record<string, any>) => ({ ...prev, iris: null }))}
                         className="text-blue-600 hover:text-blue-700 text-sm"
                       >
                         Recapture Iris
@@ -914,7 +940,7 @@ export default function KYCVerificationPage() {
                 <div className="space-y-2 text-sm text-blue-800">
                   <p>✓ Your KYC data will be processed within 24-48 hours</p>
                   <p>✓ Credit assessment will be initiated automatically</p>
-                  <p>✓ You'll receive SMS and email updates on verification status</p>
+                  <p>✓ You&apos;ll receive SMS and email updates on verification status</p>
                   <p>✓ Once approved, you can access all loan products</p>
                   <p>✓ Enhanced loan limits and better interest rates will be unlocked</p>
                 </div>

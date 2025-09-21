@@ -81,7 +81,7 @@ export default function FairPracticePage() {
                     <ShieldCheckIcon className="h-5 w-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900">Responsible Lending</h4>
-                      <p className="text-gray-700 text-sm">Thorough assessment of borrower's repayment capacity</p>
+                      <p className="text-gray-700 text-sm">Thorough assessment of borrower&apos;s repayment capacity</p>
                     </div>
                   </div>
                   <div className="flex items-start">

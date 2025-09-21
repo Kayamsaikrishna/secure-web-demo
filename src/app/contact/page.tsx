@@ -113,7 +113,7 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
-              We're here to help you with all your lending needs. Reach out to us through any of the channels below.
+              We&apos;re here to help you with all your lending needs. Reach out to us through any of the channels below.
             </p>
           </div>
         </div>
@@ -311,7 +311,7 @@ export default function ContactPage() {
               <div className="text-sm text-blue-800 space-y-1">
                 <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
                 <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Customer Support Only (Phone & Chat)</p>
+                <p>Sunday: Customer Support Only (Phone &amp; Chat)</p>
               </div>
             </div>
           </div>

@@ -8,8 +8,6 @@ import {
   MagnifyingGlassIcon,
   CheckCircleIcon,
   XCircleIcon,
-  ClockIcon,
-  CurrencyRupeeIcon,
   EyeIcon
 } from "@heroicons/react/24/outline";
 
@@ -20,7 +18,7 @@ const mockApplications = [
     applicantName: "Rajesh Kumar Singh",
     loanType: "Personal Loan",
     amount: 500000,
-    status: "PENDING",
+    status: "PENDING" as const,
     submittedAt: "2024-01-20T10:30:00Z",
     creditScore: 742
   },
@@ -29,7 +27,7 @@ const mockApplications = [
     applicantName: "Priya Sharma",
     loanType: "Home Loan",
     amount: 2500000,
-    status: "UNDER_REVIEW",
+    status: "UNDER_REVIEW" as const,
     submittedAt: "2024-01-20T09:15:00Z",
     creditScore: 789
   },
@@ -38,7 +36,7 @@ const mockApplications = [
     applicantName: "Amit Patel",
     loanType: "Vehicle Loan",
     amount: 800000,
-    status: "APPROVED",
+    status: "APPROVED" as const,
     submittedAt: "2024-01-20T08:45:00Z",
     creditScore: 756
   }
@@ -50,18 +48,28 @@ const statusColors = {
   APPROVED: "text-green-600 bg-green-100",
   REJECTED: "text-red-600 bg-red-100",
   DISBURSED: "text-purple-600 bg-purple-100"
-};
+} as const;
+
+interface Application {
+  id: string;
+  applicantName: string;
+  loanType: string;
+  amount: number;
+  status: keyof typeof statusColors;
+  submittedAt: string;
+  creditScore: number;
+}
 
 export default function AdminApplicationsPage() {
   const { data: session } = useSession();
-  const [applications] = useState(mockApplications);
+  const [applications] = useState<Application[]>(mockApplications);
   const [searchTerm, setSearchTerm] = useState("");
 
-  if ((session?.user as any)?.role !== "ADMIN") {
+  if (session?.user.role !== "ADMIN") {
     return (
       <div className="text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+        <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
       </div>
     );
   }
@@ -155,7 +163,7 @@ export default function AdminApplicationsPage() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      statusColors[application.status as keyof typeof statusColors]
+                      statusColors[application.status]
                     }`}>
                       {application.status.replace('_', ' ')}
                     </span>

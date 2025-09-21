@@ -84,9 +84,15 @@ export default function ProfilePage() {
     try {
       setLoading(true);
       
-      const response = await fetch('/api/profile');
+      // Include credentials in the fetch request
+      const response = await fetch('/api/profile', {
+        credentials: 'include'
+      });
+      
       if (!response.ok) {
-        throw new Error('Failed to fetch profile');
+        const errorText = await response.text();
+        console.error("Profile API error response:", errorText);
+        throw new Error(`Failed to fetch profile: ${response.status} ${response.statusText}`);
       }
       
       const data = await response.json();
@@ -313,11 +319,11 @@ export default function ProfilePage() {
                   <h3 className="text-lg font-medium text-gray-900 mb-4">Family Information</h3>
                   <dl className="space-y-3">
                     <div>
-                      <dt className="text-sm font-medium text-gray-500">Father's Name</dt>
+                      <dt className="text-sm font-medium text-gray-500">Father&apos;s Name</dt>
                       <dd className="text-sm text-gray-900">{profile.fatherName}</dd>
                     </div>
                     <div>
-                      <dt className="text-sm font-medium text-gray-500">Mother's Name</dt>
+                      <dt className="text-sm font-medium text-gray-500">Mother&apos;s Name</dt>
                       <dd className="text-sm text-gray-900">{profile.motherName}</dd>
                     </div>
                     <div>

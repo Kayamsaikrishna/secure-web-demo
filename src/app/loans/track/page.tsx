@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { 
   ClockIcon, 
   CheckCircleIcon, 
@@ -214,8 +215,8 @@ export default function TrackApplicationPage() {
 
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">
-              Don't have your Application ID? 
-              <a href="/support" className="text-blue-600 hover:text-blue-700 ml-1">Contact Support</a>
+              Don&apos;t have your Application ID? 
+              <Link href="/support" className="text-blue-600 hover:text-blue-700 ml-1">Contact Support</Link>
             </p>
           </div>
         </div>

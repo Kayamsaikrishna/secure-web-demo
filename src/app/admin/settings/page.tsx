@@ -10,9 +10,21 @@ import {
   KeyIcon
 } from "@heroicons/react/24/outline";
 
+interface Settings {
+  autoApprovalLimit: number;
+  minCreditScore: number;
+  maxEmiRatio: number;
+  sessionTimeout: number;
+  dailyProcessingLimit: number;
+  backupFrequency: string;
+  notificationsEnabled: boolean;
+  twoFactorEnabled: boolean;
+  auditLogging: boolean;
+}
+
 export default function AdminSettingsPage() {
   const { data: session } = useSession();
-  const [settings, setSettings] = useState({
+  const [settings, setSettings] = useState<Settings>({
     autoApprovalLimit: 500000,
     minCreditScore: 650,
     maxEmiRatio: 50,
@@ -24,11 +36,11 @@ export default function AdminSettingsPage() {
     auditLogging: true
   });
 
-  if ((session?.user as any)?.role !== "ADMIN") {
+  if ((session?.user as { role: string })?.role !== "ADMIN") {
     return (
       <div className="text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+        <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
       </div>
     );
   }

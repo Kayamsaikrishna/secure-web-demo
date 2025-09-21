@@ -1,147 +1,232 @@
 {
   "home": {
-    "title": "एआई-संचालित डिजिटल ऋण प्लेटफ़ॉर्म",
-    "subtitle": "12 ऋण क्षेत्रों में उधारकर्ताओं को सही उधारदाताओं के साथ जोड़ना। तुरंत अनुमोदन, प्रतिस्पर्धी दरें और सीमलेस डिजिटल प्रक्रियाओं का अनुभव करें।",
-    "apply_now": "ऋण के लिए आवेदन करें",
-    "login_dashboard": "डैशबोर्ड पर लॉगिन करें",
-    "loan_sectors": "12 व्यापक ऋण क्षेत्र",
-    "loan_sectors_desc": "व्यक्तिगत आवश्यकताओं से लेकर व्यवसाय के विकास तक, हम हर वित्तीय आवश्यकता को तैयार समाधानों और प्रतिस्पर्धी दरों के साथ कवर करते हैं।",
-    "why_choose": "फिन-एजेंटिक्स इंडिया क्यों चुनें?",
-    "why_choose_desc": "भारत में ऋणदान को क्रांतिकारी बनाने के लिए अत्याधुनिक प्रौद्योगिकी और गहन बाजार अंतर्दृष्टि का उपयोग करना।",
-    "ready_to_start": "आरंभ करने के लिए तैयार हैं?",
-    "ready_to_start_desc": "उन दस मिलियन संतुष्ट ग्राहकों में शामिल हों जो अपनी वित्तीय आवश्यकताओं के लिए फिन-एजेंटिक्स पर भरोसा करते हैं। अभी आवेदन करें और तुरंत अनुमोदन प्राप्त करें!",
-    "start_application": "अपना आवेदन शुरू करें",
-    "explore_loans": "सभी ऋणों का अन्वेषण करें"
-  },
-  "navigation": {
-    "home": "होम",
-    "all_loans": "सभी ऋण",
-    "emi_calculator": "ईएमआई कैलकुलेटर",
-    "about": "हमारे बारे में",
-    "contact": "संपर्क करें",
-    "dashboard": "डैशबोर्ड",
-    "apply_for_loan": "ऋण के लिए आवेदन करें",
-    "my_applications": "मेरे आवेदन",
-    "kyc_verification": "KYC सत्यापन",
-    "profile": "प्रोफ़ाइल",
-    "admin_dashboard": "व्यवस्थापक डैशबोर्ड",
-    "applications": "आवेदन",
-    "users": "उपयोगकर्ता",
-    "analytics": "विश्लेषण",
-    "reports": "रिपोर्ट",
-    "admin_profile": "व्यवस्थापक प्रोफ़ाइल",
-    "setup": "सेटअप",
-    "login": "लॉग इन करें",
-    "apply_now": "अभी आवेदन करें",
-    "profile_settings": "प्रोफ़ाइल सेटिंग्स",
-    "sign_out": "साइन आउट"
-  },
-  "languages": {
-    "en": "English",
-    "hi": "हिंदी",
-    "ta": "தமிழ்",
-    "te": "తెలుగు",
-    "ml": "മലയാളം",
-    "kn": "ಕನ್ನಡ",
-    "bn": "বাংলা",
-    "gu": "ગુજરાતી",
-    "or": "ଓଡ଼ିଆ",
-    "pa": "ਪੰਜਾਬੀ",
-    "mr": "मराठी",
-    "ur": "اردو"
+    "title": "AI-Powered Digital Lending Platform",
+    "subtitle": "Connecting borrowers with the right lenders across 12 loan sectors. Experience instant approvals, competitive rates, and seamless digital processes.",
+    "apply_now": "Apply for Loan",
+    "login_dashboard": "Login to Dashboard",
+    "loan_sectors": "12 Comprehensive Loan Sectors",
+    "loan_sectors_desc": "From personal needs to business growth, we cover every financial requirement with tailored solutions and competitive rates.",
+    "why_choose": "Why Choose Fin-Agentix India?",
+    "why_choose_desc": "Leveraging cutting-edge technology and deep market insights to revolutionize lending in India.",
+    "ready_to_start": "Ready to Get Started?",
+    "ready_to_start_desc": "Join millions of satisfied customers who trust Fin-Agentix for their financial needs. Apply now and get instant approval!",
+    "start_application": "Start Your Application",
+    "explore_loans": "Explore All Loans"
   },
   "loan_sectors": {
     "personal": {
       "name": "व्यक्तिगत ऋण",
-      "description": "न्यूनतम दस्तावेजीकरण के साथ त्वरित व्यक्तिगत ऋण",
-      "features": ["कोई गिरवी नहीं", "त्वरित अनुमोदन", "लचीली अवधि"]
+      "description": "प्रतिस्पर्धी ब्याज दरों और त्वरित वितरण के साथ आपकी सभी व्यक्तिगत आवश्यकताओं के लिए लचीले व्यक्तिगत ऋण।"
     },
     "home": {
       "name": "गृह ऋण",
-      "description": "आवासीय संपत्ति खरीदने के लिए गृह ऋण",
-      "features": ["कर लाभ", "लंबी अवधि", "RERA सत्यापित"]
+      "description": "लचीले पुनर्भुगतान विकल्पों के साथ अपने घर के स्वामित्व के सपने को साकार करने के लिए सुलभ गृह ऋण।"
     },
     "vehicle": {
       "name": "वाहन ऋण",
-      "description": "प्रतिस्पर्धी दरों के साथ कार और दो पहिया वाले वाहन ऋण",
-      "features": ["तत्काल अनुमोदन", "शून्य डाउन पेमेंट", "बीमा"]
+      "description": "प्रतिस्पर्धी वाहन ऋण योजनाओं के साथ अपनी सपने की कार, बाइक या वाणिज्यिक वाहन को वित्तपोषित करें।"
     },
     "business": {
       "name": "व्यवसाय ऋण",
-      "description": "एमएसएमई के लिए कार्यशील पूंजी और विस्तार ऋण",
-      "features": ["जीएसटी आधारित", "त्वरित वितरण", "लचीली पुनर्भुगतान"]
+      "description": "उद्यमियों और उद्यमों के लिए हमारे अनुकूलित व्यवसाय ऋण समाधानों के साथ अपने व्यवसाय के विकास को ईंधन दें।"
     },
     "education": {
       "name": "शिक्षा ऋण",
-      "description": "भारत और विदेश में उच्च शिक्षा के लिए शिक्षा ऋण",
-      "features": ["मोरेटोरियम अवधि", "पूर्ण कवरेज", "कर लाभ"]
+      "description": "घरेलू और अंतरराष्ट्रीय अध्ययन के लिए हमारे व्यापक शिक्षा ऋण कार्यक्रमों के साथ अपने भविष्य में निवेश करें।"
+    },
+    "gold": {
+      "name": "सोने का ऋण",
+      "description": "न्यूनतम प्रलेखन और प्रतिस्पर्धी दरों के साथ आपकी बहुमूल्य धातुओं पर त्वरित और आसान सोने के ऋण।"
     },
     "agriculture": {
       "name": "कृषि ऋण",
-      "description": "किसानों के लिए व्यापक कृषि ऋण",
-      "features": ["मौसम बीमा", "लचीली पुनर्भुगतान", "सब्सिडी"]
+      "description": "फसल की खेती और कृषि उपकरणों के समर्थन के लिए किसानों और कृषि-व्यवसायों के लिए विशेष कृषि वित्तपोषण।"
     },
-    "gold": {
-      "name": "स्वर्ण ऋण",
-      "description": "स्वर्ण आभूषणों के खिलाफ तत्काल ऋण",
-      "features": ["तत्काल अनुमोदन", "सुरक्षित भंडारण", "लचीला"]
+    "microfinance": {
+      "name": "सूक्ष्मवित्त",
+      "description": "लचीली शर्तों के साथ सूक्ष्म-उद्यमों, स्व-सहायता समूहों और महिला उद्यमियों के लिए छोटे टिकट ऋण।"
     },
     "credit-card": {
       "name": "क्रेडिट कार्ड",
-      "description": "विशेष पुरस्कारों के साथ प्रीमियम क्रेडिट कार्ड",
-      "features": ["पुरस्कार अंक", "लाउंज पहुंच", "कैशबैक"]
+      "description": "आपकी सभी खर्च आवश्यकताओं के लिए पुरस्कार अंक, कैशबैक प्रस्तावों और विशेष लाभों के साथ प्रीमियम क्रेडिट कार्ड।"
     },
     "two-wheeler": {
-      "name": "दो पहिया वाला वाहन",
-      "description": "दो पहिया वाले वाहन की खरीद के लिए त्वरित ऋण",
-      "features": ["न्यूनतम दस्तावेज", "एक ही दिन", "बीमा"]
+      "name": "दो पहिया वाहन ऋण",
+      "description": "त्वरित प्रसंस्करण और आकर्षक ब्याज दरों के साथ अपनी दो पहिया वाहन खरीद के लिए सुलभ वित्तपोषण।"
     },
     "healthcare": {
-      "name": "स्वास्थ्य देखभाल ऋण",
-      "description": "चिकित्सा खर्चों के लिए आपातकालीन ऋण",
-      "features": ["अस्पताल नेटवर्क", "त्वरित अनुमोदन", "ईएमआई मोरेटोरियम"]
+      "name": "स्वास्थ्य ऋण",
+      "description": "लचीले पुनर्भुगतान विकल्पों और त्वरित वितरण के साथ आपातकालीन और नियोजित चिकित्सा उपचार वित्तपोषण।"
     },
     "digital": {
       "name": "डिजिटल ऋण",
-      "description": "तत्काल अनुमोदन के साथ पूरी तरह से डिजिटल ऋण",
-      "features": ["100% डिजिटल", "तत्काल वितरण", "लचीला"]
-    },
-    "microfinance": {
-      "name": "सूक्ष्म वित्त",
-      "description": "छोटे व्यवसाय शुरूआत और आय पीढ़ी",
-      "features": ["समूह ऋणदान", "वित्तीय साक्षरता", "आसान पहुंच"]
+      "description": "पूरी तरह से ऑनलाइन प्रसंस्करण के साथ आपके डिजिटल पदचिह्न और लेन-देन इतिहास के आधार पर तुरंत डिजिटल ऋण।"
     }
   },
-  "stats": {
-    "loans_disbursed": "वितरित ऋण",
-    "happy_customers": "खुश ग्राहक",
-    "approval_rate": "अनुमोदन दर",
-    "cities_covered": "शहर शामिल"
+  "navigation": {
+    "home": "होम",
+    "all_loans": "सभी ऋण",
+    "consumption_marketplace": "उपभोग बाजार",
+    "emi_calculator": "ईएमआई कैलकुलेटर",
+    "about": "हमारे बारे में",
+    "contact": "संपर्क करें",
+    "login": "लॉग इन करें",
+    "apply_now": "अभी आवेदन करें",
+    "dashboard": "डैशबोर्ड",
+    "my_applications": "मेरे आवेदन",
+    "kyc_verification": "KYC सत्यापन",
+    "profile": "प्रोफ़ाइल",
+    "admin_dashboard": "व्यवस्थापक डैशबोर्ड",
+    "consumption_partners": "भागीदार",
+    "consumption_marketplace_admin": "बाजार",
+    "consumption_loans": "उपभोग ऋण",
+    "users": "उपयोगकर्ता",
+    "analytics": "विश्लेषण",
+    "reports": "रिपोर्ट",
+    "admin_profile": "व्यवस्थापक प्रोफ़ाइल",
+    "profile_settings": "प्रोफ़ाइल सेटिंग्स",
+    "sign_out": "साइन आउट",
+    "setup": "सेटअप",
+    "marketplace": "Marketplace",
+    "partners": "Partners",
+    "loan_applications": "Loan Applications",
+    "products": "Products",
+    "loan_schemes": "Loan Schemes",
+    "disbursements": "Disbursements",
+    "settings": "Settings",
+    "quick_links": "त्वरित लिंक",
+    "applications": "आवेदन"
   },
-  "features": {
-    "ai_credit_scoring": {
-      "title": "एआई-संचालित क्रेडिट स्कोरिंग",
-      "description": "उन्नत एल्गोरिदम 500+ डेटा बिंदुओं का विश्लेषण तत्काल क्रेडिट निर्णयों के लिए करते हैं"
-    },
-    "hour_processing": {
-      "title": "24 घंटे की प्रसंस्करण",
-      "description": "अधिकांश ऋण प्रकारों के लिए केवल 24 घंटों में आवेदन से वितरण तक"
-    },
-    "government_integration": {
-      "title": "सरकारी एकीकरण",
-      "description": "सीमलेस सत्यापन के लिए आधार, पैन, जीएसटी के साथ सीधा एकीकरण"
-    },
-    "multi_language": {
-      "title": "बहु-भाषा समर्थन",
-      "description": "ग्रामीण पहुंच के लिए हिंदी और 11 क्षेत्रीय भाषाओं में उपलब्ध"
-    },
-    "competitive_rates": {
-      "title": "प्रतिस्पर्धी दरें",
-      "description": "सभी 12 ऋण क्षेत्रों में बाजार में सर्वश्रेष्ठ ब्याज दरें"
-    },
-    "fraud_prevention": {
-      "title": "धोखाधड़ी रोकथाम",
-      "description": "वास्तविक समय के धोखाधड़ी पहचान प्रणाली के साथ बैंक-ग्रेड सुरक्षा"
+  "consumption_marketplace": "उपभोग बाजार",
+  "consumption_partners": "उपभोग भागीदार",
+  "consumption_loans": "उपभोग ऋण",
+  "admin_partners_management": "भागीदार प्रबंधन",
+  "admin_marketplace_management": "बाजार प्रबंधन",
+  "admin_dashboard": "व्यवस्थापक डैशबोर्ड",
+  "total_partners": "कुल भागीदार",
+  "total_offers": "कुल प्रस्ताव",
+  "active_loans": "सक्रिय ऋण",
+  "pending_approvals": "लंबित अनुमोदन",
+  "quick_actions": "त्वरित कार्रवाई",
+  "manage_partners": "भागीदार प्रबंधित करें",
+  "add_edit_partners": "भागीदार जोड़ें या संपादित करें",
+  "manage_marketplace": "बाजार प्रबंधित करें",
+  "create_edit_offers": "प्रस्ताव बनाएं या संपादित करें",
+  "manage_loans": "ऋण प्रबंधित करें",
+  "view_track_loans": "ऋण देखें और ट्रैक करें",
+  "recent_activity": "हाल की गतिविधि",
+  "new_partner_registered": "नया भागीदार पंजीकृत",
+  "loan_offer_created": "ऋण प्रस्ताव बनाया गया",
+  "consumption_loan_disbursed": "उपभोग ऋण वितरित",
+  "education_loan": "शिक्षा ऋण",
+  "personal_loan": "व्यक्तिगत ऋण",
+  "home_loan": "गृह ऋण",
+  "vehicle_loan": "वाहन ऋण",
+  "business_loan": "व्यवसाय ऋण",
+  "gold_loan": "सोने का ऋण",
+  "agriculture_loan": "कृषि ऋण",
+  "microfinance": "सूक्ष्मवित्त",
+  "credit_card": "क्रेडिट कार्ड",
+  "two_wheeler_loan": "दो पहिया वाहन ऋण",
+  "healthcare_loan": "स्वास्थ्य ऋण",
+  "digital_loan": "डिजिटल ऋण",
+  "apply_for_loan": "ऋण के लिए आवेदन करें",
+  "selected_offer": "चयनित प्रस्ताव",
+  "loan_application_form": "ऋण आवेदन फॉर्म",
+  "loan_amount": "ऋण राशि",
+  "tenure": "अवधि",
+  "loan_purpose": "ऋण का उद्देश्य",
+  "partner_reference": "भागीदार संदर्भ",
+  "invoice_order_number": "चालान/आदेश संख्या",
+  "partner_reference_help": "भागीदार से चालान या आदेश संख्या दर्ज करें",
+  "describe_purpose_of_loan": "ऋण के उद्देश्य का वर्णन करें",
+  "submit_application": "आवेदन जमा करें",
+  "application_submitted": "आवेदन जमा किया गया!",
+  "application_submitted_description": "आपका ऋण आवेदन सफलतापूर्वक जमा कर दिया गया है। आपको अपने आवेदन की स्थिति पर अद्यतन प्राप्त होंगे।",
+  "redirecting_to_status": "आवेदन स्थिति पृष्ठ पर पुनः निर्देशित कर रहा है...",
+  "submitting": "जमा कर रहा है...",
+  "search": "खोज",
+  "search_offers": "प्रस्ताव खोजें...",
+  "loan_sector": "ऋण क्षेत्र",
+  "all_sectors": "सभी क्षेत्र",
+  "sort_by": "इसके अनुसार क्रमबद्ध करें",
+  "recommended": "अनुशंसित",
+  "lowest_interest_rate": "न्यूनतम ब्याज दर",
+  "highest_amount": "उच्चतम राशि",
+  "tenure_options": "अवधि विकल्प",
+  "months": "महीने",
+  "interest_rate": "ब्याज दर",
+  "processing_fee": "प्रसंस्करण शुल्क",
+  "apply_now": "अभी आवेदन करें",
+  "no_offers_available": "कोई प्रस्ताव उपलब्ध नहीं है",
+  "check_back_later_for_new_offers": "नए प्रस्तावों के लिए बाद में जांच करें",
+  "no_offers_match_criteria": "आपके खोज मानदंडों से मेल खाने वाला कोई प्रस्ताव नहीं है",
+  "refresh": "ताज़ा करें",
+  "error": "त्रुटि",
+  "try_again": "पुनः प्रयास करें",
+  "cancel": "रद्द करें",
+  "add_new_partner": "नया भागीदार जोड़ें",
+  "create_new_partner": "नया भागीदार बनाएं",
+  "partner_name": "भागीदार का नाम",
+  "contact_person": "संपर्क व्यक्ति",
+  "email": "ईमेल",
+  "phone": "फ़ोन",
+  "partner_type": "भागीदार प्रकार",
+  "university": "विश्वविद्यालय",
+  "hospital": "अस्पताल",
+  "dealer": "डीलर",
+  "supplier": "आपूर्तिकर्ता",
+  "ecommerce": "ई-कॉमर्स",
+  "service_provider": "सेवा प्रदाता",
+  "other": "अन्य",
+  "commission_rate": "आयोग दर",
+  "create_partner": "भागीदार बनाएं",
+  "type": "प्रकार",
+  "sector": "क्षेत्र",
+  "contact": "संपर्क",
+  "status": "स्थिति",
+  "integration": "एकीकरण",
+  "no_partners_found": "कोई भागीदार नहीं मिला",
+  "create_first_partner": "आरंभ करने के लिए अपना पहला भागीदार बनाएं",
+  "more": "अधिक",
+  "amount_range": "राशि सीमा",
+  "chatbot": {
+    "title": "Fin-Agentix Assistant",
+    "welcome_message": "Hello! I'm your Fin-Agentix assistant. How can I help you today?",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "quick_actions": "Quick Actions",
+    "loan_options": "Loan Options",
+    "kyc_process": "KYC Process",
+    "education_loans": "Education Loans",
+    "healthcare_loans": "Healthcare Loans",
+    "vehicle_loans": "Vehicle Loans",
+    "business_loans": "Business Loans",
+    "suggestions": {
+      "how_apply": "How do I apply for a loan?",
+      "documents_required": "What documents are required for KYC?",
+      "show_loans": "Show me loan options",
+      "check_profile": "Check my profile",
+      "loan_rates": "Show me current rates",
+      "approval_process": "How long does approval take?",
+      "marketplace": "Show me marketplace",
+      "consumption_lending": "How does consumption lending work?",
+      "available_partners": "What partners are available?",
+      "complete_kyc": "How do I complete KYC?",
+      "no_aadhaar": "What if I don't have Aadhaar?",
+      "kyc_duration": "How long does KYC take?",
+      "eligibility": "Check my eligibility",
+      "minimum_income": "What is the minimum income?",
+      "credit_score": "How does credit score affect eligibility?",
+      "tenure_options": "Show me tenure options",
+      "prepay_loan": "Can I prepay my loan?",
+      "early_repayment": "Are there penalties for early repayment?",
+      "calculate_emi": "Calculate my EMI",
+      "auto_debit": "How do I set up auto-debit?",
+      "missed_payment": "What if I miss a payment?",
+      "helpline": "What is your helpline number?",
+      "support_ticket": "How do I submit a support ticket?",
+      "faq": "Do you have a FAQ section?"
     }
   }
 }

@@ -20,7 +20,7 @@ const mockSchemes = [
     id: "LS2024001",
     name: "HDFC Festive Personal Loan 2025",
     category: "Personal Loan",
-    status: "ACTIVE",
+    status: "ACTIVE" as const,
     minAmount: 50000,
     maxAmount: 1500000,
     interestRate: "10.5% - 18.0%",
@@ -35,7 +35,7 @@ const mockSchemes = [
     id: "LS2024002",
     name: "HDFC Prime Home Loan Scheme",
     category: "Home Loan",
-    status: "ACTIVE",
+    status: "ACTIVE" as const,
     minAmount: 500000,
     maxAmount: 50000000,
     interestRate: "8.5% - 12.0%",
@@ -50,7 +50,7 @@ const mockSchemes = [
     id: "LS2024003",
     name: "Business Growth Loan 2024",
     category: "Business Loan",
-    status: "INACTIVE",
+    status: "INACTIVE" as const,
     minAmount: 200000,
     maxAmount: 5000000,
     interestRate: "12.0% - 19.0%",
@@ -67,18 +67,34 @@ const statusColors = {
   ACTIVE: "text-green-600 bg-green-100",
   INACTIVE: "text-red-600 bg-red-100",
   DRAFT: "text-yellow-600 bg-yellow-100"
-};
+} as const;
+
+interface Scheme {
+  id: string;
+  name: string;
+  category: string;
+  status: keyof typeof statusColors;
+  minAmount: number;
+  maxAmount: number;
+  interestRate: string;
+  tenure: string;
+  eligibilityScore: number;
+  createdAt: string;
+  applications: number;
+  approvals: number;
+  disbursed: number;
+}
 
 export default function LoanSchemesPage() {
   const { data: session } = useSession();
-  const [schemes] = useState(mockSchemes);
+  const [schemes] = useState<Scheme[]>(mockSchemes);
   const [searchTerm, setSearchTerm] = useState("");
 
-  if ((session?.user as any)?.role !== "ADMIN") {
+  if (session?.user.role !== "ADMIN") {
     return (
       <div className="text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+        <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
       </div>
     );
   }
@@ -216,7 +232,7 @@ export default function LoanSchemesPage() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">{scheme.category}</div>
                     <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      statusColors[scheme.status as keyof typeof statusColors]
+                      statusColors[scheme.status]
                     }`}>
                       {scheme.status}
                     </span>

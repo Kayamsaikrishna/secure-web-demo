@@ -9,8 +9,8 @@
  * 4. Compare translation files
  */
 
-const fs = require('fs');
-const path = require('path');
+import { readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
 
 // Supported languages
 const LANGUAGES = [
@@ -29,7 +29,7 @@ function checkMissingTranslations() {
   
   // Load English translations as reference
   const enTranslations = JSON.parse(
-    fs.readFileSync(path.join(LOCALES_PATH, 'en', 'common.json'), 'utf8')
+    readFileSync(join(LOCALES_PATH, 'en', 'common.json'), 'utf8')
   );
   
   const missingKeys = {};
@@ -40,7 +40,7 @@ function checkMissingTranslations() {
     
     try {
       const langTranslations = JSON.parse(
-        fs.readFileSync(path.join(LOCALES_PATH, lang, 'common.json'), 'utf8')
+        readFileSync(join(LOCALES_PATH, lang, 'common.json'), 'utf8')
       );
       
       const missing = findMissingKeys(enTranslations, langTranslations);
@@ -99,8 +99,8 @@ function addTranslationKey(keyPath, defaultValue = '') {
   
   LANGUAGES.forEach(lang => {
     try {
-      const filePath = path.join(LOCALES_PATH, lang, 'common.json');
-      const translations = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      const filePath = join(LOCALES_PATH, lang, 'common.json');
+      const translations = JSON.parse(readFileSync(filePath, 'utf8'));
       
       // Add the new key
       const keys = keyPath.split('.');
@@ -117,7 +117,7 @@ function addTranslationKey(keyPath, defaultValue = '') {
       current[keys[keys.length - 1]] = lang === 'en' ? defaultValue : '';
       
       // Write back to file
-      fs.writeFileSync(filePath, JSON.stringify(translations, null, 2));
+      writeFileSync(filePath, JSON.stringify(translations, null, 2));
       console.log(`✓ Added to ${lang}`);
     } catch (error) {
       console.error(`✗ Error updating ${lang}:`, error.message);
@@ -138,8 +138,8 @@ function validateTranslationFiles() {
   
   LANGUAGES.forEach(lang => {
     try {
-      const filePath = path.join(LOCALES_PATH, lang, 'common.json');
-      const content = fs.readFileSync(filePath, 'utf8');
+      const filePath = join(LOCALES_PATH, lang, 'common.json');
+      const content = readFileSync(filePath, 'utf8');
       JSON.parse(content);
       console.log(`✓ ${lang} - Valid JSON`);
     } catch (error) {
@@ -159,7 +159,7 @@ function compareTranslationFiles() {
   
   // Load English translations as reference
   const enTranslations = JSON.parse(
-    fs.readFileSync(path.join(LOCALES_PATH, 'en', 'common.json'), 'utf8')
+    readFileSync(join(LOCALES_PATH, 'en', 'common.json'), 'utf8')
   );
   
   const referenceKeys = getObjectKeys(enTranslations);
@@ -169,7 +169,7 @@ function compareTranslationFiles() {
     
     try {
       const langTranslations = JSON.parse(
-        fs.readFileSync(path.join(LOCALES_PATH, lang, 'common.json'), 'utf8')
+        readFileSync(join(LOCALES_PATH, lang, 'common.json'), 'utf8')
       );
       
       const langKeys = getObjectKeys(langTranslations);

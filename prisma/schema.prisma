@@ -100,12 +100,12 @@ model Address {
   line2         String?
   landmark      String?
   city          String
-  state         String
-  pincode       String
-  country       String      @default("India")
-  verified      Boolean     @default(false)
-  gpsLat        Float?
-  gpsLng        Float?
+  state          String
+  pincode        String
+  country        String      @default("India")
+  verified       Boolean     @default(false)
+  gpsLat         Float?
+  gpsLng         Float?
   
   // Relations
   currentUser   UserProfile? @relation("CurrentAddress", fields: [currentUserId], references: [id])
@@ -115,6 +115,9 @@ model Address {
   
   organization  Organization? @relation(fields: [organizationId], references: [id])
   organizationId String?
+  
+  // Partner relation
+  partner       Partner?     @relation("PartnerAddress")
   
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
@@ -420,6 +423,9 @@ model LoanApplication {
   approvals         Approval[]
   disbursement      Disbursement?
   emi               EMI[]
+  
+  // New relation for consumption loans
+  consumptionLoan   ConsumptionLoan?
   
   // Notes and Comments
   applicantNotes    String?
@@ -1102,4 +1108,115 @@ enum NotificationType {
   PROMOTIONAL
   SYSTEM_MAINTENANCE
   REGULATORY_UPDATE
+}
+
+// ===== NEW MODELS FOR CONSUMPTION-DRIVEN ECOSYSTEM =====
+
+// Partner Model for consumption ecosystem
+model Partner {
+  id                String           @id @default(cuid())
+  name              String
+  type              PartnerType      // UNIVERSITY, HOSPITAL, DEALER, etc.
+  sector            LoanSector       // Education, Healthcare, Vehicle, etc.
+  status            PartnerStatus    @default(PENDING)
+  commissionRate    Float            @default(2.5)
+  contactPerson     String
+  email             String
+  phone             String
+  addressId         String?          @unique
+  address           Address?         @relation("PartnerAddress", fields: [addressId], references: [id])
+  integrationStatus IntegrationStatus @default(NOT_INTEGRATED)
+  apiKey            String           @unique
+  offers            MarketplaceOffer[]
+  consumptionLoans  ConsumptionLoan[]
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+// Consumption Loan Model for direct-to-partner disbursement
+model ConsumptionLoan {
+  id                String           @id @default(cuid())
+  applicationId     String           @unique
+  application       LoanApplication  @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  partnerId         String           @unique
+  partner           Partner          @relation(fields: [partnerId], references: [id])
+  disbursementType  DisbursementType // DIRECT_TO_PARTNER, ESCROW, etc.
+  consumptionType   ConsumptionType  // EDUCATION, HEALTHCARE, VEHICLE, etc.
+  partnerReference  String           // Invoice/Order number
+  status            ConsumptionStatus @default(PENDING)
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+// Marketplace Offer Model for partner offers
+model MarketplaceOffer {
+  id                String           @id @default(cuid())
+  partnerId         String
+  partner           Partner          @relation(fields: [partnerId], references: [id])
+  loanSector        LoanSector
+  minAmount         Float
+  maxAmount         Float
+  interestRate      Float
+  processingFee     Float
+  tenureOptionsJson String           // JSON string of tenure options
+  isActive          Boolean          @default(true)
+  priority          Int              @default(0)
+  tagsJson          String           // JSON string of tags for search and filtering
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+// ===== NEW ENUMS FOR CONSUMPTION-DRIVEN ECOSYSTEM =====
+
+enum PartnerType {
+  UNIVERSITY
+  HOSPITAL
+  DEALER
+  SUPPLIER
+  ECOMMERCE
+  SERVICE_PROVIDER
+  OTHER
+}
+
+enum PartnerStatus {
+  PENDING
+  VERIFIED
+  ACTIVE
+  SUSPENDED
+  TERMINATED
+  BLACKLISTED
+}
+
+enum IntegrationStatus {
+  NOT_INTEGRATED
+  INTEGRATION_IN_PROGRESS
+  INTEGRATED
+  FAILED
+}
+
+enum DisbursementType {
+  DIRECT_TO_PARTNER
+  ESCROW
+  MULTI_PARTNER
+}
+
+enum ConsumptionType {
+  EDUCATION
+  HEALTHCARE
+  VEHICLE
+  AGRICULTURE
+  HOME
+  PERSONAL
+  BUSINESS
+  DIGITAL
+  LIFESTYLE
+  OTHER
+}
+
+enum ConsumptionStatus {
+  PENDING
+  DISBURSED
+  CONFIRMED
+  COMPLETED
+  CANCELLED
 }

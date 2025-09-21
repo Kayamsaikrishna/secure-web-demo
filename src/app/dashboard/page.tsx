@@ -8,11 +8,9 @@ import {
   CreditCardIcon,
   DocumentTextIcon,
   UserIcon,
-  BanknotesIcon,
   ChartBarIcon,
   ClockIcon,
   CheckCircleIcon,
-  ExclamationTriangleIcon,
   ArrowRightIcon,
   PlusIcon,
   IdentificationIcon,
@@ -37,6 +35,16 @@ interface LoanApplication {
   appliedDate: string;
 }
 
+interface SessionUser {
+  role?: string;
+  name?: string;
+  email?: string;
+}
+
+interface Session {
+  user?: SessionUser;
+}
+
 export default function DashboardPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -56,7 +64,7 @@ export default function DashboardPage() {
       return;
     }
 
-    if ((session?.user as any)?.role === "ADMIN") {
+    if ((session?.user as SessionUser)?.role === "ADMIN") {
       router.push("/admin");
       return;
     }
@@ -162,7 +170,7 @@ export default function DashboardPage() {
               Welcome back, {profile?.firstName || session?.user?.name || 'User'}! 👋
             </h1>
             <p className="text-blue-100 mt-1">
-              Here's what's happening with your account today
+              Here&apos;s what&apos;s happening with your account today
             </p>
           </div>
           <div className="text-right">

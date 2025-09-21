@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
@@ -49,14 +50,14 @@ export default function LoginPage() {
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{" "}
-            <a href="/register" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link href="/register" className="font-medium text-indigo-600 hover:text-indigo-500">
               register as a new user
-            </a>
+            </Link>
           </p>
           <p className="mt-1 text-center text-sm text-gray-600">
-            <a href="/admin/setup" className="font-medium text-purple-600 hover:text-purple-500">
+            <Link href="/admin/setup" className="font-medium text-purple-600 hover:text-purple-500">
               Register as admin
-            </a>
+            </Link>
             {" "}if you&apos;re a system administrator
           </p>
         </div>

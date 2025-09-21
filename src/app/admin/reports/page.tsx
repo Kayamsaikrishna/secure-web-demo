@@ -10,7 +10,24 @@ import {
   ChartBarIcon
 } from "@heroicons/react/24/outline";
 
-const reportTypes = [
+interface ReportType {
+  id: string;
+  name: string;
+  description: string;
+}
+
+interface DateRange {
+  start: string;
+  end: string;
+}
+
+interface RecentReport {
+  name: string;
+  date: string;
+  size: string;
+}
+
+const reportTypes: ReportType[] = [
   { id: "portfolio", name: "Portfolio Report", description: "Complete loan portfolio analysis" },
   { id: "performance", name: "Performance Report", description: "Monthly business performance metrics" },
   { id: "risk", name: "Risk Assessment Report", description: "Credit risk and NPA analysis" },
@@ -21,14 +38,14 @@ const reportTypes = [
 export default function AdminReportsPage() {
   const { data: session } = useSession();
   const [selectedReport, setSelectedReport] = useState("");
-  const [dateRange, setDateRange] = useState({ start: "", end: "" });
+  const [dateRange, setDateRange] = useState<DateRange>({ start: "", end: "" });
   const [isGenerating, setIsGenerating] = useState(false);
 
-  if ((session?.user as any)?.role !== "ADMIN") {
+  if ((session?.user as { role: string })?.role !== "ADMIN") {
     return (
       <div className="text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+        <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
       </div>
     );
   }
@@ -42,10 +59,17 @@ export default function AdminReportsPage() {
     }, 3000);
   };
 
+  const recentReports: RecentReport[] = [
+    { name: "Portfolio Report - Dec 2024", date: "2024-12-01", size: "2.3 MB" },
+    { name: "Performance Report - Nov 2024", date: "2024-11-01", size: "1.8 MB" },
+    { name: "Risk Assessment - Nov 2024", date: "2024-11-01", size: "945 KB" },
+    { name: "Customer Analytics - Oct 2024", date: "2024-10-01", size: "1.2 MB" },
+  ];
+
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Reports & Analytics</h1>
+        <h1 className="text-3xl font-bold text-gray-900">Reports &#38; Analytics</h1>
         <p className="text-gray-600 mt-1">Generate comprehensive business reports and insights</p>
       </div>
 
@@ -126,12 +150,7 @@ export default function AdminReportsPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-6">Recent Reports</h2>
           
           <div className="space-y-4">
-            {[
-              { name: "Portfolio Report - Dec 2024", date: "2024-12-01", size: "2.3 MB" },
-              { name: "Performance Report - Nov 2024", date: "2024-11-01", size: "1.8 MB" },
-              { name: "Risk Assessment - Nov 2024", date: "2024-11-01", size: "945 KB" },
-              { name: "Customer Analytics - Oct 2024", date: "2024-10-01", size: "1.2 MB" },
-            ].map((report, index) => (
+            {recentReports.map((report, index) => (
               <div key={index} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
                 <div className="flex items-center">
                   <DocumentTextIcon className="h-5 w-5 text-gray-400 mr-3" />

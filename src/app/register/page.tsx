@@ -30,6 +30,10 @@ export default function RegisterPage() {
     resolver: zodResolver(schema),
   });
 
+  interface ApiError extends Error {
+    message: string;
+  }
+
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
@@ -49,8 +53,9 @@ export default function RegisterPage() {
 
       toast.success("Registration successful! Please login.");
       router.push("/login");
-    } catch (error: any) {
-      toast.error(error.message || "Failed to register. Please try again.");
+    } catch (error: unknown) {
+      const apiError = error as ApiError;
+      toast.error(apiError.message || "Failed to register. Please try again.");
       console.error("Registration error:", error);
     } finally {
       setIsSubmitting(false);

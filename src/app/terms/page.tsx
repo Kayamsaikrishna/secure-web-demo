@@ -177,7 +177,7 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Disclaimer of Warranties</h2>
             <div className="bg-white rounded-lg shadow-sm p-6 border">
               <p className="text-gray-700 mb-4">
-                The service is provided "as is" without any warranties, expressed or implied. Fin-Agentix disclaims all warranties including:
+                The service is provided &quot;as is&quot; without any warranties, expressed or implied. Fin-Agentix disclaims all warranties including:
               </p>
               <ul className="list-disc list-inside space-y-2 text-gray-700">
                 <li>Merchantability and fitness for a particular purpose</li>

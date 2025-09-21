@@ -13,183 +13,220 @@
     "start_application": "ನಿಮ್ಮ ಅರ್ಜಿಯನ್ನು ಪ್ರಾರಂಭಿಸಿ",
     "explore_loans": "ಎಲ್ಲಾ ಸಾಲಗಳನ್ನು ಅನ್ವೇಷಿಸಿ"
   },
+  "loan_sectors": {
+    "personal": {
+      "name": "ವೈಯಕ್ತಿಕ ಸಾಲಗಳು",
+      "description": "ಕನಿಷ್ಠ ದಾಖಲೆಗಳೊಂದಿಗೆ ತ್ವರಿತ ವೈಯಕ್ತಿಕ ಸಾಲಗಳು"
+    },
+    "home": {
+      "name": "ಮನೆ ಸಾಲಗಳು",
+      "description": "ವಾಸ್ತವ್ಯ ಆಸ್ತಿಯನ್ನು ಖರೀದಿಸಲು ಮನೆ ಸಾಲ"
+    },
+    "vehicle": {
+      "name": "ವಾಹನ ಸಾಲಗಳು",
+      "description": "ಪೋಟಿಯಾದ ದರಗಳೊಂದಿಗೆ ಕಾರು ಮತ್ತು ಎರಡು-ಚಕ್ರದ ಸಾಲಗಳು"
+    },
+    "business": {
+      "name": "ವ್ಯವಹಾರ ಸಾಲಗಳು",
+      "description": "MSMEಗಳಿಗಾಗಿ ಕೆಲಸದ ಮೂಲಧನ ಮತ್ತು ವಿಸ್ತರಣಾ ಸಾಲಗಳು"
+    },
+    "education": {
+      "name": "ಶಿಕ್ಷಣ ಸಾಲಗಳು",
+      "description": "ಭಾರತ ಮತ್ತು ಹೊರಗೆ ಉನ್ನತ ಅಧ್ಯಯನಕ್ಕಾಗಿ ಶಿಕ್ಷಣ ಸಾಲ"
+    },
+    "gold": {
+      "name": "ಚಿನ್ನದ ಸಾಲಗಳು",
+      "description": "ಚಿನ್ನದ ಆಭರಣಗಳಿಗೆ ವಿರುದ್ಧ ತಕ್ಷಣ ಸಾಲ"
+    },
+    "agriculture": {
+      "name": "ಕೃಷಿ ಸಾಲಗಳು",
+      "description": "ಕೃಷಿಕರಿಗಾಗಿ ವಿಸ್ತೃತ ಕೃಷಿ ಸಾಲಗಳು"
+    },
+    "microfinance": {
+      "name": "ಸೂಕ್ಷ್ಮ ಹಣಕಾಸು",
+      "description": "ಸಣ್ಣ ವ್ಯವಹಾರ ಪ್ರಾರಂಭಗಳು ಮತ್ತು ಆದಾಯ ಉತ್ಪಾದನೆ"
+    },
+    "credit-card": {
+      "name": "ಕ್ರೆಡಿಟ್ ಕಾರ್ಡುಗಳು",
+      "description": "ವಿಶೇಷ ಬಹುಮಾನಗಳೊಂದಿಗೆ ಪ್ರೀಮಿಯಂ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡುಗಳು"
+    },
+    "two-wheeler": {
+      "name": "ಎರಡು ಚಕ್ರದ ವಾಹನ",
+      "description": "ಎರಡು-ಚಕ್ರದ ಖರೀದಿಗಾಗಿ ತ್ವರಿತ ಸಾಲ"
+    },
+    "healthcare": {
+      "name": "ಆರೋಗ್ಯ ಸಾಲಗಳು",
+      "description": "ವೈದ್ಯಕೀಯ ಖರ್ಚುಗಳಿಗಾಗಿ ತುರ್ತು ಸಾಲ"
+    },
+    "digital": {
+      "name": "ಡಿಜಿಟಲ್ ಸಾಲಗಳು",
+      "description": "ತಕ್ಷಣ ಅನುಮೋದನೆಯೊಂದಿಗೆ ಸಂಪೂರ್ಣವಾಗಿ ಡಿಜಿಟಲ್ ಸಾಲ"
+    }
+  },
   "navigation": {
     "home": "ಮುಖಪುಟ",
     "all_loans": "ಎಲ್ಲಾ ಸಾಲಗಳು",
+    "consumption_marketplace": "Consumption Marketplace",
     "emi_calculator": "EMI ಕ್ಯಾಲ್ಕುಲೇಟರ್",
     "about": "ಬಗ್ಗೆ",
     "contact": "ಸಂಪರ್ಕಿಸಿ",
+    "login": "ಲಾಗಿನ್",
+    "apply_now": "ಈಗ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
     "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
-    "apply_for_loan": "ಸಾಲಕ್ಕಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
     "my_applications": "ನನ್ನ ಅರ್ಜಿಗಳು",
     "kyc_verification": "KYC ಪರಿಶೀಲನೆ",
     "profile": "ಪ್ರೊಫೈಲ್",
     "admin_dashboard": "ನಿರ್ವಾಹಕ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
-    "applications": "ಅರ್ಜಿಗಳು",
+    "consumption_partners": "Partners",
+    "consumption_marketplace_admin": "Marketplace",
+    "consumption_loans": "Consumption Loans",
     "users": "ಬಳಕೆದಾರರು",
     "analytics": "ವಿಶ್ಲೇಷಣೆ",
     "reports": "ವರದಿಗಳು",
     "admin_profile": "ನಿರ್ವಾಹಕ ಪ್ರೊಫೈಲ್",
-    "setup": "ಸೆಟಪ್",
-    "login": "ಲಾಗಿನ್",
-    "apply_now": "ಈಗ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
     "profile_settings": "ಪ್ರೊಫೈಲ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
-    "sign_out": "ಸೈನ್ ಔಟ್"
+    "sign_out": "ಸೈನ್ ಔಟ್",
+    "setup": "ಸೆಟಪ್",
+    "marketplace": "Marketplace",
+    "partners": "Partners",
+    "loan_applications": "Loan Applications",
+    "products": "Products",
+    "loan_schemes": "Loan Schemes",
+    "disbursements": "Disbursements",
+    "settings": "Settings",
+    "quick_links": "ತ್ವರಿತ ಲಿಂಕ್ಗಳು",
+    "applications": "ಅರ್ಜಿಗಳು"
   },
-  "languages": {
-    "en": "English",
-    "hi": "हिंदी",
-    "ta": "தமிழ்",
-    "te": "తెలుగు",
-    "ml": "മലയാളം",
-    "kn": "ಕನ್ನಡ",
-    "bn": "বাংলা",
-    "gu": "ગુજરાતી",
-    "or": "ଓଡ଼ିଆ",
-    "pa": "ਪੰਜਾਬੀ",
-    "mr": "मराठी",
-    "ur": "اردو"
-  },
-  "loan_sectors": {
-    "personal": {
-      "name": "ವೈಯಕ್ತಿಕ ಸಾಲಗಳು",
-      "description": "ಕನಿಷ್ಠ ದಾಖಲೆಗಳೊಂದಿಗೆ ತ್ವರಿತ ವೈಯಕ್ತಿಕ ಸಾಲಗಳು",
-      "features": [
-        "ಅಡಕವನ್ನು ನೀಡಬೇಕಾಗಿಲ್ಲ",
-        "ತ್ವರಿತ ಅನುಮೋದನೆ",
-        "ನಮನೀಯ ಅವಧಿ"
-      ]
-    },
-    "home": {
-      "name": "ಮನೆ ಸಾಲಗಳು",
-      "description": "ವಾಸ್ತವ್ಯ ಆಸ್ತಿಯನ್ನು ಖರೀದಿಸಲು ಮನೆ ಸಾಲ",
-      "features": [
-        "ತೆರಿಗೆ ಪ್ರಯೋಜನಗಳು",
-        "ದೀರ್ಘಾವಧಿ",
-        "RERA ಪರಿಶೀಲಿಸಲಾಗಿದೆ"
-      ]
-    },
-    "vehicle": {
-      "name": "ವಾಹನ ಸಾಲಗಳು",
-      "description": "ಪೋಟಿಯಾದ ದರಗಳೊಂದಿಗೆ ಕಾರು ಮತ್ತು ಎರಡು-ಚಕ್ರದ ಸಾಲಗಳು",
-      "features": [
-        "ತಕ್ಷಣ ಅನುಮೋದನೆ",
-        "ಶೂನ್ಯ ಮೊದಲ ಪಾವತಿ",
-        "ವಿಮೆ"
-      ]
-    },
-    "business": {
-      "name": "ವ್ಯವಹಾರ ಸಾಲಗಳು",
-      "description": "MSMEಗಳಿಗಾಗಿ ಕೆಲಸದ ಮೂಲಧನ ಮತ್ತು ವಿಸ್ತರಣಾ ಸಾಲಗಳು",
-      "features": [
-        "GST ಆಧಾರಿತ",
-        "ತ್ವರಿತ ವಿತರಣೆ",
-        "ನಮನೀಯ ಮರುಪಾವತಿ"
-      ]
-    },
-    "education": {
-      "name": "ಶಿಕ್ಷಣ ಸಾಲಗಳು",
-      "description": "ಭಾರತ ಮತ್ತು ಹೊರಗೆ ಉನ್ನತ ಅಧ್ಯಯನಕ್ಕಾಗಿ ಶಿಕ್ಷಣ ಸಾಲ",
-      "features": [
-        "ಮೋರೇಟರಿಯಮ್ ಅವಧಿ",
-        "ಸಂಪೂರ್ಣ ಕವರೇಜ್",
-        "ತೆರಿಗೆ ಪ್ರಯೋಜನಗಳು"
-      ]
-    },
-    "agriculture": {
-      "name": "ಕೃಷಿ ಸಾಲಗಳು",
-      "description": "ಕೃಷಿಕರಿಗಾಗಿ ವಿಸ್ತೃತ ಕೃಷಿ ಸಾಲಗಳು",
-      "features": [
-        "ಹವಾಮಾನ ವಿಮೆ",
-        "ನಮನೀಯ ಮರುಪಾವತಿ",
-        "ಸಬ್ಸಿಡಿ"
-      ]
-    },
-    "gold": {
-      "name": "ಚಿನ್ನದ ಸಾಲಗಳು",
-      "description": "ಚಿನ್ನದ ಆಭರಣಗಳಿಗೆ ವಿರುದ್ಧ ತಕ್ಷಣ ಸಾಲ",
-      "features": [
-        "ತಕ್ಷಣ ಅನುಮೋದನೆ",
-        "ಸುರಕ್ಷಿತ ಶೇಖರಣೆ",
-        "ನಮನೀಯ"
-      ]
-    },
-    "credit-card": {
-      "name": "ಕ್ರೆಡಿಟ್ ಕಾರ್ಡುಗಳು",
-      "description": "ವಿಶೇಷ ಬಹುಮಾನಗಳೊಂದಿಗೆ ಪ್ರೀಮಿಯಂ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡುಗಳು",
-      "features": [
-        "ಬಹುಮಾನ ಅಂಕಗಳು",
-        "ಲವಂಜ್ ಪ್ರವೇಶ",
-        "ಕ್ಯಾಶ್‌ಬ್ಯಾಕ್"
-      ]
-    },
-    "two-wheeler": {
-      "name": "ಎರಡು ಚಕ್ರದ ವಾಹನ",
-      "description": "ಎರಡು-ಚಕ್ರದ ಖರೀದಿಗಾಗಿ ತ್ವರಿತ ಸಾಲ",
-      "features": [
-        "ಕನಿಷ್ಠ ದಾಖಲೆಗಳು",
-        "ಅದೇ ದಿನ",
-        "ವಿಮೆ"
-      ]
-    },
-    "healthcare": {
-      "name": "ಆರೋಗ್ಯ ಸಾಲಗಳು",
-      "description": "ವೈದ್ಯಕೀಯ ಖರ್ಚುಗಳಿಗಾಗಿ ತುರ್ತು ಸಾಲ",
-      "features": [
-        "ಆಸ್ಪತ್ರೆ ಜಾಲಬಂಧ",
-        "ತ್ವರಿತ ಅನುಮೋದನೆ",
-        "EMI ಮೋರೇಟರಿಯಮ್"
-      ]
-    },
-    "digital": {
-      "name": "ಡಿಜಿಟಲ್ ಸಾಲಗಳು",
-      "description": "ತಕ್ಷಣ ಅನುಮೋದನೆಯೊಂದಿಗೆ ಸಂಪೂರ್ಣವಾಗಿ ಡಿಜಿಟಲ್ ಸಾಲ",
-      "features": [
-        "100% ಡಿಜಿಟಲ್",
-        "ತಕ್ಷಣ ವಿತರಣೆ",
-        "ನಮನೀಯ"
-      ]
-    },
-    "microfinance": {
-      "name": "ಸೂಕ್ಷ್ಮ ಹಣಕಾಸು",
-      "description": "ಸಣ್ಣ ವ್ಯವಹಾರ ಪ್ರಾರಂಭಗಳು ಮತ್ತು ಆದಾಯ ಉತ್ಪಾದನೆ",
-      "features": [
-        "ಗುಂಪು ಸಾಲದಾರಿಕೆ",
-        "ಹಣಕಾಸು ಸಾಕ್ಷರತೆ",
-        "ಸುಲಭ ಪ್ರವೇಶ"
-      ]
-    }
-  },
-  "stats": {
-    "loans_disbursed": "ವಿತರಿಸಿದ ಸಾಲಗಳು",
-    "happy_customers": "ಸಂತೃಪ್ತ ಗ್ರಾಹಕರು",
-    "approval_rate": "ಅನುಮೋದನಾ ದರ",
-    "cities_covered": "ಒಳಗೊಂಡ ನಗರಗಳು"
-  },
-  "features": {
-    "ai_credit_scoring": {
-      "title": "AI-ಚಾಲಿತ ಕ್ರೆಡಿಟ್ ಸ್ಕೋರಿಂಗ್",
-      "description": "ತಕ್ಷಣ ಕ್ರೆಡಿಟ್ ನಿರ್ಧಾರಗಳಿಗಾಗಿ ಮುಂದುವರಿದ ಅಲ್ಗಾರಿದಮ್‌ಗಳು 500ಕ್ಕೂ ಹೆಚ್ಚು ಡೇಟಾ ಅಂಶಗಳನ್ನು ವಿಶ್ಲೇಷಿಸುತ್ತವೆ"
-    },
-    "hour_processing": {
-      "title": "24-ಗಂಟೆ ಪ್ರಕ್ರಿಯೆ",
-      "description": "ಹೆಚ್ಚಿನ ಸಾಲದ ಪ್ರಕಾರಗಳಿಗೆ ಅರ್ಜಿಯಿಂದ ಹಿಡಿದು ವಿತರಣೆಯವರೆಗೆ ಕೇವಲ 24 ಗಂಟೆಗಳಲ್ಲಿ"
-    },
-    "government_integration": {
-      "title": "ಸರ್ಕಾರ ಒಳಸಂಪರ್ಕ",
-      "description": "ಸುಗಮವಾದ ಪರಿಶೀಲನೆಗಾಗಿ ಆಧಾರ್, PAN, GST ಜೊತೆಗೆ ನೇರ ಸಂಪರ್ಕ"
-    },
-    "multi_language": {
-      "title": "ಬಹುಭಾಷಾ ಬೆಂಬಲ",
-      "description": "ಗ್ರಾಮೀಣ ಪ್ರವೇಶಕ್ಕಾಗಿ ಹಿಂದಿ ಮತ್ತು 11 ಪ್ರಾದೇಶಿಕ ಭಾಷೆಗಳಲ್ಲಿ ಲಭ್ಯ"
-    },
-    "competitive_rates": {
-      "title": "ಪೋಟಿಯಾದ ದರಗಳು",
-      "description": "ಎಲ್ಲಾ 12 ಸಾಲದ ವಲಯಗಳಲ್ಲಿ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಉತ್ತಮ ಬಡ್ಡಿ ದರಗಳು"
-    },
-    "fraud_prevention": {
-      "title": "ವಂಚನೆ ತಡೆಗಟ್ಟಿಕೆ",
-      "description": "ತಕ್ಷಣದ ವಂಚನೆ ಪತ್ತೆ ಮಾಡುವ ವ್ಯವಸ್ಥೆಗಳೊಂದಿಗೆ ಬ್ಯಾಂಕ್-ಶ್ರೇಣಿಯ ಭದ್ರತೆ"
+  "consumption_marketplace": "Consumption Marketplace",
+  "consumption_partners": "Consumption Partners",
+  "consumption_loans": "Consumption Loans",
+  "admin_partners_management": "Partners Management",
+  "admin_marketplace_management": "Marketplace Management",
+  "admin_dashboard": "Admin Dashboard",
+  "total_partners": "Total Partners",
+  "total_offers": "Total Offers",
+  "active_loans": "Active Loans",
+  "pending_approvals": "Pending Approvals",
+  "quick_actions": "Quick Actions",
+  "manage_partners": "Manage Partners",
+  "add_edit_partners": "Add or edit partners",
+  "manage_marketplace": "Manage Marketplace",
+  "create_edit_offers": "Create or edit offers",
+  "manage_loans": "Manage Loans",
+  "view_track_loans": "View and track loans",
+  "recent_activity": "Recent Activity",
+  "new_partner_registered": "New Partner Registered",
+  "loan_offer_created": "Loan Offer Created",
+  "consumption_loan_disbursed": "Consumption Loan Disbursed",
+  "education_loan": "Education Loan",
+  "personal_loan": "Personal Loan",
+  "home_loan": "Home Loan",
+  "vehicle_loan": "Vehicle Loan",
+  "business_loan": "Business Loan",
+  "gold_loan": "Gold Loan",
+  "agriculture_loan": "Agriculture Loan",
+  "microfinance": "Microfinance",
+  "credit_card": "Credit Card",
+  "two_wheeler_loan": "Two Wheeler Loan",
+  "healthcare_loan": "Healthcare Loan",
+  "digital_loan": "Digital Loan",
+  "apply_for_loan": "Apply for Loan",
+  "selected_offer": "Selected Offer",
+  "loan_application_form": "Loan Application Form",
+  "loan_amount": "Loan Amount",
+  "tenure": "Tenure",
+  "loan_purpose": "Loan Purpose",
+  "partner_reference": "Partner Reference",
+  "invoice_order_number": "Invoice/Order Number",
+  "partner_reference_help": "Enter the invoice or order number from the partner",
+  "describe_purpose_of_loan": "Describe the purpose of the loan",
+  "submit_application": "Submit Application",
+  "application_submitted": "Application Submitted!",
+  "application_submitted_description": "Your loan application has been successfully submitted. You will receive updates on your application status shortly.",
+  "redirecting_to_status": "Redirecting to application status page...",
+  "submitting": "Submitting...",
+  "search": "Search",
+  "search_offers": "Search offers...",
+  "loan_sector": "Loan Sector",
+  "all_sectors": "All Sectors",
+  "sort_by": "Sort By",
+  "recommended": "Recommended",
+  "lowest_interest_rate": "Lowest Interest Rate",
+  "highest_amount": "Highest Amount",
+  "tenure_options": "Tenure Options",
+  "months": "months",
+  "interest_rate": "Interest Rate",
+  "processing_fee": "Processing Fee",
+  "apply_now": "Apply Now",
+  "no_offers_available": "No Offers Available",
+  "check_back_later_for_new_offers": "Check back later for new offers",
+  "no_offers_match_criteria": "No offers match your search criteria",
+  "refresh": "Refresh",
+  "error": "Error",
+  "try_again": "Try Again",
+  "cancel": "Cancel",
+  "add_new_partner": "Add New Partner",
+  "create_new_partner": "Create New Partner",
+  "partner_name": "Partner Name",
+  "contact_person": "Contact Person",
+  "email": "Email",
+  "phone": "Phone",
+  "partner_type": "Partner Type",
+  "university": "University",
+  "hospital": "Hospital",
+  "dealer": "Dealer",
+  "supplier": "Supplier",
+  "ecommerce": "E-commerce",
+  "service_provider": "Service Provider",
+  "other": "Other",
+  "commission_rate": "Commission Rate",
+  "create_partner": "Create Partner",
+  "type": "Type",
+  "sector": "Sector",
+  "contact": "Contact",
+  "status": "Status",
+  "integration": "Integration",
+  "no_partners_found": "No Partners Found",
+  "create_first_partner": "Create your first partner to get started",
+  "more": "more",
+  "amount_range": "Amount Range",
+  "chatbot": {
+    "title": "Fin-Agentix Assistant",
+    "welcome_message": "Hello! I'm your Fin-Agentix assistant. How can I help you today?",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "quick_actions": "Quick Actions",
+    "loan_options": "Loan Options",
+    "kyc_process": "KYC Process",
+    "education_loans": "Education Loans",
+    "healthcare_loans": "Healthcare Loans",
+    "vehicle_loans": "Vehicle Loans",
+    "business_loans": "Business Loans",
+    "suggestions": {
+      "how_apply": "How do I apply for a loan?",
+      "documents_required": "What documents are required for KYC?",
+      "show_loans": "Show me loan options",
+      "check_profile": "Check my profile",
+      "loan_rates": "Show me current rates",
+      "approval_process": "How long does approval take?",
+      "marketplace": "Show me marketplace",
+      "consumption_lending": "How does consumption lending work?",
+      "available_partners": "What partners are available?",
+      "complete_kyc": "How do I complete KYC?",
+      "no_aadhaar": "What if I don't have Aadhaar?",
+      "kyc_duration": "How long does KYC take?",
+      "eligibility": "Check my eligibility",
+      "minimum_income": "What is the minimum income?",
+      "credit_score": "How does credit score affect eligibility?",
+      "tenure_options": "Show me tenure options",
+      "prepay_loan": "Can I prepay my loan?",
+      "early_repayment": "Are there penalties for early repayment?",
+      "calculate_emi": "Calculate my EMI",
+      "auto_debit": "How do I set up auto-debit?",
+      "missed_payment": "What if I miss a payment?",
+      "helpline": "What is your helpline number?",
+      "support_ticket": "How do I submit a support ticket?",
+      "faq": "Do you have a FAQ section?"
     }
   }
 }

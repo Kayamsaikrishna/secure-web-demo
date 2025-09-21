@@ -112,11 +112,11 @@ export default function CreateLoanSchemePage() {
     features: []
   });
 
-  if ((session?.user as any)?.role !== "ADMIN") {
+  if (session?.user.role !== "ADMIN") {
     return (
       <div className="text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+        <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
       </div>
     );
   }
@@ -708,7 +708,7 @@ export default function CreateLoanSchemePage() {
 
             <div className="text-center">
               <p className="text-gray-600 mb-4">
-                Please review all the details above. Once you click "Create Scheme", 
+                Please review all the details above. Once you click &quot;Create Scheme&quot;, 
                 the loan scheme will be created and can be activated for customers to apply.
               </p>
             </div>

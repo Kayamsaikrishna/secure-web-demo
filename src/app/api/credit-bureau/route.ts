@@ -148,8 +148,21 @@ const mockCreditData = {
   }
 };
 
+interface CreditBureauData {
+  score: number;
+  reportDate: string;
+  [key: string]: any; // Allow additional properties
+}
+
+interface CreditData {
+  cibil: CreditBureauData;
+  experian: CreditBureauData;
+  equifax: CreditBureauData;
+  crif: CreditBureauData;
+}
+
 // Risk assessment algorithm
-function calculateRiskProfile(creditData: any) {
+function calculateRiskProfile(creditData: CreditData) {
   const avgScore = (
     creditData.cibil.score + 
     creditData.experian.score + 
@@ -215,7 +228,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Filter bureaus based on request
-    const requestedData: any = {};
+    const requestedData: Record<string, CreditBureauData> = {};
     
     bureaus.forEach((bureau: string) => {
       const bureauKey = bureau.toLowerCase();

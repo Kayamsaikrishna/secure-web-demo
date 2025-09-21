@@ -11,7 +11,20 @@ import {
   NoSymbolIcon
 } from "@heroicons/react/24/outline";
 
-const mockUsers = [
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  role: string;
+  status: string;
+  kycStatus: string;
+  joinDate: string;
+  totalApplications: number;
+  activeLoans: number;
+}
+
+const mockUsers: User[] = [
   {
     id: "USR001",
     name: "Rajesh Kumar Singh",
@@ -50,13 +63,13 @@ const mockUsers = [
   }
 ];
 
-const statusColors = {
+const statusColors: Record<string, string> = {
   ACTIVE: "text-green-600 bg-green-100",
   SUSPENDED: "text-red-600 bg-red-100",
   PENDING: "text-yellow-600 bg-yellow-100"
 };
 
-const kycColors = {
+const kycColors: Record<string, string> = {
   VERIFIED: "text-green-600 bg-green-100",
   PENDING: "text-yellow-600 bg-yellow-100",
   REJECTED: "text-red-600 bg-red-100"
@@ -64,15 +77,15 @@ const kycColors = {
 
 export default function AdminUsersPage() {
   const { data: session } = useSession();
-  const [users] = useState(mockUsers);
+  const [users] = useState<User[]>(mockUsers);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("");
 
-  if ((session?.user as any)?.role !== "ADMIN") {
+  if ((session?.user as { role: string })?.role !== "ADMIN") {
     return (
       <div className="text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+        <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
       </div>
     );
   }
@@ -210,12 +223,12 @@ export default function AdminUsersPage() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex flex-col space-y-1">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        statusColors[user.status as keyof typeof statusColors]
+                        statusColors[user.status] || ""
                       }`}>
                         {user.status}
                       </span>
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        kycColors[user.kycStatus as keyof typeof kycColors]
+                        kycColors[user.kycStatus] || ""
                       }`}>
                         KYC: {user.kycStatus}
                       </span>

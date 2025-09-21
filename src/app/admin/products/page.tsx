@@ -10,7 +10,20 @@ import {
   TrashIcon
 } from "@heroicons/react/24/outline";
 
-const mockProducts = [
+interface Product {
+  id: string;
+  name: string;
+  category: string;
+  interestRate: string;
+  minAmount: number;
+  maxAmount: number;
+  tenure: string;
+  processingFee: string;
+  status: string;
+  applications: number;
+}
+
+const mockProducts: Product[] = [
   {
     id: "PRD001",
     name: "Personal Loan Premium",
@@ -51,13 +64,13 @@ const mockProducts = [
 
 export default function AdminProductsPage() {
   const { data: session } = useSession();
-  const [products] = useState(mockProducts);
+  const [products] = useState<Product[]>(mockProducts);
 
-  if ((session?.user as any)?.role !== "ADMIN") {
+  if (session?.user?.role !== "ADMIN") {
     return (
       <div className="text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+        <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
       </div>
     );
   }

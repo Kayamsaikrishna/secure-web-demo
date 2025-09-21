@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter, useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { 
   ArrowLeftIcon,
@@ -12,12 +12,10 @@ import {
   ChartBarIcon,
   CheckCircleIcon,
   XCircleIcon,
-  ExclamationTriangleIcon,
   ClockIcon,
   PhoneIcon,
   EnvelopeIcon,
   MapPinIcon,
-  BanknotesIcon,
   ShieldCheckIcon,
   EyeIcon
 } from "@heroicons/react/24/outline";
@@ -104,10 +102,19 @@ const mockApplicationDetails = {
   }
 };
 
+interface SessionUser {
+  role?: string;
+  name?: string;
+  email?: string;
+}
+
+interface Session {
+  user?: SessionUser;
+}
+
 export default function ApplicationDetailPage() {
   const { data: session } = useSession();
   const router = useRouter();
-  const params = useParams();
   const [application, setApplication] = useState(mockApplicationDetails);
   const [decision, setDecision] = useState({
     action: "",
@@ -120,16 +127,16 @@ export default function ApplicationDetailPage() {
   const [showDecisionPanel, setShowDecisionPanel] = useState(false);
 
   useEffect(() => {
-    if ((session?.user as any)?.role !== "ADMIN") {
+    if ((session?.user as SessionUser)?.role !== "ADMIN") {
       router.push("/admin/applications");
     }
   }, [session, router]);
 
-  if ((session?.user as any)?.role !== "ADMIN") {
+  if ((session?.user as SessionUser)?.role !== "ADMIN") {
     return (
       <div className="text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+        <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
       </div>
     );
   }

@@ -1,17 +1,14 @@
-import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import "./globals.css";
-import { AuthProvider } from "@/components/providers/AuthProvider";
-import AppLoadingProvider from "@/components/providers/AppLoadingProvider";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Providers } from "./providers";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "react-hot-toast";
-import ErrorBoundary from "@/components/ui/ErrorBoundary";
-import I18nProvider from "@/components/providers/I18nProvider";
+import ChatBot from "@/components/chatbot/ChatBot";
+import ChatBotToggle from "@/components/chatbot/ChatBotToggle";
 
-const geist = Geist({
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Fin-Agentix India | AI-Powered Digital Lending Platform",
@@ -20,28 +17,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={geist.className} suppressHydrationWarning>
-        <ErrorBoundary>
-          <I18nProvider>
-            <AuthProvider>
-              <AppLoadingProvider>
-                <Navigation />
-                <main className="min-h-screen bg-gray-100">
-                  <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {children}
-                  </div>
-                </main>
-                <Footer />
-                <Toaster />
-              </AppLoadingProvider>
-            </AuthProvider>
-          </I18nProvider>
-        </ErrorBoundary>
+    <html lang="en">
+      <body className={inter.className}>
+        <Providers>
+          <div className="flex flex-col min-h-screen">
+            <Navigation />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+          <Toaster position="top-right" />
+          <ChatBotToggle />
+          <ChatBot />
+        </Providers>
       </body>
     </html>
   );

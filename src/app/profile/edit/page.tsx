@@ -381,7 +381,7 @@ export default function EditProfilePage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Father's Name</label>
+                    <label className="block text-sm font-medium text-gray-700">Father&apos;s Name</label>
                     <input
                       type="text"
                       {...profileForm.register("fatherName")}
@@ -393,7 +393,7 @@ export default function EditProfilePage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Mother's Name</label>
+                    <label className="block text-sm font-medium text-gray-700">Mother&apos;s Name</label>
                     <input
                       type="text"
                       {...profileForm.register("motherName")}

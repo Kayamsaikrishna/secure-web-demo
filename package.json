@@ -9,7 +9,8 @@
     "lint": "eslint",
     "validate-translations": "node translation_helper.js validate",
     "check-translations": "node translation_helper.js check",
-    "compare-translations": "node translation_helper.js compare"
+    "compare-translations": "node translation_helper.js compare",
+    "sync-translations": "node scripts/sync-translations.js"
   },
   "dependencies": {
     "@auth/core": "^0.40.0",
@@ -19,12 +20,17 @@
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^5.2.1",
     "@prisma/client": "^6.15.0",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@types/react-native-vector-icons": "^6.4.18",
     "accept-language": "^3.0.20",
     "bcryptjs": "^3.0.2",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "effect": "^3.17.13",
     "i18next": "^25.5.2",
     "i18next-browser-languagedetector": "^8.2.0",
     "i18next-http-backend": "^3.0.2",
+    "lucide-react": "^0.544.0",
     "next": "15.5.2",
     "next-auth": "^4.24.11",
     "next-i18next": "^15.4.2",
@@ -33,6 +39,7 @@
     "react-hook-form": "^7.62.0",
     "react-hot-toast": "^2.6.0",
     "react-i18next": "^15.7.3",
+    "recharts": "^3.2.1",
     "tailwind-merge": "^3.3.1",
     "zod": "^4.1.5"
   },
